@@ -1,10 +1,24 @@
-name: cookbook-dev
+name: ams-open-radar-2023-dev
 channels:
   - conda-forge
+  - pyviz
 dependencies:
+  - python>=3.10
   - jupyter-book
   - jupyterlab
   - jupyter_server<2
+  - arm_pyart
+  - matplotlib
+  - pydda
+  - tensorflow
+  - wradlib
+  - xradar
+  - cartopy
+  - metpy
+  - hvplot
+  - holoviews
+  - geoviews
+  - tensorflow-probability
   - pip
   - pip:
       - sphinx-pythia-theme

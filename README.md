@@ -1,15 +1,14 @@
 <img src="thumbnail.png" alt="thumbnail" width="300"/>
 
-# (Replace_with_your_title) Cookbook
+# AMS Open Radar Short Course 2023
 
-[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/ProjectPythia/cookbook-template/main?labpath=notebooks)
+[![nightly-build](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml)
+[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/openradar/ams-open-radar-2023/main?labpath=notebooks)
 
-This Project Pythia Cookbook covers ... (replace `...` with the main subject of your cookbook ... e.g., _working with radar data in Python_)
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+This content will be used for the Open Radar Short Course held at the AMS Radar Meeting. It will detail how to get started with the Open Radar stack, focusing on a few key scientific workflows.
 
 ## Authors
 
@@ -17,21 +16,20 @@ This Project Pythia Cookbook covers ... (replace `...` with the main subject of 
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythia/cookbook-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythia/cookbook-template" />
+<a href="https://github.com/openradar/ams-open-radar-2023/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openradar/ams-open-radar-2023" />
 </a>
 
 ## Structure
 
-(State one or more sections that will comprise the notebook. E.g., _This cookbook is broken up into two main sections - "Foundations" and "Example Workflows."_ Then, describe each section below.)
 
-### Section 1 ( Replace with the title of this section, e.g. "Foundations" )
+### Foundational Tools
 
-(Add content for this section, e.g., "The foundational content includes ... ")
+There are some foundational tools, such as xradar, wradlib, and Py-ART!
 
-### Section 2 ( Replace with the title of this section, e.g. "Example workflows" )
+### Analysis-Specific Tools
 
-(Add content for this section, e.g., "Example workflows include ... ")
+There are some analysis-specific tools, such as PyDDA!
 
 ## Running the Notebooks
 
@@ -60,20 +58,20 @@ If you are interested in running this material locally on your computer, you wil
 
 (Replace "cookbook-example" with the title of your cookbooks)
 
-1. Clone the `https://github.com/ProjectPythia/cookbook-example` repository:
+1. Clone the `https://github.com/openradar/ams-open-radar-2023` repository:
 
    ```bash
-    git clone https://github.com/ProjectPythia/cookbook-example.git
+    git clone https://github.com/openradar/ams-open-radar-2023.git
    ```
 
-1. Move into the `cookbook-example` directory
+1. Move into the `ams-open-radar-2023` directory
    ```bash
-   cd cookbook-example
+   cd ams-open-radar-2023
    ```
 1. Create and activate your conda environment from the `environment.yml` file
    ```bash
    conda env create -f environment.yml
-   conda activate cookbook-example
+   conda activate ams-open-radar-2023-dev
    ```
 1. Move into the `notebooks` directory and start up Jupyterlab
    ```bash
