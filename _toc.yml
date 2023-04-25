@@ -1,6 +1,6 @@
 format: jb-book
 root: README
 parts:
-  - caption: Introduction
+  - caption: Case Exploration
     chapters:
-      - file: notebooks/notebook-template
+      - glob: notebooks/case-exploration/*
