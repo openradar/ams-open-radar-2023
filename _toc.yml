@@ -4,3 +4,18 @@ parts:
   - caption: Case Exploration
     chapters:
       - glob: notebooks/case-exploration/*
+  - caption: Py-ART
+    chapters:
+      - file: notebooks/pyart/README
+  - caption: wradlib
+    chapters:
+      - file: notebooks/wradlib/README
+  - caption: LROSE
+    chapters:
+      - file: notebooks/lrose/README
+  - caption: tobac
+    chapters:
+      - file: notebooks/tobac/README
+  - caption: pydda
+    chapters:
+      - file: notebooks/pydda/README
