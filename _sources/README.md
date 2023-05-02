@@ -12,7 +12,7 @@ This content will be used for the Open Radar Short Course held at the AMS Radar 
 
 ## Authors
 
-[First Author](@first-author), [Second Author](@second-author), etc. _Acknowledge primary content authors here_
+Open Radar Community Members
 
 ### Contributors
 
