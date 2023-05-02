@@ -25,11 +25,30 @@ This content will be used for the Open Radar Short Course held at the AMS Radar 
 
 ### Foundational Tools
 
-There are some foundational tools, such as xradar, wradlib, and Py-ART!
+There are some foundational tools, such as xradar, wradlib, LROSE, and Py-ART!
+
+|       Time          |    Content                                        | Speaker/Chair | Duration   |
+|    :---:            |    :----:                                         |    :---:      | :----:     |
+| 08:00 AM - 08:30 AM | Overview of the Open Radar Community + Tools      | Max Grover    | 30 minutes |
+| 08:30 AM - 08:45 AM | Intro to xradar                                   | Max Grover    | 15 minutes |
+| 08:45 AM - 09:30 AM | Hands on with Py-ART                              | Joe O'Brien   | 45 minutes |
+| 09:30 AM - 10:00 AM | Hands on with Pyrad                               | Jordi Figueras i Ventura and Daniel Wolfensberger |  30 minutes  |
+| 10:00 AM - 10:30 AM | Coffee Break                                      |               | 30 minutes |
+| 10:30 AM - 11:15 AM | Hands on with wradlib                             |  Julian Giles | 45 minutes |
+| 11:15 AM - 12:00 PM | Hands on with LROSE wind tools                    | Jen DeHart + Ting-Yu Cha | 45 minutes |
+| 12:00 PM - 01:15 PM | LUNCH                                             |               | 1 hour 15 minutes |
 
 ### Analysis-Specific Tools
 
-There are some analysis-specific tools, such as PyDDA!
+There are some analysis-specific tools, such as PyDDA, MetPy, and TOBAC!
+
+|       Time          |    Content                                        | Speaker/Chair | Duration   |
+|    :---:            |    :----:                                         |    :---:      | :----:     |
+| 01:15 PM - 02:00 PM | Multi-Doppler Analysis with PyDDA                 | Bobby Jackson | 45 minutes |
+| 02:00 PM - 02:45 PM | Tracking Cells with TOBAC                         | Sean Freeman + Kelcy Brunner | 45 minutes |
+| 02:45 PM - 03:30 PM | Visualizing other Observations and Models with Radar using MetPy | Ryan May and Drew Camron | 45 minutes |
+| 03:30 PM - 03:45 PM | Closing                                           | Max Grover   | 15 minutes |
+
 
 ## Running the Notebooks
 
