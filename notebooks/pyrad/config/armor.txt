@@ -1,0 +1,49 @@
+# MAIN CONFIG FILE
+# Example of plotting UAH-ARMOR level II data
+
+# IMPORTANT: Adapt the paths to the actual location of your data and config files
+
+# call example:
+# main_process_data.py armor.txt --starttime 20080411181000 --endtime 20080411184000 --cfgpath /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/
+
+
+# Name of this configuration:
+# Will be used in product generation save path
+name STRING ARMOR
+
+# ---------------------------------------------------------
+#  Raw data pathes
+# ---------------------------------------------------------
+
+# Base path of the raw data.
+# Note: Must have a trailing '/'
+datapath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/uah-armor/
+path_convention STRING ODIM
+
+# Loading of saved datasets
+loadbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+loadname STRING ARMOR
+
+
+# --------------------------------------------
+# Output data
+# -----------------------------------------------
+saveimgbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+
+# Output image format can be any accepted by Matplotlib
+# More than one output formats can be set
+imgformat STRARR 1
+    png
+
+# --------------------------------------------------------
+# configuration files pathes
+# --------------------------------------------------------
+
+# Base path of configuration files
+configpath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad
+
+# Configuration of the radar location and approach direction
+locationConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/armor_loc.txt
+
+# Configuration of the product generation
+productConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/armor_prod.txt
