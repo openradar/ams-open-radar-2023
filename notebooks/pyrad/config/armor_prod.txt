@@ -1,0 +1,172 @@
+# PRODUCT CONFIG FILE
+# Example of plotting UAH-ARMOR data
+
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 7
+    dBZ
+    ZDR
+    RhoHV
+    PhiDP
+    KDP
+    V
+    W
+
+
+# ============================================================================
+#               Raw data
+# ============================================================================
+dBZ STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:dBZ,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 16
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 0
+        PPI_EL01 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 1
+        PPI_EL02 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 2
+        PPI_EL03 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 3
+        PPI_EL04 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 4
+        PPI_EL05 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 5
+        PPI_EL06 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 6
+        PPI_EL07 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 7
+        PPI_EL08 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 8
+        PPI_EL09 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 9
+        PPI_EL10 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 10
+        PPI_EL11 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 11
+        PPI_EL12 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 12
+        PPI_EL13 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 13
+        PPI_EL14 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZ
+            anglenr INT 14
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING dBZ
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+
+ZDR STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:ZDR,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING ZDR
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING ZDR
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+RhoHV STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:RhoHV,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING RhoHV
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING RhoHV
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+PhiDP STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:PhiDP,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING PhiDP
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING PhiDP
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+KDP STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:KDP,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING KDP
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING KDP
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+V STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:V,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING V
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING V
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
+
+W STRUCT 3
+    type STRING RAW
+    datatype STRING NEXRADII:W,D{}-F{%Y%m%d%H%M%S}
+    products STRUCT 2
+        PPI_EL00 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING W
+            anglenr INT 0
+        RHI_AZ000 STRUCT 4
+            type STRING PSEUDORHI_IMAGE
+            voltype STRING W
+            angle FLOAT 0.
+            AziTol FLOAT 1.5
