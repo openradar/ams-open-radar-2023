@@ -391,7 +391,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   from .autonotebook import tqdm as notebook_tqdm
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-23 15:53:02.140516: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-31 15:18:41.201279: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -846,20 +846,20 @@ Coordinates:
   * y                            (y) float64 -5e+04 -4.95e+04 ... 4.95e+04 5e+04
   * x                            (x) float64 -5e+04 -4.95e+04 ... 4.95e+04 5e+04
 Data variables:
-    spectrum_width               (time, z, y, x) float32 nan nan nan ... nan nan
-    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
     differential_phase           (time, z, y, x) float32 nan nan nan ... nan nan
-    total_power                  (time, z, y, x) float32 nan nan nan ... nan nan
+    spectrum_width               (time, z, y, x) float32 nan nan nan ... nan nan
     corrected_velocity           (time, z, y, x) float32 nan nan nan ... nan nan
-    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
-    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
+    total_power                  (time, z, y, x) float32 nan nan nan ... nan nan
     reflectivity                 (time, z, y, x) float32 nan nan nan ... nan nan
+    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
+    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
+    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
     cross_correlation_ratio      (time, z, y, x) float32 nan nan nan ... nan nan
-    ROI                          (time, z, y, x) float32 1.852e+03 ... 2.602e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-18178f3c-fc95-42d8-a1eb-46b4e2dd2738' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-18178f3c-fc95-42d8-a1eb-46b4e2dd2738' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f1606c02-5157-4742-8297-5a96adbb1ff7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f1606c02-5157-4742-8297-5a96adbb1ff7' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:33:08</div><input id='attrs-337b3bf9-5e7c-4cb3-9c5c-9eeaa20c5c26' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-337b3bf9-5e7c-4cb3-9c5c-9eeaa20c5c26' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b8c23a00-5d5c-4932-beba-4ab602791427' class='xr-var-data-in' type='checkbox'><label for='data-b8c23a00-5d5c-4932-beba-4ab602791427' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 33, 8, 0, has_year_zero=False)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-50d2faea-6a38-4e92-a8b0-d89b4da15b29' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-50d2faea-6a38-4e92-a8b0-d89b4da15b29' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4609f56d-49da-40ae-b646-80079aedd57e' class='xr-var-data-in' type='checkbox'><label for='data-4609f56d-49da-40ae-b646-80079aedd57e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+    ROI                          (time, z, y, x) float32 1.852e+03 ... 2.602e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-0ecc3d5e-69ff-4c46-a800-38b198255512' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0ecc3d5e-69ff-4c46-a800-38b198255512' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-5b744118-714b-4ef2-839a-4a1e642a1e65' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5b744118-714b-4ef2-839a-4a1e642a1e65' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:33:08</div><input id='attrs-235cdac3-8432-446e-a238-a1c48d2b927f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-235cdac3-8432-446e-a238-a1c48d2b927f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8ca48791-f610-4a00-b394-35d3249e7547' class='xr-var-data-in' type='checkbox'><label for='data-8ca48791-f610-4a00-b394-35d3249e7547' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 33, 8, 0, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-f2dfb666-ec9d-48db-a937-89d64b4c17ae' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2dfb666-ec9d-48db-a937-89d64b4c17ae' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aee92385-4ce0-4c26-a3ff-37f28051fe74' class='xr-var-data-in' type='checkbox'><label for='data-aee92385-4ce0-4c26-a3ff-37f28051fe74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
         4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
         9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
-       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>34.2 34.2 34.2 ... 35.09 35.09</div><input id='attrs-546d710c-8492-4963-b62c-177e052555ed' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-546d710c-8492-4963-b62c-177e052555ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d84368d1-e703-43f3-8351-2c07fd65321b' class='xr-var-data-in' type='checkbox'><label for='data-d84368d1-e703-43f3-8351-2c07fd65321b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[34.19533077, 34.19535481, 34.19537861, ..., 34.19537861,
+       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>34.2 34.2 34.2 ... 35.09 35.09</div><input id='attrs-888dfeae-f60b-4346-b279-1d2e51dcefde' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-888dfeae-f60b-4346-b279-1d2e51dcefde' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bd5fe985-e9f1-478b-b767-ac9f23ffb0dd' class='xr-var-data-in' type='checkbox'><label for='data-bd5fe985-e9f1-478b-b767-ac9f23ffb0dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[34.19533077, 34.19535481, 34.19537861, ..., 34.19537861,
         34.19535481, 34.19533077],
        [34.19982727, 34.19985131, 34.19987511, ..., 34.19987511,
         34.19985131, 34.19982727],
@@ -871,7 +871,7 @@ Data variables:
        [35.09013384, 35.09015833, 35.09018257, ..., 35.09018257,
         35.09015833, 35.09013384],
        [35.09463034, 35.09465483, 35.09467907, ..., 35.09467907,
-        35.09465483, 35.09463034]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.32 -87.31 ... -86.23 -86.22</div><input id='attrs-40e11ff3-f40f-4f5f-823e-b1049aa52287' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-40e11ff3-f40f-4f5f-823e-b1049aa52287' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9aa60bfd-f011-4306-9bb4-815d0892bc89' class='xr-var-data-in' type='checkbox'><label for='data-9aa60bfd-f011-4306-9bb4-815d0892bc89' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.31513939, -87.3097031 , -87.30426681, ..., -86.23873308,
+        35.09465483, 35.09463034]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.32 -87.31 ... -86.23 -86.22</div><input id='attrs-c3b15edb-c841-481a-bd4e-a5d116618980' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c3b15edb-c841-481a-bd4e-a5d116618980' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-79ffe8d5-ded7-4419-b490-0e9c41e4ab59' class='xr-var-data-in' type='checkbox'><label for='data-79ffe8d5-ded7-4419-b490-0e9c41e4ab59' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.31513939, -87.3097031 , -87.30426681, ..., -86.23873308,
         -86.23329678, -86.22786049],
        [-87.3151685 , -87.30973192, -87.30429533, ..., -86.23870456,
         -86.23326797, -86.22783139],
@@ -883,87 +883,7 @@ Data variables:
        [-87.32103795, -87.31554268, -87.3100474 , ..., -86.23295248,
         -86.22745721, -86.22196194],
        [-87.32106814, -87.31557257, -87.31007699, ..., -86.2329229 ,
-        -86.22742732, -86.22193175]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.95e+04 ... 4.95e+04 5e+04</div><input id='attrs-aae68ac9-3587-411b-b104-ecdc812e82a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-aae68ac9-3587-411b-b104-ecdc812e82a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d8a2eb69-eca0-4bf1-99b3-eeb94c48913d' class='xr-var-data-in' type='checkbox'><label for='data-d8a2eb69-eca0-4bf1-99b3-eeb94c48913d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49500., -49000., ...,  49000.,  49500.,  50000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.95e+04 ... 4.95e+04 5e+04</div><input id='attrs-292127e4-0220-4cca-9122-384f993b8ff9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-292127e4-0220-4cca-9122-384f993b8ff9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-931f56f1-924b-409d-9800-be8b49e8d3aa' class='xr-var-data-in' type='checkbox'><label for='data-931f56f1-924b-409d-9800-be8b49e8d3aa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49500., -49000., ...,  49000.,  49500.,  50000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e408df99-6bbd-4632-bdf3-e44d30ab45f8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e408df99-6bbd-4632-bdf3-e44d30ab45f8' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-16db479a-df29-4655-abca-e6eba08d051c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-16db479a-df29-4655-abca-e6eba08d051c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fd396324-5897-4a67-93e0-5294d69fa65e' class='xr-var-data-in' type='checkbox'><label for='data-fd396324-5897-4a67-93e0-5294d69fa65e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         ...,
-         [2.3915377, 2.7753592, 2.4261267, ..., 3.1538293, 3.0427132,
-          2.8238218],
-         [2.3358731, 2.5612268, 3.189778 , ..., 3.243103 , 3.1143546,
-          2.9479845],
-         [1.9316908, 2.169007 ,       nan, ..., 3.391881 , 3.2988238,
-          3.171921 ]],
-
-        [[      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-...
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan]],
-
-        [[      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         ...,
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan],
-         [      nan,       nan,       nan, ...,       nan,       nan,
-                nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-cf78ef79-3d79-49d0-a889-e50b81b7b95c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cf78ef79-3d79-49d0-a889-e50b81b7b95c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-405be446-e345-4694-8173-976881678330' class='xr-var-data-in' type='checkbox'><label for='data-405be446-e345-4694-8173-976881678330' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         ...,
-         [ 6.5704126e+00,  2.3277562e+00,  4.2288489e+00, ...,
-          -6.1760962e-01, -3.4711206e-01, -4.3709734e-01],
-         [ 9.3550009e-01,  3.5044050e+00,  5.2444592e+00, ...,
-           6.8176366e-02,  1.9894922e-01,  9.3162924e-02],
-         [-1.9591045e+00,  2.0706379e-01,            nan, ...,
-           9.0614074e-01,  9.1596597e-01,  7.7820712e-01]],
-
-        [[           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-...
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan]],
-
-        [[           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         ...,
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan],
-         [           nan,            nan,            nan, ...,
-                     nan,            nan,            nan]]]],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-419ba6ab-f2d1-493f-a294-6acb2059d5c4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-419ba6ab-f2d1-493f-a294-6acb2059d5c4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f33d3f33-abbb-4783-b138-0321690cde2e' class='xr-var-data-in' type='checkbox'><label for='data-f33d3f33-abbb-4783-b138-0321690cde2e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+        -86.22742732, -86.22193175]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.95e+04 ... 4.95e+04 5e+04</div><input id='attrs-d92295f0-7443-42f2-938b-69b6d9642c13' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d92295f0-7443-42f2-938b-69b6d9642c13' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1af944c5-a6a4-40fb-9ed6-7bf1c0187d62' class='xr-var-data-in' type='checkbox'><label for='data-1af944c5-a6a4-40fb-9ed6-7bf1c0187d62' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49500., -49000., ...,  49000.,  49500.,  50000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.95e+04 ... 4.95e+04 5e+04</div><input id='attrs-cbf80465-45ed-4841-932e-5304e5207dee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cbf80465-45ed-4841-932e-5304e5207dee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-538ef9a6-db11-4310-8b18-2430efd77cd9' class='xr-var-data-in' type='checkbox'><label for='data-538ef9a6-db11-4310-8b18-2430efd77cd9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49500., -49000., ...,  49000.,  49500.,  50000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-97a16024-384a-4fc2-8bae-6a871616b50c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-97a16024-384a-4fc2-8bae-6a871616b50c' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-30304753-aa05-444d-9895-c8312f29dcb7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30304753-aa05-444d-9895-c8312f29dcb7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-919d9253-5cfc-4b59-8b43-40bf7a632fa1' class='xr-var-data-in' type='checkbox'><label for='data-919d9253-5cfc-4b59-8b43-40bf7a632fa1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
@@ -1003,47 +923,47 @@ Data variables:
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-7112e44a-5084-401a-bbd4-54416c18cb1d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7112e44a-5084-401a-bbd4-54416c18cb1d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-41ab68a4-e3dc-406a-a505-0a611677c4ef' class='xr-var-data-in' type='checkbox'><label for='data-41ab68a4-e3dc-406a-a505-0a611677c4ef' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0f1052ad-54b8-4365-9dbf-a71c5903b444' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0f1052ad-54b8-4365-9dbf-a71c5903b444' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-21033fbf-5e58-4c45-a488-ef13078b203c' class='xr-var-data-in' type='checkbox'><label for='data-21033fbf-5e58-4c45-a488-ef13078b203c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
          ...,
-         [ 1.7358611,  1.6482373,  1.888549 , ..., 27.21037  ,
-          26.882135 , 25.784134 ],
-         [ 1.7627624,  1.571877 ,  1.4430107, ..., 28.706974 ,
-          27.866879 , 26.200697 ],
-         [ 2.1639328,  1.5737842,  0.7949385, ..., 29.050526 ,
-          27.928513 , 26.222076 ]],
+         [2.3915377, 2.7753592, 2.4261267, ..., 3.1538293, 3.0427132,
+          2.8238218],
+         [2.3358731, 2.5612268, 3.189778 , ..., 3.243103 , 3.1143546,
+          2.9479845],
+         [1.9316908, 2.169007 ,       nan, ..., 3.391881 , 3.2988238,
+          3.171921 ]],
 
-        [[ 5.3789473,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [ 4.8565207,  4.7208366,        nan, ...,        nan,
-                 nan,        nan],
-         [ 4.6799755,  5.0203876,  5.1056495, ...,        nan,
-                 nan,        nan],
+        [[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
 ...
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan]],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]],
 
-        [[       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
+        [[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
          ...,
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan],
-         [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-7e1c85ec-d1a8-45cb-8f3b-870dcad9a663' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e1c85ec-d1a8-45cb-8f3b-870dcad9a663' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c97a121b-83bf-4998-a49f-9f36a873c713' class='xr-var-data-in' type='checkbox'><label for='data-c97a121b-83bf-4998-a49f-9f36a873c713' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[           nan,            nan,            nan, ...,
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-23f5fb82-03cf-4af0-8c12-5b815d6a437b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-23f5fb82-03cf-4af0-8c12-5b815d6a437b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1916a076-d316-4d0c-8c2d-56a26b24ae69' class='xr-var-data-in' type='checkbox'><label for='data-1916a076-d316-4d0c-8c2d-56a26b24ae69' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[           nan,            nan,            nan, ...,
                      nan,            nan,            nan],
          [           nan,            nan,            nan, ...,
                      nan,            nan,            nan],
@@ -1083,87 +1003,47 @@ Data variables:
                      nan,            nan,            nan],
          [           nan,            nan,            nan, ...,
                      nan,            nan,            nan]]]],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-69143978-72aa-44be-8c5a-c52a2a53cbd9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69143978-72aa-44be-8c5a-c52a2a53cbd9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4026a457-08a3-47cc-9a76-959786d06219' class='xr-var-data-in' type='checkbox'><label for='data-4026a457-08a3-47cc-9a76-959786d06219' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-6d181a68-ab63-41d6-b1ae-3b808947b03b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6d181a68-ab63-41d6-b1ae-3b808947b03b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cd3fc665-aa61-4510-9c43-7220eb0def3f' class='xr-var-data-in' type='checkbox'><label for='data-cd3fc665-aa61-4510-9c43-7220eb0def3f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
          ...,
-         [-1.3143696 ,  0.0834749 ,  0.34376314, ...,  0.31518212,
-           0.3302634 ,  0.37475532],
-         [-0.8211033 , -0.0906169 ,  0.13499653, ...,  0.26248077,
-           0.28100392,  0.29855034],
-         [-0.9428024 , -0.4780015 ,         nan, ...,  0.29525176,
-           0.28464633,  0.2639061 ]],
+         [ 1.7358611,  1.6482373,  1.888549 , ..., 27.21037  ,
+          26.882135 , 25.784134 ],
+         [ 1.7627624,  1.571877 ,  1.4430107, ..., 28.706974 ,
+          27.866879 , 26.200697 ],
+         [ 2.1639328,  1.5737842,  0.7949385, ..., 29.050526 ,
+          27.928513 , 26.222076 ]],
 
-        [[ 0.9375    ,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [ 0.11549238, -0.08908413, -0.22207668, ...,         nan,
-                  nan,         nan],
-         [ 0.04402582, -0.06603924, -0.1657    , ...,         nan,
-                  nan,         nan],
+        [[ 5.3789473,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [ 4.8565207,  4.7208366,        nan, ...,        nan,
+                 nan,        nan],
+         [ 4.6799755,  5.0203876,  5.1056495, ...,        nan,
+                 nan,        nan],
 ...
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan]],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
 
-        [[        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
          ...,
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan],
-         [        nan,         nan,         nan, ...,         nan,
-                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-92abbe6f-e67a-4c11-bf6e-3cd6781d7c3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-92abbe6f-e67a-4c11-bf6e-3cd6781d7c3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9434f828-9416-4630-a737-c12c99845a6b' class='xr-var-data-in' type='checkbox'><label for='data-9434f828-9416-4630-a737-c12c99845a6b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         ...,
-         [ -2.9816592 ,  -1.9466685 ,  -1.2073321 , ...,  -7.787296  ,
-          -11.127146  , -12.126254  ],
-         [ -3.3796396 ,  -2.2006085 ,  -1.8097454 , ...,  -7.5088353 ,
-          -11.182648  , -12.231176  ],
-         [ -2.6659608 ,  -1.3679633 ,          nan, ...,  -8.054331  ,
-          -11.2411585 , -12.120905  ]],
-
-        [[         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-...
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan]],
-
-        [[         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         ...,
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan],
-         [         nan,          nan,          nan, ...,          nan,
-                   nan,          nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-6910a88a-01f2-457f-9c74-c618eca418a6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6910a88a-01f2-457f-9c74-c618eca418a6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d20938a-937c-4846-8491-0f9a5b136018' class='xr-var-data-in' type='checkbox'><label for='data-0d20938a-937c-4846-8491-0f9a5b136018' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-57fcb7fe-7a46-4468-a82e-470d8cd96823' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-57fcb7fe-7a46-4468-a82e-470d8cd96823' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e169309-49f1-4323-9ade-b5e7cf891af2' class='xr-var-data-in' type='checkbox'><label for='data-7e169309-49f1-4323-9ade-b5e7cf891af2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
@@ -1203,7 +1083,127 @@ Data variables:
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-486c7833-773b-44a8-af8d-54b5c21d592a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-486c7833-773b-44a8-af8d-54b5c21d592a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fdf75d89-2a88-43c0-a18c-2b77a3d08d3a' class='xr-var-data-in' type='checkbox'><label for='data-fdf75d89-2a88-43c0-a18c-2b77a3d08d3a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-c2d1cb44-42c2-4bc1-96ae-0a66c9e54c58' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c2d1cb44-42c2-4bc1-96ae-0a66c9e54c58' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2f68a641-8f7d-4b8a-bceb-045befacf3ed' class='xr-var-data-in' type='checkbox'><label for='data-2f68a641-8f7d-4b8a-bceb-045befacf3ed' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         ...,
+         [ -2.9816592 ,  -1.9466685 ,  -1.2073321 , ...,  -7.787296  ,
+          -11.127146  , -12.126254  ],
+         [ -3.3796396 ,  -2.2006085 ,  -1.8097454 , ...,  -7.5088353 ,
+          -11.182648  , -12.231176  ],
+         [ -2.6659608 ,  -1.3679633 ,          nan, ...,  -8.054331  ,
+          -11.2411585 , -12.120905  ]],
+
+        [[         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+...
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan]],
+
+        [[         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         ...,
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan],
+         [         nan,          nan,          nan, ...,          nan,
+                   nan,          nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-20f1aa8b-0270-40aa-8a61-30b93606f487' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-20f1aa8b-0270-40aa-8a61-30b93606f487' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f83a8db9-5959-43d4-9a08-77e5f77d855b' class='xr-var-data-in' type='checkbox'><label for='data-f83a8db9-5959-43d4-9a08-77e5f77d855b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         ...,
+         [ 6.5704126e+00,  2.3277562e+00,  4.2288489e+00, ...,
+          -6.1760962e-01, -3.4711206e-01, -4.3709734e-01],
+         [ 9.3550009e-01,  3.5044050e+00,  5.2444592e+00, ...,
+           6.8176366e-02,  1.9894922e-01,  9.3162924e-02],
+         [-1.9591045e+00,  2.0706379e-01,            nan, ...,
+           9.0614074e-01,  9.1596597e-01,  7.7820712e-01]],
+
+        [[           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+...
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan]],
+
+        [[           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         ...,
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan],
+         [           nan,            nan,            nan, ...,
+                     nan,            nan,            nan]]]],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-4a309c2f-f818-4307-8d5a-d718f084618a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a309c2f-f818-4307-8d5a-d718f084618a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-484f95e6-9d84-4064-90f5-f66eea225390' class='xr-var-data-in' type='checkbox'><label for='data-484f95e6-9d84-4064-90f5-f66eea225390' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-1.3143696 ,  0.0834749 ,  0.34376314, ...,  0.31518212,
+           0.3302634 ,  0.37475532],
+         [-0.8211033 , -0.0906169 ,  0.13499653, ...,  0.26248077,
+           0.28100392,  0.29855034],
+         [-0.9428024 , -0.4780015 ,         nan, ...,  0.29525176,
+           0.28464633,  0.2639061 ]],
+
+        [[ 0.9375    ,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [ 0.11549238, -0.08908413, -0.22207668, ...,         nan,
+                  nan,         nan],
+         [ 0.04402582, -0.06603924, -0.1657    , ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-18f74aa3-69ac-44b5-aef4-7f2310af2e49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-18f74aa3-69ac-44b5-aef4-7f2310af2e49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb0b4a02-3315-40fe-8db8-988fae9d92c8' class='xr-var-data-in' type='checkbox'><label for='data-cb0b4a02-3315-40fe-8db8-988fae9d92c8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
@@ -1243,7 +1243,7 @@ Data variables:
          [       nan,        nan,        nan, ...,        nan,
                  nan,        nan],
          [       nan,        nan,        nan, ...,        nan,
-                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1.852e+03 1.842e+03 ... 2.602e+03</div><input id='attrs-1b39d487-fdd1-446e-9b5a-93395197e51d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1b39d487-fdd1-446e-9b5a-93395197e51d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-59248712-2082-4c79-a477-480f49a66796' class='xr-var-data-in' type='checkbox'><label for='data-59248712-2082-4c79-a477-480f49a66796' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[1851.6243, 1842.3894, 1833.2017, ..., 1833.2017, 1842.3894,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1.852e+03 1.842e+03 ... 2.602e+03</div><input id='attrs-28de83a7-99d0-4825-a26c-1993bd0703b8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-28de83a7-99d0-4825-a26c-1993bd0703b8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32491ad3-da30-46be-ab4e-cb00422cbd18' class='xr-var-data-in' type='checkbox'><label for='data-32491ad3-da30-46be-ab4e-cb00422cbd18' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[1851.6243, 1842.3894, 1833.2017, ..., 1833.2017, 1842.3894,
           1851.6243],
          [1842.3894, 1833.108 , 1823.8735, ..., 1823.8735, 1833.108 ,
           1842.3894],
@@ -1283,23 +1283,23 @@ Data variables:
          [2592.3894, 2583.1082, 2573.8735, ..., 2573.8735, 2583.1082,
           2592.3894],
          [2601.6243, 2592.3894, 2583.2017, ..., 2583.2017, 2592.3894,
-          2601.6243]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fbeca191-30cd-49b3-a093-3f7e5e25e6d5' class='xr-section-summary-in' type='checkbox'  ><label for='section-fbeca191-30cd-49b3-a093-3f7e5e25e6d5' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-207a550c-7864-403a-b415-cf42f1d8b134' class='xr-index-data-in' type='checkbox'/><label for='index-207a550c-7864-403a-b415-cf42f1d8b134' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:33:08],
-            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-852cb059-0bfb-49a6-a394-82967d742c76' class='xr-index-data-in' type='checkbox'/><label for='index-852cb059-0bfb-49a6-a394-82967d742c76' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,
+          2601.6243]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-241bafb6-23c5-4e5a-b06e-fba2b0b093a2' class='xr-section-summary-in' type='checkbox'  ><label for='section-241bafb6-23c5-4e5a-b06e-fba2b0b093a2' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-df2f9133-f242-4a3a-a7a3-093f346e40bb' class='xr-index-data-in' type='checkbox'/><label for='index-df2f9133-f242-4a3a-a7a3-093f346e40bb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:33:08],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fd280eab-3f65-4b87-be24-501ee8216d66' class='xr-index-data-in' type='checkbox'/><label for='index-fd280eab-3f65-4b87-be24-501ee8216d66' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,
                3500.0,  4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,
                7000.0,  7500.0,  8000.0,  8500.0,  9000.0,  9500.0, 10000.0,
               10500.0, 11000.0, 11500.0, 12000.0, 12500.0, 13000.0, 13500.0,
               14000.0, 14500.0, 15000.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c97bb417-5ef1-427c-b9e2-42ca339518d1' class='xr-index-data-in' type='checkbox'/><label for='index-c97bb417-5ef1-427c-b9e2-42ca339518d1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-50000.0, -49500.0, -49000.0, -48500.0, -48000.0, -47500.0,
+             dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-30387aea-2e18-4dde-a176-c2cdd3b7e379' class='xr-index-data-in' type='checkbox'/><label for='index-30387aea-2e18-4dde-a176-c2cdd3b7e379' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-50000.0, -49500.0, -49000.0, -48500.0, -48000.0, -47500.0,
               -47000.0, -46500.0, -46000.0, -45500.0,
               ...
                45500.0,  46000.0,  46500.0,  47000.0,  47500.0,  48000.0,
                48500.0,  49000.0,  49500.0,  50000.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-12f394b4-e217-4b6a-9af8-73df56038a30' class='xr-index-data-in' type='checkbox'/><label for='index-12f394b4-e217-4b6a-9af8-73df56038a30' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-50000.0, -49500.0, -49000.0, -48500.0, -48000.0, -47500.0,
+             dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-59ab4f33-f6b9-4833-a7a2-b4f9860c2cb2' class='xr-index-data-in' type='checkbox'/><label for='index-59ab4f33-f6b9-4833-a7a2-b4f9860c2cb2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-50000.0, -49500.0, -49000.0, -48500.0, -48000.0, -47500.0,
               -47000.0, -46500.0, -46000.0, -45500.0,
               ...
                45500.0,  46000.0,  46500.0,  47000.0,  47500.0,  48000.0,
                48500.0,  49000.0,  49500.0,  50000.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-22f5cc3a-8a92-4ae4-a023-b68e3ae4ef03' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-22f5cc3a-8a92-4ae4-a023-b68e3ae4ef03' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+             dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0e318b31-eabe-4a16-8303-3845c95913e2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0e318b31-eabe-4a16-8303-3845c95913e2' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1312,7 +1312,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3c60cfb730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fbb035216f0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/5816461266a509580698bc32c3c68d291e941d350f1c2cf2dfdc0f21d1445bdc.png" src="../../_images/5816461266a509580698bc32c3c68d291e941d350f1c2cf2dfdc0f21d1445bdc.png" />
@@ -1415,7 +1415,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3c5c7f1600&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fbafe0e2620&gt;
 </pre></div>
 </div>
 <img alt="../../_images/0e35cdbf3dfe1e98e47ec65fb20989bf2c1dec465ba7290345adee748f6e0419.png" src="../../_images/0e35cdbf3dfe1e98e47ec65fb20989bf2c1dec465ba7290345adee748f6e0419.png" />
@@ -1432,7 +1432,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3c5c8499c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fbafe108550&gt;
 </pre></div>
 </div>
 <img alt="../../_images/a9df50ff085ddb9aa9e50f8c9b38a0ea58f1592a27abd8b98715d383a8ee2f7c.png" src="../../_images/a9df50ff085ddb9aa9e50f8c9b38a0ea58f1592a27abd8b98715d383a8ee2f7c.png" />
@@ -1469,17 +1469,6 @@ The max of w_init is 0.0
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
       0|380313.4375|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-23 15:53:42.304950: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 150291720 exceeds 10% of free system memory.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-23 15:53:56.484572: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 135262548 exceeds 10% of free system memory.
-2023-05-23 15:53:56.590282: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 150291720 exceeds 10% of free system memory.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-05-23 15:53:56.720734: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 150291720 exceeds 10% of free system memory.
-2023-05-23 15:53:56.866839: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 135262548 exceeds 10% of free system memory.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.6066192
@@ -1632,6 +1621,45 @@ The max of w_init is 0.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.041383043
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    220|   2.6686|  23.2386|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  79.9839
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.115894936
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    230|   0.2043|  20.1442|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  80.0240
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.052894738
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    240|   0.1547|  18.2058|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  81.0586
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.03225891
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    250|   0.8248|  16.7798|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  81.8758
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.10416061
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    260|   0.1354|  15.5124|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  82.1685
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.047486976
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    270|   0.1155|  14.0580|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  82.6239
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1753,7 +1781,7 @@ The max of w_init is 0.0
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 23 May 2023.
+          Last updated on 31 May 2023.
         </p>
       </div>
     </div>
