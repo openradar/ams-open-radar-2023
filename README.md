@@ -3,7 +3,7 @@
 # AMS Open Radar Short Course 2023
 
 [![nightly-build](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml)
-[![Binder](http://binder.mypythia.org/badge_logo.svg)](http://binder.mypythia.org/v2/gh/openradar/ams-open-radar-2023/main?labpath=notebooks)
+[![Binder](http://binder.projectpythia.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?labpath=notebooks)
 
 
 ## Motivation
