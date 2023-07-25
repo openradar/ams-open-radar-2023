@@ -153,82 +153,68 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Py-ART
+  Notebooks
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="README.html">
    Py-ART Tutorial
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Py-ART Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyart-corrections.html">
+     Py-ART Corrections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyart-gridding.html">
+     Py-ART Gridding
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Py-ART Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pyart-corrections.html">
-   Py-ART Corrections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pyart-gridding.html">
-   Py-ART Gridding
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  wradlib
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../wradlib/README.html">
    Wradlib Tutorial
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  LROSE
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../lrose/README.html">
    LROSE Tutorial
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  tobac
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../tobac/README.html">
    TOBAC
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  pydda
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pydda/README.html">
    PyDDA
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pydda/Retrieving_winds_with_pydda.html">
-   PyDDA tutorial
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pydda/Retrieving_winds_with_pydda.html">
+     PyDDA tutorial
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -577,7 +563,7 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyart.core.radar.Radar at 0x7f3499eae550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyart.core.radar.Radar at 0x7f177433dfd0&gt;
 </pre></div>
 </div>
 </div>
@@ -791,7 +777,7 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7b926df054aa6ebcf3180a53010da2bffb4fac3d8a8413d0a09f84ea0aa7f1f4.png" src="../../_images/7b926df054aa6ebcf3180a53010da2bffb4fac3d8a8413d0a09f84ea0aa7f1f4.png" />
+<img alt="../../_images/b1a6bb5d6d316a970ec55ad9eb9392a1b4a167f8664728b5c807edc62ee92f95.png" src="../../_images/b1a6bb5d6d316a970ec55ad9eb9392a1b4a167f8664728b5c807edc62ee92f95.png" />
 </div>
 </div>
 <p>Let’s take a look at a different field - for example, correlation coefficient (<code class="docutils literal notranslate"><span class="pre">corr_coeff</span></code>)</p>
@@ -810,7 +796,7 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/993ed2e80bbb89153756d792806663ef39c036088bb96c4e5793af071176ef7b.png" src="../../_images/993ed2e80bbb89153756d792806663ef39c036088bb96c4e5793af071176ef7b.png" />
+<img alt="../../_images/74bd5998b7e4ec1d2c7c8d66109d68e8726f6084434efe59f439a406f89ae351.png" src="../../_images/74bd5998b7e4ec1d2c7c8d66109d68e8726f6084434efe59f439a406f89ae351.png" />
 </div>
 </div>
 </div>
