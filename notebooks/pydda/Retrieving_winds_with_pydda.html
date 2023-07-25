@@ -1,0 +1,2926 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyDDA tutorial &#8212; AMS Open Radar Short Course 2023</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="PyDDA" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://openradarscience.org">
+  <img src="../../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://openradarscience.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/radar-cookbook">Radar Cookbook</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/openradar" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   AMS Open Radar Short Course 2023
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pyart/README.html">
+   Py-ART Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-basics.html">
+     Py-ART Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-corrections.html">
+     Py-ART Corrections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-gridding.html">
+     Py-ART Gridding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wradlib/README.html">
+   Wradlib Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lrose/README.html">
+   LROSE Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tobac/README.html">
+   TOBAC
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   PyDDA
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PyDDA tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pydda/Retrieving_winds_with_pydda.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/openradar/ams-open-radar-2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/openradar/ams-open-radar-2022//issues/new?title=Issue%20on%20page%20%2Fnotebooks/pydda/Retrieving_winds_with_pydda.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2022/edit/main/notebooks/pydda/Retrieving_winds_with_pydda.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2022/main?urlpath=lab/tree/notebooks/pydda/Retrieving_winds_with_pydda.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-variational-technique">
+   3D variational technique
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-study">
+   Case study
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uah-armor-radar">
+     UAH ARMOR Radar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dealiasing">
+     Dealiasing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gridding">
+   Gridding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nexrad-data">
+     NEXRAD Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualize-the-grids">
+   Visualize the grids
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pydda-initialization">
+   PyDDA initialization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pydda-wind-retrieval">
+   PyDDA wind retrieval
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualize-the-results">
+   Visualize the results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pydda-visualization-routines">
+   PyDDA visualization routines
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pydda-tutorial">
+<h1>PyDDA tutorial<a class="headerlink" href="#pydda-tutorial" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<p><img alt="PyDDA logo" src="https://openradarscience.org/PyDDA/_images/logo.png" /></p>
+<p>PyDDA is an open source Python package for retrieving winds using Multiple Doppler analyses. It uses the 3D variational technique for retrieving winds from multiple Doppler radars. It uses Py-ART Grid Objects as inputs. Therefore, preprocessed and gridded data are needed for PyDDA to run.</p>
+<div class="section" id="d-variational-technique">
+<h2>3D variational technique<a class="headerlink" href="#d-variational-technique" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>PyDDA uses a 3D variational technique to retrieve the 3D wind field. We will leave students that are interested in more information about these technqiues two references to read at the end of this notebook. A basic introduction to 3D variational analysis is given here.</p>
+<p>PyDDA minimizes a cost function <span class="math notranslate nohighlight">\(J\)</span> that corresponds to various penalties including:</p>
+<p><span class="math notranslate nohighlight">\(J_{m} = \nabla \cdot V\)</span> which corresponds to the mass continuity equation.</p>
+<p><span class="math notranslate nohighlight">\(J_{o} = \)</span> RMSE between radar winds and analysis winds.</p>
+<p><span class="math notranslate nohighlight">\(J_{b} = \)</span> RMSE between sounding winds and analysis winds.</p>
+<p><span class="math notranslate nohighlight">\(J_{s} = \nabla^2 V\)</span> which corresponds to the smoothness of wind field to eliminate high-frequency noise that can result from numerical instability.</p>
+<p>The cost function to be minimized is a weighted sum of the various cost functions in PyDDA and are represented in Equation (1):</p>
+<p style="text-align: center;">$J = c_{m}J_{m} + c_{o}J_{o} + c_{b}J_{b} + c_{s}J_{s} + ...$ (1)</p>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+</div>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Let’s import the necessary libraries. For now, we’ll need PyART, glob, matplotlib, and PyDDA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">fsspec</span>
+
+<span class="kn">import</span> <span class="nn">pyart</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pydda</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## You are using the Python ARM Radar Toolkit (Py-ART), an open source
+## library for working with weather radar data. Py-ART is partly
+## supported by the U.S. Department of Energy as part of the Atmospheric
+## Radiation Measurement (ARM) Climate Research Facility, an Office of
+## Science user facility.
+##
+## If you use this software to prepare a publication, please cite:
+##
+##     JJ Helmus and SM Collis, JORS 2016, doi: 10.5334/jors.119
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-07-25 19:08:55.067814: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to PyDDA 1.2.0
+Detecting Jax...
+Jax engine enabled!
+Detecting TensorFlow...
+TensorFlow detected.
+TensorFlow-probability detected. TensorFlow engine enabled!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="case-study">
+<h2>Case study<a class="headerlink" href="#case-study" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>We will examine the same case study over Northern Alabama that has been used for this entire short course. For this case in April 2008, we had an MCS with supercells out ahead of the main line approach the Huntsville, AL region. 3D variational retrievals of thunderstorm updrafts can have uncertainties on the order of 5 m/s. In addition these retrievals require precipitation coverage throughout the domain. Therefore, 3DVAR retrievals are best suited for deep convection like this where the updrafts are strong and precipitation coverage is wide.</p>
+<p>For this case, we had coverage of the storm from two radars, the ARMOR and the Huntsville NEXRAD radar</p>
+<div class="section" id="uah-armor-radar">
+<h3>UAH ARMOR Radar<a class="headerlink" href="#uah-armor-radar" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>We need to load and preprocess the UAH armor data first. In order to do so, we first need to load the ARMOR radar file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;../../data/uah-armor/*&#39;</span><span class="p">)</span>
+<span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dealiasing">
+<h3>Dealiasing<a class="headerlink" href="#dealiasing" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The next step is to dealias the radar data. We will follow the steps that were shown eariler in this course to dealias the radar data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nyquist</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">instrument_parameters</span><span class="p">[</span><span class="s1">&#39;nyquist_velocity&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">vel_dealias</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">correct</span><span class="o">.</span><span class="n">dealias_region_based</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span>
+                                                    <span class="n">vel_field</span><span class="o">=</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span>
+                                                    <span class="n">nyquist_vel</span><span class="o">=</span><span class="n">nyquist</span><span class="p">,</span>
+                                                    <span class="n">centered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                    <span class="p">)</span>
+<span class="n">radar</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="s1">&#39;corrected_velocity&#39;</span><span class="p">,</span> <span class="n">vel_dealias</span><span class="p">,</span> <span class="n">replace_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the data to make sure dealiasing succeeded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarDisplay</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+             <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+             <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">,</span>
+             <span class="n">sweep</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c9916a7a666cc305ae2d15d26abe6d0f518cb8448939dff6bc8f5b35b47be2dd.png" src="../../_images/c9916a7a666cc305ae2d15d26abe6d0f518cb8448939dff6bc8f5b35b47be2dd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarDisplay</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;corrected_velocity&#39;</span><span class="p">,</span>
+             <span class="n">vmin</span><span class="o">=-</span><span class="mi">30</span><span class="p">,</span>
+             <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+             <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;twilight_shifted&#39;</span><span class="p">,</span>
+             <span class="n">sweep</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/093de86fdf2f93081f9685cbcaf592e0ed56739675c631ea7d14ad80b171f1a6.png" src="../../_images/093de86fdf2f93081f9685cbcaf592e0ed56739675c631ea7d14ad80b171f1a6.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gridding">
+<h2>Gridding<a class="headerlink" href="#gridding" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>PyDDA requires data to be gridded to Cartesian coordinates in order to retrieve the 3D wind fields. Therefore, we will use Py-ART’s <em>grid_from_radars</em> function in order to do the gridding. You usually want to have a grid resolution such that your features of interest are covered by four grid points. In this case, we’re at 1 km horizontal and 0.5 km vertical resolution. (Ask if we are covering gridding in Py-ART and wait for link here)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_limits</span> <span class="o">=</span> <span class="p">((</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">15000.</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">50_000.</span><span class="p">,</span> <span class="mf">50_000.</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">50_000.</span><span class="p">,</span> <span class="mf">50_000.</span><span class="p">))</span>
+<span class="n">grid_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">uah_grid</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">grid_from_radars</span><span class="p">([</span><span class="n">radar</span><span class="p">],</span> <span class="n">grid_limits</span><span class="o">=</span><span class="n">grid_limits</span><span class="p">,</span>
+                                 <span class="n">grid_shape</span><span class="o">=</span><span class="n">grid_shape</span><span class="p">)</span>
+<span class="n">uah_ds</span> <span class="o">=</span> <span class="n">uah_grid</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+<span class="n">uah_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:                      (time: 1, z: 31, y: 101, x: 101)
+Coordinates:
+  * time                         (time) object 2008-04-11 18:22:42
+  * z                            (z) float64 0.0 500.0 ... 1.45e+04 1.5e+04
+    lat                          (y, x) float64 34.2 34.2 34.2 ... 35.09 35.09
+    lon                          (y, x) float64 -87.32 -87.3 ... -86.23 -86.22
+  * y                            (y) float64 -5e+04 -4.9e+04 ... 4.9e+04 5e+04
+  * x                            (x) float64 -5e+04 -4.9e+04 ... 4.9e+04 5e+04
+Data variables:
+    spectrum_width               (time, z, y, x) float32 nan nan nan ... nan nan
+    reflectivity                 (time, z, y, x) float32 nan nan nan ... nan nan
+    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
+    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
+    differential_phase           (time, z, y, x) float32 nan nan nan ... nan nan
+    cross_correlation_ratio      (time, z, y, x) float32 nan nan nan ... nan nan
+    corrected_velocity           (time, z, y, x) float32 nan nan nan ... nan nan
+    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
+    total_power                  (time, z, y, x) float32 1.171 nan ... nan nan
+    ROI                          (time, z, y, x) float32 1.852e+03 ... 2.602e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-5457ed1f-5b71-4ece-a054-8b63bac0d873' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5457ed1f-5b71-4ece-a054-8b63bac0d873' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 101</li><li><span class='xr-has-index'>x</span>: 101</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-b717763a-fccf-488c-ad25-b9fad59c5666' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b717763a-fccf-488c-ad25-b9fad59c5666' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:22:42</div><input id='attrs-6dc6d042-61a6-4eb1-99d4-ec556cce2ebe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6dc6d042-61a6-4eb1-99d4-ec556cce2ebe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2068cb45-29a8-477f-93e7-c0dbb1ae3b6d' class='xr-var-data-in' type='checkbox'><label for='data-2068cb45-29a8-477f-93e7-c0dbb1ae3b6d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 22, 42, 0, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-8bc8874d-10b2-423c-9a84-edede02cb176' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8bc8874d-10b2-423c-9a84-edede02cb176' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7f787d6-e96e-425f-ad7f-d48e3b32b897' class='xr-var-data-in' type='checkbox'><label for='data-f7f787d6-e96e-425f-ad7f-d48e3b32b897' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+        4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
+        9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
+       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>34.2 34.2 34.2 ... 35.09 35.09</div><input id='attrs-823a45c9-7ffa-4bc1-8522-a5f57591bd3b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-823a45c9-7ffa-4bc1-8522-a5f57591bd3b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc6d4261-3a8b-47a1-8899-b78d4481f64f' class='xr-var-data-in' type='checkbox'><label for='data-bc6d4261-3a8b-47a1-8899-b78d4481f64f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[34.19533077, 34.19537861, 34.19542549, ..., 34.19542549,
+        34.19537861, 34.19533077],
+       [34.20432377, 34.20437162, 34.2044185 , ..., 34.2044185 ,
+        34.20437162, 34.20432377],
+       [34.21331676, 34.21336463, 34.21341152, ..., 34.21341152,
+        34.21336463, 34.21331676],
+       ...,
+       [35.07664435, 35.07669307, 35.0767408 , ..., 35.0767408 ,
+        35.07669307, 35.07664435],
+       [35.08563735, 35.08568607, 35.08573381, ..., 35.08573381,
+        35.08568607, 35.08563735],
+       [35.09463034, 35.09467907, 35.09472682, ..., 35.09472682,
+        35.09467907, 35.09463034]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.32 -87.3 ... -86.23 -86.22</div><input id='attrs-5285659b-d2dc-486b-b7d3-18b4a95a8eed' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5285659b-d2dc-486b-b7d3-18b4a95a8eed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0acd8681-2b89-42bf-a935-f42b7dbda721' class='xr-var-data-in' type='checkbox'><label for='data-0acd8681-2b89-42bf-a935-f42b7dbda721' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.31513939, -87.30426681, -87.29339421, ..., -86.24960568,
+        -86.23873308, -86.22786049],
+       [-87.31519761, -87.30432386, -87.29345009, ..., -86.24954979,
+        -86.23867603, -86.22780228],
+       [-87.31525584, -87.30438093, -87.293506  , ..., -86.24949388,
+        -86.23861896, -86.22774404],
+       ...,
+       [-87.32094741, -87.30995867, -87.29896992, ..., -86.24402996,
+        -86.23304121, -86.22205248],
+       [-87.32100776, -87.31001782, -87.29902786, ..., -86.24397202,
+        -86.23298207, -86.22199212],
+       [-87.32106814, -87.31007699, -87.29908583, ..., -86.24391406,
+        -86.2329229 , -86.22193175]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.9e+04 ... 4.9e+04 5e+04</div><input id='attrs-1a446f0c-ce5e-4caa-94a0-fa5f8112d5c5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a446f0c-ce5e-4caa-94a0-fa5f8112d5c5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-20a28a27-4732-4a12-a625-7a9c2ad5eb2c' class='xr-var-data-in' type='checkbox'><label for='data-20a28a27-4732-4a12-a625-7a9c2ad5eb2c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49000., -48000., -47000., -46000., -45000., -44000., -43000.,
+       -42000., -41000., -40000., -39000., -38000., -37000., -36000., -35000.,
+       -34000., -33000., -32000., -31000., -30000., -29000., -28000., -27000.,
+       -26000., -25000., -24000., -23000., -22000., -21000., -20000., -19000.,
+       -18000., -17000., -16000., -15000., -14000., -13000., -12000., -11000.,
+       -10000.,  -9000.,  -8000.,  -7000.,  -6000.,  -5000.,  -4000.,  -3000.,
+        -2000.,  -1000.,      0.,   1000.,   2000.,   3000.,   4000.,   5000.,
+         6000.,   7000.,   8000.,   9000.,  10000.,  11000.,  12000.,  13000.,
+        14000.,  15000.,  16000.,  17000.,  18000.,  19000.,  20000.,  21000.,
+        22000.,  23000.,  24000.,  25000.,  26000.,  27000.,  28000.,  29000.,
+        30000.,  31000.,  32000.,  33000.,  34000.,  35000.,  36000.,  37000.,
+        38000.,  39000.,  40000.,  41000.,  42000.,  43000.,  44000.,  45000.,
+        46000.,  47000.,  48000.,  49000.,  50000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.9e+04 ... 4.9e+04 5e+04</div><input id='attrs-b2fd00e2-6f73-4fc4-b0a4-b60d37689905' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b2fd00e2-6f73-4fc4-b0a4-b60d37689905' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-68e8843d-730f-40bc-8a0d-39fae6e00502' class='xr-var-data-in' type='checkbox'><label for='data-68e8843d-730f-40bc-8a0d-39fae6e00502' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49000., -48000., -47000., -46000., -45000., -44000., -43000.,
+       -42000., -41000., -40000., -39000., -38000., -37000., -36000., -35000.,
+       -34000., -33000., -32000., -31000., -30000., -29000., -28000., -27000.,
+       -26000., -25000., -24000., -23000., -22000., -21000., -20000., -19000.,
+       -18000., -17000., -16000., -15000., -14000., -13000., -12000., -11000.,
+       -10000.,  -9000.,  -8000.,  -7000.,  -6000.,  -5000.,  -4000.,  -3000.,
+        -2000.,  -1000.,      0.,   1000.,   2000.,   3000.,   4000.,   5000.,
+         6000.,   7000.,   8000.,   9000.,  10000.,  11000.,  12000.,  13000.,
+        14000.,  15000.,  16000.,  17000.,  18000.,  19000.,  20000.,  21000.,
+        22000.,  23000.,  24000.,  25000.,  26000.,  27000.,  28000.,  29000.,
+        30000.,  31000.,  32000.,  33000.,  34000.,  35000.,  36000.,  37000.,
+        38000.,  39000.,  40000.,  41000.,  42000.,  43000.,  44000.,  45000.,
+        46000.,  47000.,  48000.,  49000.,  50000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-29627111-9f40-45e3-be36-999b0d10eae4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-29627111-9f40-45e3-be36-999b0d10eae4' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-af68faa9-eede-4960-b159-17923b9952a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-af68faa9-eede-4960-b159-17923b9952a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-63bbff2a-482a-43ae-9bb9-7e8645116176' class='xr-var-data-in' type='checkbox'><label for='data-63bbff2a-482a-43ae-9bb9-7e8645116176' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [3.3222487 , 3.5343058 , 3.4536583 , ..., 2.5568798 ,
+                 nan,        nan],
+         [3.3479426 , 3.5683193 , 3.5640392 , ..., 2.4634087 ,
+          2.4063566 ,        nan],
+         [3.1793933 , 2.9788034 , 3.1558855 , ..., 2.4059591 ,
+          2.3454754 ,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+...
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-662e6e50-e24a-4927-a7a4-1948437883bd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-662e6e50-e24a-4927-a7a4-1948437883bd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-84ab4620-6001-48f5-b684-d2f607ddb9c0' class='xr-var-data-in' type='checkbox'><label for='data-84ab4620-6001-48f5-b684-d2f607ddb9c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [ 9.748432 ,  9.329694 , 10.232739 , ...,  3.026351 ,
+           3.2517784,  4.0230794],
+         [ 7.7263923,  7.405566 ,  8.649924 , ...,  4.4022913,
+           3.309541 ,  3.4422789],
+         [ 5.7272882,  8.797495 , 10.0998955, ...,  6.084098 ,
+           4.619272 ,  3.4921482]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+...
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-18ca1d31-f9d8-4a5b-8899-06e584496c36' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-18ca1d31-f9d8-4a5b-8899-06e584496c36' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a889475b-1208-460b-a2e5-46cf198def81' class='xr-var-data-in' type='checkbox'><label for='data-a889475b-1208-460b-a2e5-46cf198def81' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-1.5289913 , -1.7088263 , -0.95381093, ..., -5.608096  ,
+                  nan,         nan],
+         [-0.59876454,  0.2843153 ,  0.96320945, ..., -6.5647287 ,
+          -4.3219185 ,         nan],
+         [ 0.5722609 ,  2.7108817 ,  2.9170802 , ..., -3.181203  ,
+          -2.068689  ,  0.8523935 ]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-86980717-4911-45f2-aa6e-a1e779f6bcba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-86980717-4911-45f2-aa6e-a1e779f6bcba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-571717ea-7cda-4111-a202-a0807fb3652d' class='xr-var-data-in' type='checkbox'><label for='data-571717ea-7cda-4111-a202-a0807fb3652d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [ -5.5088058,  -4.1807346,  -2.3107371, ..., -14.151058 ,
+          -13.225892 , -12.39633  ],
+         [ -5.192882 ,  -3.2125232,  -1.8103684, ..., -13.622463 ,
+          -11.839059 , -11.657986 ],
+         [ -5.2672977,  -4.5692782,  -3.7317872, ..., -11.794366 ,
+          -10.1286955, -10.403989 ]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0d01a057-7e02-4619-973d-bf4ec3f841ea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d01a057-7e02-4619-973d-bf4ec3f841ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a438d58d-d419-433c-a892-99ff272a716c' class='xr-var-data-in' type='checkbox'><label for='data-a438d58d-d419-433c-a892-99ff272a716c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [16.412874, 19.429785,       nan, ...,       nan,       nan,
+                nan],
+         ...,
+         [21.304947, 23.717958, 25.267416, ..., 24.68579 , 46.186745,
+          48.57811 ],
+         [24.611967, 26.768188, 28.38099 , ..., 31.717348, 42.53398 ,
+          36.022205],
+         [37.850636, 31.818703, 31.208906, ..., 26.842958, 26.708757,
+          22.45021 ]],
+
+        [[15.192201,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [16.353577, 16.08794 ,       nan, ...,       nan,       nan,
+                nan],
+         [17.076641, 17.686773, 47.27466 , ...,       nan,       nan,
+                nan],
+...
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]],
+
+        [[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         ...,
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-892df1f8-a0b9-4de8-bc65-c2b77247240e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-892df1f8-a0b9-4de8-bc65-c2b77247240e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aa0093cb-d2b6-419c-a409-5f8cf16ba907' class='xr-var-data-in' type='checkbox'><label for='data-aa0093cb-d2b6-419c-a409-5f8cf16ba907' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [0.7779981 , 0.77196205,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [0.83663464, 0.8234041 , 0.8544587 , ..., 0.53885967,
+          0.46025825, 0.47762483],
+         [0.74726146, 0.741776  , 0.79042983, ..., 0.65535533,
+          0.5437447 , 0.50804454],
+         [0.6333527 , 0.7597096 , 0.8084283 , ..., 0.736386  ,
+          0.6531236 , 0.5630591 ]],
+
+        [[0.7538792 ,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [0.7622326 , 0.7930816 ,        nan, ...,        nan,
+                 nan,        nan],
+         [0.77636737, 0.77616453, 0.6260229 , ...,        nan,
+                 nan,        nan],
+...
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-ad74a120-e09e-4365-a107-5fdaffb5b7b0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ad74a120-e09e-4365-a107-5fdaffb5b7b0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-538ed4e0-388f-4409-a459-ebb4bde31552' class='xr-var-data-in' type='checkbox'><label for='data-538ed4e0-388f-4409-a459-ebb4bde31552' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [-5.5088058, -4.1807346, -2.3107371, ..., 17.749975 ,
+          18.934116 , 19.763668 ],
+         [-5.192882 , -3.2125232, -1.8103684, ..., 18.20307  ,
+          20.007101 , 20.502016 ],
+         [-5.2672977, -4.5692782, -3.7317872, ..., 18.161058 ,
+          19.726719 , 21.425404 ]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+...
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-c6708259-5408-4c71-a4c8-356856529a28' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c6708259-5408-4c71-a4c8-356856529a28' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3c4f8812-f407-4174-a7e5-9d2e94a20805' class='xr-var-data-in' type='checkbox'><label for='data-3c4f8812-f407-4174-a7e5-9d2e94a20805' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [ 1.2132404 ,  1.5737818 ,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-0.37311345, -0.18531658, -0.03841376, ...,  0.37648255,
+           0.29789925,  0.3106107 ],
+         [-0.28340596, -0.30539167, -0.05581979, ...,  0.49331704,
+           0.48613915,  0.587637  ],
+         [-0.2475383 , -0.5046242 , -0.38500226, ...,  0.38441503,
+           0.5441314 ,  0.74251074]],
+
+        [[-0.5970474 ,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [ 0.7847995 ,  0.9741625 ,         nan, ...,         nan,
+                  nan,         nan],
+         [ 1.2313694 ,  0.9347891 ,  0.42692262, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1.171 nan nan nan ... nan nan nan</div><input id='attrs-36b08191-9613-40a3-8181-171c4e11e25b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-36b08191-9613-40a3-8181-171c4e11e25b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6d198f92-7ef6-43f2-8570-a567da6cd2e5' class='xr-var-data-in' type='checkbox'><label for='data-6d198f92-7ef6-43f2-8570-a567da6cd2e5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[ 1.1705179,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [ 4.3246465,  6.8230467,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [13.281865 , 12.960565 , 13.798418 , ...,  1.5951881,
+           1.8110948,  3.7098486],
+         [ 9.873029 , 10.200821 , 11.917499 , ...,  3.756323 ,
+           2.9084375,  3.664414 ],
+         [ 6.8780413, 10.255706 , 12.278981 , ...,  6.0010433,
+           4.739769 ,  3.6438339]],
+
+        [[ 2.5470507,  1.1405141,        nan, ...,        nan,
+                 nan,        nan],
+         [ 4.5250974,  4.521975 ,        nan, ...,        nan,
+                 nan,        nan],
+         [ 5.6015134,  5.353228 ,  5.1464734, ...,        nan,
+                 nan,        nan],
+...
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]],
+
+        [[       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         ...,
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan],
+         [       nan,        nan,        nan, ...,        nan,
+                 nan,        nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1.852e+03 1.833e+03 ... 2.602e+03</div><input id='attrs-f059c9f1-3742-4c9c-8011-7432dc7bdb49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f059c9f1-3742-4c9c-8011-7432dc7bdb49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7c337651-51db-4e1c-870c-084bcac62999' class='xr-var-data-in' type='checkbox'><label for='data-7c337651-51db-4e1c-870c-084bcac62999' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[1851.6243, 1833.2017, 1814.9696, ..., 1814.9696, 1833.2017,
+          1851.6243],
+         [1833.2017, 1814.5918, 1796.171 , ..., 1796.171 , 1814.5918,
+          1833.2017],
+         [1814.9696, 1796.171 , 1777.5593, ..., 1777.5593, 1796.171 ,
+          1814.9696],
+         ...,
+         [1814.9696, 1796.171 , 1777.5593, ..., 1777.5593, 1796.171 ,
+          1814.9696],
+         [1833.2017, 1814.5918, 1796.171 , ..., 1796.171 , 1814.5918,
+          1833.2017],
+         [1851.6243, 1833.2017, 1814.9696, ..., 1814.9696, 1833.2017,
+          1851.6243]],
+
+        [[1876.6243, 1858.2017, 1839.9696, ..., 1839.9696, 1858.2017,
+          1876.6243],
+         [1858.2017, 1839.5918, 1821.171 , ..., 1821.171 , 1839.5918,
+          1858.2017],
+         [1839.9696, 1821.171 , 1802.5593, ..., 1802.5593, 1821.171 ,
+          1839.9696],
+...
+         [2539.9697, 2521.1711, 2502.5593, ..., 2502.5593, 2521.1711,
+          2539.9697],
+         [2558.2017, 2539.5918, 2521.1711, ..., 2521.1711, 2539.5918,
+          2558.2017],
+         [2576.6243, 2558.2017, 2539.9697, ..., 2539.9697, 2558.2017,
+          2576.6243]],
+
+        [[2601.6243, 2583.2017, 2564.9697, ..., 2564.9697, 2583.2017,
+          2601.6243],
+         [2583.2017, 2564.5918, 2546.1711, ..., 2546.1711, 2564.5918,
+          2583.2017],
+         [2564.9697, 2546.1711, 2527.5593, ..., 2527.5593, 2546.1711,
+          2564.9697],
+         ...,
+         [2564.9697, 2546.1711, 2527.5593, ..., 2527.5593, 2546.1711,
+          2564.9697],
+         [2583.2017, 2564.5918, 2546.1711, ..., 2546.1711, 2564.5918,
+          2583.2017],
+         [2601.6243, 2583.2017, 2564.9697, ..., 2564.9697, 2583.2017,
+          2601.6243]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e7462ce5-5075-4485-8b5f-27dc0c3610f6' class='xr-section-summary-in' type='checkbox'  ><label for='section-e7462ce5-5075-4485-8b5f-27dc0c3610f6' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-674c87dd-7979-4193-af44-0282e2406243' class='xr-index-data-in' type='checkbox'/><label for='index-674c87dd-7979-4193-af44-0282e2406243' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:22:42],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8eab6739-f45d-45b3-b74e-34586de728a2' class='xr-index-data-in' type='checkbox'/><label for='index-8eab6739-f45d-45b3-b74e-34586de728a2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
+        4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,  7000.0,  7500.0,
+        8000.0,  8500.0,  9000.0,  9500.0, 10000.0, 10500.0, 11000.0, 11500.0,
+       12000.0, 12500.0, 13000.0, 13500.0, 14000.0, 14500.0, 15000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5a5b6d04-4bfa-49f5-bad3-4e222fb7393e' class='xr-index-data-in' type='checkbox'/><label for='index-5a5b6d04-4bfa-49f5-bad3-4e222fb7393e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-50000.0, -49000.0, -48000.0, -47000.0, -46000.0, -45000.0, -44000.0,
+       -43000.0, -42000.0, -41000.0,
+       ...
+        41000.0,  42000.0,  43000.0,  44000.0,  45000.0,  46000.0,  47000.0,
+        48000.0,  49000.0,  50000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=101))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-34b3e48c-29e9-46ab-8d12-4fdbc32398a6' class='xr-index-data-in' type='checkbox'/><label for='index-34b3e48c-29e9-46ab-8d12-4fdbc32398a6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-50000.0, -49000.0, -48000.0, -47000.0, -46000.0, -45000.0, -44000.0,
+       -43000.0, -42000.0, -41000.0,
+       ...
+        41000.0,  42000.0,  43000.0,  44000.0,  45000.0,  46000.0,  47000.0,
+        48000.0,  49000.0,  50000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=101))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ebec8017-ab80-4d1d-af7f-33931cb01986' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ebec8017-ab80-4d1d-af7f-33931cb01986' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Let’s make sure the grid looks good!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uah_ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                                   <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                                   <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                                   <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+                                   <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3c04c3b450&gt;
+</pre></div>
+</div>
+<img alt="../../_images/bf10cd602cf4264bb64efd51faeb1b9761f6513d398b16e3639a2f430532f86a.png" src="../../_images/bf10cd602cf4264bb64efd51faeb1b9761f6513d398b16e3639a2f430532f86a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uah_ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                                   <span class="n">y</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span>
+                                   <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                                   <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+                                   <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3c04b45010&gt;
+</pre></div>
+</div>
+<img alt="../../_images/715f75d4f83abd375ec524699401d11857792bdf497dbc76050a926b139e7d6c.png" src="../../_images/715f75d4f83abd375ec524699401d11857792bdf497dbc76050a926b139e7d6c.png" />
+</div>
+</div>
+<div class="section" id="nexrad-data">
+<h3>NEXRAD Data<a class="headerlink" href="#nexrad-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Next, we need to load the NEXRAD data. This is available on Amazon Web Services under the noaa-nexrad-level2 bucket. This S3 bucket has all of the historical NEXRAD WSR-88D level 2 data that is available for the continential US Use the below code snippet to retrieve the NEXRAD data from Amazon Web Services.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">filesystem</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;s3://noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_18*&quot;</span><span class="p">))</span>
+<span class="n">files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_180040.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_180647.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_181144.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_181643.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_182140.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_182639.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_183137.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_183635.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_184134.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_184632.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_185130.gz&#39;,
+ &#39;noaa-nexrad-level2/2008/04/11/KHTX/KHTX20080411_185628.gz&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read a single file, the one closes to the UAH volume scan used before</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_nexrad_archive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">files</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s1">&#39;KHTX&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the data to make sure we have the correct scan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarDisplay</span><span class="p">(</span><span class="n">nexrad_radar</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span>
+                     <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                     <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+                     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_balance&#39;</span><span class="p">,</span>
+                     <span class="n">sweep</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-200.0, 200.0)
+</pre></div>
+</div>
+<img alt="../../_images/462071e9a0fcbcc742ba399b5e1687bd6cb5d58893eff62a60ebaa33cd3d4fdd.png" src="../../_images/462071e9a0fcbcc742ba399b5e1687bd6cb5d58893eff62a60ebaa33cd3d4fdd.png" />
+</div>
+</div>
+<p>The NEXRAD level 2 data do not suffer from aliasing inside the PyDDA analysis domain of 100 km from the radar. So we will use the NEXRAD unprocessed velocity data to retrieve the winds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the ARMOR radar lat/lon as the center for the grid</span>
+<span class="n">grid_lat</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">latitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">grid_lon</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">longitude</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Make sure the velocity is called corrected velocity to match the corrected data from ARMOR</span>
+<span class="n">nexrad_radar</span><span class="o">.</span><span class="n">add_field_like</span><span class="p">(</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;corrected_velocity&#39;</span><span class="p">,</span>
+                            <span class="n">nexrad_radar</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
+                            <span class="n">replace_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">nexrad_grid</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">grid_from_radars</span><span class="p">([</span><span class="n">nexrad_radar</span><span class="p">],</span>
+                                         <span class="n">grid_limits</span><span class="o">=</span><span class="n">grid_limits</span><span class="p">,</span>
+                                         <span class="n">grid_shape</span><span class="o">=</span><span class="n">grid_shape</span><span class="p">,</span>
+                                         <span class="n">grid_origin</span><span class="o">=</span><span class="p">(</span><span class="n">grid_lat</span><span class="p">,</span> <span class="n">grid_lon</span><span class="p">),</span>
+                                        <span class="p">)</span>
+
+<span class="c1"># Convert to xarray and remove the time dimension</span>
+<span class="n">nexrad_ds</span> <span class="o">=</span> <span class="n">nexrad_grid</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-the-grids">
+<h2>Visualize the grids<a class="headerlink" href="#visualize-the-grids" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Let’s see what our output data looks like!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_ds</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                                      <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                                      <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">,</span>
+                                      <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                                      <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3bfc83c1d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/9472fa7993cbe7cff3d147d9accabba5f0e8ce01ddf94254ca1c5ca41ea66813.png" src="../../_images/9472fa7993cbe7cff3d147d9accabba5f0e8ce01ddf94254ca1c5ca41ea66813.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_ds</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                                  <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;twilight_shifted&#39;</span><span class="p">,</span>
+                                  <span class="n">vmin</span><span class="o">=-</span><span class="mi">30</span><span class="p">,</span>
+                                  <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3bf09b7910&gt;
+</pre></div>
+</div>
+<img alt="../../_images/70ec970a9e764ac41d55002ac0362c9adec11e1b0268278ecb9a6d66dd1571d5.png" src="../../_images/70ec970a9e764ac41d55002ac0362c9adec11e1b0268278ecb9a6d66dd1571d5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_ds</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                                  <span class="n">y</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span>
+                                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;twilight_shifted&#39;</span><span class="p">,</span>
+                                  <span class="n">vmin</span><span class="o">=-</span><span class="mi">30</span><span class="p">,</span>
+                                  <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3bf1465950&gt;
+</pre></div>
+</div>
+<img alt="../../_images/6c40a672cd352c33786c5231dde036a00a4a3390da5e391ce36f745e18f5618a.png" src="../../_images/6c40a672cd352c33786c5231dde036a00a4a3390da5e391ce36f745e18f5618a.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pydda-initialization">
+<h2>PyDDA initialization<a class="headerlink" href="#pydda-initialization" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>The 3DVAR wind retrieval first requires an initial guess at the wind field in order to start the cost function minimization process. PyDDA has support for using WRF and sounding data as an initial guess of the wind field as well as constant wind fields.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Initalization functions in <strong>pydda.initialization</strong> module:</p></th>
+<th class="head"><p>Functionality</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>make_constant_wind_field(Grid[, wind, vel_field])</p></td>
+<td><p>This function makes a constant wind field given a wind vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>make_wind_field_from_profile(Grid, profile)</p></td>
+<td><p>This function makes a 3D wind field from a sounding.</p></td>
+</tr>
+<tr class="row-even"><td><p>make_background_from_wrf(Grid, file_path, …)</p></td>
+<td><p>This function makes an initalization field based off of the u and w from a WRF run.</p></td>
+</tr>
+<tr class="row-odd"><td><p>make_initialization_from_era_interim(Grid[, …])</p></td>
+<td><p>This function will read ERA Interim in NetCDF format and add it to the Py-ART grid specified by Grid.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For this example, we will use the closest NWS Sounding present in time as an initialization. The initial state is extremely important for the retrieval. If you specify a zero initial state, this has a tendency to have PyDDA resolve false updrafts and downdrafts in the cone of silence as the optimization loop will hold the background state to be zero where there is no radar data. Specifying the initial state, or a background constraint, will specify what the winds should be outside of the region of data coverage.</p>
+<p>The bottom code snippet will load a University of Wyoming sounding file, remove the NaNs, then convert the</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PRES&quot;</span><span class="p">,</span> <span class="s2">&quot;HGHT&quot;</span><span class="p">,</span> <span class="s2">&quot;TEMP&quot;</span><span class="p">,</span> <span class="s2">&quot;DWPT&quot;</span><span class="p">,</span> <span class="s2">&quot;RELH&quot;</span><span class="p">,</span> <span class="s2">&quot;MIXR&quot;</span><span class="p">,</span> <span class="s2">&quot;DRCT&quot;</span><span class="p">,</span> <span class="s2">&quot;SKNT&quot;</span><span class="p">,</span> <span class="s2">&quot;THTA&quot;</span><span class="p">,</span> <span class="s2">&quot;THTE&quot;</span><span class="p">,</span> <span class="s2">&quot;THTV&quot;</span><span class="p">]</span>
+<span class="n">sounding</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../../data/sounding_data/bmx_sounding_20080411_12Z.txt&#39;</span><span class="p">,</span>
+    <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">col_names</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+<span class="n">spd</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;SKNT&quot;</span><span class="p">]</span><span class="o">*</span><span class="mf">0.5144</span>
+
+<span class="n">u_back</span> <span class="o">=</span> <span class="o">-</span><span class="n">spd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;DRCT&quot;</span><span class="p">]))</span>
+<span class="n">v_back</span> <span class="o">=</span> <span class="o">-</span><span class="n">spd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;DRCT&quot;</span><span class="p">]))</span>
+<span class="n">z_back</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;HGHT&quot;</span><span class="p">]</span>
+<span class="c1"># Remove NaNs from profile</span>
+<span class="n">isnan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">((</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">u_back</span><span class="p">),</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">v_back</span><span class="p">),</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">z_back</span><span class="p">)))</span>
+<span class="n">u_back</span> <span class="o">=</span> <span class="n">u_back</span><span class="p">[</span><span class="o">~</span><span class="n">isnan</span><span class="p">]</span>
+<span class="n">v_back</span> <span class="o">=</span> <span class="n">v_back</span><span class="p">[</span><span class="o">~</span><span class="n">isnan</span><span class="p">]</span>
+<span class="n">z_back</span> <span class="o">=</span> <span class="n">z_back</span><span class="p">[</span><span class="o">~</span><span class="n">isnan</span><span class="p">]</span>
+<span class="n">spd</span> <span class="o">=</span> <span class="n">spd</span><span class="p">[</span><span class="o">~</span><span class="n">isnan</span><span class="p">]</span>
+<span class="n">drct</span> <span class="o">=</span> <span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;DRCT&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">isnan</span><span class="p">]</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">HorizontalWindProfile</span><span class="p">(</span><span class="n">sounding</span><span class="p">[</span><span class="s2">&quot;HGHT&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">isnan</span><span class="p">],</span> <span class="n">spd</span><span class="p">,</span> <span class="n">drct</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_init</span><span class="p">,</span> <span class="n">v_init</span><span class="p">,</span> <span class="n">w_init</span> <span class="o">=</span> <span class="n">pydda</span><span class="o">.</span><span class="n">initialization</span><span class="o">.</span><span class="n">make_wind_field_from_profile</span><span class="p">(</span>
+    <span class="n">uah_grid</span><span class="p">,</span> <span class="n">profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pydda-wind-retrieval">
+<h2>PyDDA wind retrieval<a class="headerlink" href="#pydda-wind-retrieval" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>The core wind retrieval function in PyDDA is done using <strong>retrieval.get_dd_wind_field</strong>. It has many potential keyword inputs that the user can enter. In this example, we are specifying:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input to <strong>pydda.initialization</strong> module:</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Grids</p></td>
+<td><p>The input grids to analyze.</p></td>
+<td><p>[uah_grid, nexrad_grid]</p></td>
+</tr>
+<tr class="row-odd"><td><p>u_init</p></td>
+<td><p>Initial guess of <em>u</em> field.</p></td>
+<td><p>u_init</p></td>
+</tr>
+<tr class="row-even"><td><p>v_init</p></td>
+<td><p>Initial guess of <em>u</em> field.</p></td>
+<td><p>v_init</p></td>
+</tr>
+<tr class="row-odd"><td><p>w_init</p></td>
+<td><p>Initial guess of <em>u</em> field.</p></td>
+<td><p>w_init</p></td>
+</tr>
+<tr class="row-even"><td><p>Co</p></td>
+<td><p>Weight for cost function related to radar observations</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cm</p></td>
+<td><p>Weight of cost function related to mass continuity equation</p></td>
+<td><p>256.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Cx</p></td>
+<td><p>Weight of cost function for smoothess in the <em>x</em>-direction</p></td>
+<td><p>1e-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cy</p></td>
+<td><p>Weight of cost function for smoothess in the <em>y</em>-direction</p></td>
+<td><p>1e-3</p></td>
+</tr>
+<tr class="row-even"><td><p>Cz</p></td>
+<td><p>Weight of cost function for smoothess in the <em>z</em>-direction</p></td>
+<td><p>1e-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cb</p></td>
+<td><p>Weight of cost function for sounding (background) constraint</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>frz</p></td>
+<td><p>The freezing level in meters. This is to tell PyDDA where to use ice particle fall speeds in the wind retrieval verus liquid.</p></td>
+<td><p>5000.</p></td>
+</tr>
+<tr class="row-odd"><td><p>filter_window</p></td>
+<td><p>The window to apply the low pass filter on</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>mask_outside_opt</p></td>
+<td><p>Mask all winds outside the Dual Doppler lobes</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>vel_name</p></td>
+<td><p>The name of the velocity field in the radar data</p></td>
+<td><p>‘corrected_velocity’</p></td>
+</tr>
+<tr class="row-even"><td><p>wind_tol</p></td>
+<td><p>Stop optimization when the change in wind speeds between iterations is less than this value</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>engine</p></td>
+<td><p>PyDDA supports three backends for optimization: SciPy, JAX, and TensorFlow. We highly recommend the TensorFlow backend to take advantage of parallelism and GPUs for retrieval.</p></td>
+<td><p>“tensorflow”</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grids</span> <span class="o">=</span> <span class="n">pydda</span><span class="o">.</span><span class="n">retrieval</span><span class="o">.</span><span class="n">get_dd_wind_field</span><span class="p">([</span><span class="n">uah_grid</span><span class="p">,</span> <span class="n">nexrad_grid</span><span class="p">],</span> <span class="n">u_init</span><span class="p">,</span>
+                                          <span class="n">v_init</span><span class="p">,</span> <span class="n">w_init</span><span class="p">,</span> <span class="n">Co</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">Cm</span><span class="o">=</span><span class="mf">256.0</span><span class="p">,</span>
+                                          <span class="n">Cx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cz</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cb</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+                                          <span class="n">frz</span><span class="o">=</span><span class="mf">5000.0</span><span class="p">,</span> <span class="n">filter_window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                          <span class="n">mask_outside_opt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">upper_bc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                          <span class="n">vel_name</span><span class="o">=</span><span class="s1">&#39;corrected_velocity&#39;</span><span class="p">,</span>
+                                          <span class="n">wind_tol</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;scipy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating weights for radars 0 and 1
+Calculating weights for models...
+Starting solver 
+rmsVR = 18.634007052864586
+Total points: 92066
+The max of w_init is 0.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+      0|11666.5184|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.11651792193417208
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     10|   0.4079|   7.6825|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  47.4431
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08722521240051768
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     20|   0.3132|   7.4600|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  59.7419
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08783844550541695
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     30|   0.3161|   7.4561|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  59.5528
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.082240385632974
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     40|   0.1300|   7.3226|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  60.4518
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 60.452
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.061385659304744156
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     50|   0.1181|   7.1298|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  64.6424
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.06135235178902211
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     60|   0.1180|   7.1298|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  64.6371
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.06071579533094132
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     70|   0.1002|   7.1473|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  65.4048
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.06065844075456962
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     80|   0.1061|   7.1402|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  65.1736
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.05898173835510794
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+     90|   0.0908|   7.1437|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  66.6181
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.058143745473537733
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    100|   0.0770|   7.1526|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  69.3691
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.0574096098345466
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    110|   0.0764|   7.1249|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  69.2652
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.05686773168366197
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    120|   0.0763|   7.1124|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  69.8595
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.05683677176675354
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    130|   3.5390|  38.9109|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000| 100.0000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 10.065
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.056935053659553994
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    140|   0.0795|   7.1087|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  70.6301
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.05669748126779937
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    150|   0.0788|   7.1080|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  70.5168
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.05669703209667878
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    160|   0.0788|   7.1080|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  70.5168
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.056697481265079445
+Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    170|   0.0788|   7.1080|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|  70.5168
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Applying low pass filter to wind field...
+Done! Time = 43.8
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-the-results">
+<h2>Visualize the results<a class="headerlink" href="#visualize-the-results" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Let’s visualize the results. There are two ways in which this data can be visualized. One way is by using PyDDA’s visualization routines. You can also use xarray to visualize the output grids.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">grids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:             (time: 1, z: 31, y: 101, x: 101)
+Coordinates:
+  * time                (time) object 2008-04-11 18:36:35.334000
+  * z                   (z) float64 0.0 500.0 1e+03 ... 1.4e+04 1.45e+04 1.5e+04
+    lat                 (y, x) float64 34.2 34.2 34.2 34.2 ... 35.09 35.09 35.09
+    lon                 (y, x) float64 -87.32 -87.3 -87.29 ... -86.23 -86.22
+  * y                   (y) float64 -5e+04 -4.9e+04 -4.8e+04 ... 4.9e+04 5e+04
+  * x                   (x) float64 -5e+04 -4.9e+04 -4.8e+04 ... 4.9e+04 5e+04
+Data variables:
+    corrected_velocity  (time, z, y, x) float32 nan nan nan nan ... nan nan nan
+    spectrum_width      (time, z, y, x) float32 nan nan nan nan ... nan nan nan
+    reflectivity        (time, z, y, x) float32 nan nan nan nan ... nan nan nan
+    velocity            (time, z, y, x) float32 nan nan nan nan ... nan nan nan
+    ROI                 (time, z, y, x) float32 3.647e+03 ... 1.331e+03
+    AZ                  (time, z, y, x) float64 234.4 234.2 ... 323.4 325.4
+    EL                  (time, z, y, x) float64 -0.6904 -0.689 ... 32.34 33.02
+    u                   (time, z, y, x) float64 nan nan nan nan ... nan nan nan
+    v                   (time, z, y, x) float64 nan nan nan nan ... nan nan nan
+    w                   (time, z, y, x) float64 nan nan nan nan ... nan nan nan</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ee62e36c-cc30-4af6-8980-5ddb69fee5c9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ee62e36c-cc30-4af6-8980-5ddb69fee5c9' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 101</li><li><span class='xr-has-index'>x</span>: 101</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3f92ea5a-b634-4081-a5dd-7880f9e05802' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3f92ea5a-b634-4081-a5dd-7880f9e05802' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:36:35.334000</div><input id='attrs-798236d7-a37c-4c18-97a1-57f535ece5b2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-798236d7-a37c-4c18-97a1-57f535ece5b2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bff89520-8d4e-4779-bb88-2d117f6b5ce5' class='xr-var-data-in' type='checkbox'><label for='data-bff89520-8d4e-4779-bb88-2d117f6b5ce5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 36, 35, 334000, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-9b3f635c-5110-4aeb-9d33-ddbcca2d9395' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9b3f635c-5110-4aeb-9d33-ddbcca2d9395' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f88ed762-0605-43f9-a5cf-618d50da48fd' class='xr-var-data-in' type='checkbox'><label for='data-f88ed762-0605-43f9-a5cf-618d50da48fd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+        4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
+        9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
+       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>34.2 34.2 34.2 ... 35.09 35.09</div><input id='attrs-76f60f7f-3619-46b3-955b-69cdd17ddcd5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76f60f7f-3619-46b3-955b-69cdd17ddcd5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c7ab6bff-a026-40e6-a53d-febb1e697f5e' class='xr-var-data-in' type='checkbox'><label for='data-c7ab6bff-a026-40e6-a53d-febb1e697f5e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[34.19533077, 34.19537861, 34.19542549, ..., 34.19542549,
+        34.19537861, 34.19533077],
+       [34.20432377, 34.20437162, 34.2044185 , ..., 34.2044185 ,
+        34.20437162, 34.20432377],
+       [34.21331676, 34.21336463, 34.21341152, ..., 34.21341152,
+        34.21336463, 34.21331676],
+       ...,
+       [35.07664435, 35.07669307, 35.0767408 , ..., 35.0767408 ,
+        35.07669307, 35.07664435],
+       [35.08563735, 35.08568607, 35.08573381, ..., 35.08573381,
+        35.08568607, 35.08563735],
+       [35.09463034, 35.09467907, 35.09472682, ..., 35.09472682,
+        35.09467907, 35.09463034]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.32 -87.3 ... -86.23 -86.22</div><input id='attrs-90f3f44a-955b-4d58-9e0a-0e5dac667186' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-90f3f44a-955b-4d58-9e0a-0e5dac667186' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4ade8f0-b170-40c6-ae18-28daee3604ce' class='xr-var-data-in' type='checkbox'><label for='data-b4ade8f0-b170-40c6-ae18-28daee3604ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.31513939, -87.30426681, -87.29339421, ..., -86.24960568,
+        -86.23873308, -86.22786049],
+       [-87.31519761, -87.30432386, -87.29345009, ..., -86.24954979,
+        -86.23867603, -86.22780228],
+       [-87.31525584, -87.30438093, -87.293506  , ..., -86.24949388,
+        -86.23861896, -86.22774404],
+       ...,
+       [-87.32094741, -87.30995867, -87.29896992, ..., -86.24402996,
+        -86.23304121, -86.22205248],
+       [-87.32100776, -87.31001782, -87.29902786, ..., -86.24397202,
+        -86.23298207, -86.22199212],
+       [-87.32106814, -87.31007699, -87.29908583, ..., -86.24391406,
+        -86.2329229 , -86.22193175]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.9e+04 ... 4.9e+04 5e+04</div><input id='attrs-ce4ed46b-c1f8-41d1-85f7-48c7eda00155' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce4ed46b-c1f8-41d1-85f7-48c7eda00155' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-327beaa1-6f7a-48d1-b9e6-993cdc0232d4' class='xr-var-data-in' type='checkbox'><label for='data-327beaa1-6f7a-48d1-b9e6-993cdc0232d4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49000., -48000., -47000., -46000., -45000., -44000., -43000.,
+       -42000., -41000., -40000., -39000., -38000., -37000., -36000., -35000.,
+       -34000., -33000., -32000., -31000., -30000., -29000., -28000., -27000.,
+       -26000., -25000., -24000., -23000., -22000., -21000., -20000., -19000.,
+       -18000., -17000., -16000., -15000., -14000., -13000., -12000., -11000.,
+       -10000.,  -9000.,  -8000.,  -7000.,  -6000.,  -5000.,  -4000.,  -3000.,
+        -2000.,  -1000.,      0.,   1000.,   2000.,   3000.,   4000.,   5000.,
+         6000.,   7000.,   8000.,   9000.,  10000.,  11000.,  12000.,  13000.,
+        14000.,  15000.,  16000.,  17000.,  18000.,  19000.,  20000.,  21000.,
+        22000.,  23000.,  24000.,  25000.,  26000.,  27000.,  28000.,  29000.,
+        30000.,  31000.,  32000.,  33000.,  34000.,  35000.,  36000.,  37000.,
+        38000.,  39000.,  40000.,  41000.,  42000.,  43000.,  44000.,  45000.,
+        46000.,  47000.,  48000.,  49000.,  50000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5e+04 -4.9e+04 ... 4.9e+04 5e+04</div><input id='attrs-e10e06e0-ce33-40ff-85b4-def70a4d6562' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e10e06e0-ce33-40ff-85b4-def70a4d6562' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f232bf62-08e3-4ab6-8026-4efbdcdb0de3' class='xr-var-data-in' type='checkbox'><label for='data-f232bf62-08e3-4ab6-8026-4efbdcdb0de3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-50000., -49000., -48000., -47000., -46000., -45000., -44000., -43000.,
+       -42000., -41000., -40000., -39000., -38000., -37000., -36000., -35000.,
+       -34000., -33000., -32000., -31000., -30000., -29000., -28000., -27000.,
+       -26000., -25000., -24000., -23000., -22000., -21000., -20000., -19000.,
+       -18000., -17000., -16000., -15000., -14000., -13000., -12000., -11000.,
+       -10000.,  -9000.,  -8000.,  -7000.,  -6000.,  -5000.,  -4000.,  -3000.,
+        -2000.,  -1000.,      0.,   1000.,   2000.,   3000.,   4000.,   5000.,
+         6000.,   7000.,   8000.,   9000.,  10000.,  11000.,  12000.,  13000.,
+        14000.,  15000.,  16000.,  17000.,  18000.,  19000.,  20000.,  21000.,
+        22000.,  23000.,  24000.,  25000.,  26000.,  27000.,  28000.,  29000.,
+        30000.,  31000.,  32000.,  33000.,  34000.,  35000.,  36000.,  37000.,
+        38000.,  39000.,  40000.,  41000.,  42000.,  43000.,  44000.,  45000.,
+        46000.,  47000.,  48000.,  49000.,  50000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-057a9f86-8088-44df-9578-80da689b6a10' class='xr-section-summary-in' type='checkbox'  checked><label for='section-057a9f86-8088-44df-9578-80da689b6a10' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-6735a281-0019-4839-b489-d26f8f3662e9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6735a281-0019-4839-b489-d26f8f3662e9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f749d2ab-8c21-43a5-96ba-63eaaf1a821e' class='xr-var-data-in' type='checkbox'><label for='data-f749d2ab-8c21-43a5-96ba-63eaaf1a821e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean doppler Velocity</dd><dt><span>valid_max :</span></dt><dd>95.0</dd><dt><span>valid_min :</span></dt><dd>-95.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-14.825671 , -14.672108 , -14.387503 , ...,  10.830735 ,
+           11.118273 ,  12.387967 ],
+         [-14.921683 , -15.050878 , -14.805627 , ...,  10.721007 ,
+           10.807286 ,  11.040987 ],
+         [-14.730922 , -15.050392 , -15.03129  , ...,  10.030292 ,
+           11.680907 ,   9.825537 ]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan, -18.5      ],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-801997b7-b66b-4819-8ade-e8958b650ad7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-801997b7-b66b-4819-8ade-e8958b650ad7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9f1b5dd0-f591-4bdf-85e2-58b7def4dd74' class='xr-var-data-in' type='checkbox'><label for='data-9f1b5dd0-f591-4bdf-85e2-58b7def4dd74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Spectrum Width</dd><dt><span>valid_max :</span></dt><dd>63.0</dd><dt><span>valid_min :</span></dt><dd>-63.5</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         ...,
+         [2.6599941, 2.9762692, 3.1635966, ..., 1.4192681, 1.5866591,
+          1.6266227],
+         [2.5100942, 2.868733 , 3.1839547, ..., 1.2001921, 2.0438406,
+          2.3475547],
+         [2.1952004, 2.5519273, 2.9462907, ..., 1.3984601, 1.2950646,
+          1.925051 ]],
+
+        [[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+          0.       ],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+...
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]],
+
+        [[      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         ...,
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan],
+         [      nan,       nan,       nan, ...,       nan,       nan,
+                nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b3f3e6b4-e495-4e32-bd16-d0716e7e5550' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b3f3e6b4-e495-4e32-bd16-d0716e7e5550' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-44444841-bc9e-4d60-a69e-eceb12f904c0' class='xr-var-data-in' type='checkbox'><label for='data-44444841-bc9e-4d60-a69e-eceb12f904c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>valid_max :</span></dt><dd>94.5</dd><dt><span>valid_min :</span></dt><dd>-32.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ..., -0.68706405,
+          -0.7031915 , -1.0677918 ],
+         [        nan,         nan,         nan, ..., -1.013934  ,
+          -1.0289239 , -1.088463  ],
+         [        nan,         nan,         nan, ..., -0.93318844,
+          -0.8162946 , -0.6273298 ],
+         ...,
+         [37.61139   , 34.242817  , 30.938007  , ..., 33.86347   ,
+          20.352234  , 18.681839  ],
+         [36.259518  , 32.35763   , 28.358948  , ..., 28.032253  ,
+          17.680937  ,  9.203709  ],
+         [35.281105  , 31.334333  , 26.932123  , ..., 28.338102  ,
+          17.423676  ,  9.39091   ]],
+
+        [[        nan,         nan,         nan, ..., -0.72309333,
+          -0.76033545, -0.71326935],
+         [        nan,         nan,         nan, ..., -1.0481557 ,
+          -1.1001822 , -1.371368  ],
+         [        nan,         nan,         nan, ..., -0.9528903 ,
+          -0.81606346, -0.6982208 ],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-979196a5-ad40-4e13-b6c9-b0a3ffe92a05' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-979196a5-ad40-4e13-b6c9-b0a3ffe92a05' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9da7454d-0a7c-43c3-a2f9-1bc9d8dbab88' class='xr-var-data-in' type='checkbox'><label for='data-9da7454d-0a7c-43c3-a2f9-1bc9d8dbab88' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean doppler Velocity</dd><dt><span>valid_max :</span></dt><dd>95.0</dd><dt><span>valid_min :</span></dt><dd>-95.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-14.825671 , -14.672108 , -14.387503 , ...,  10.830735 ,
+           11.118273 ,  12.387967 ],
+         [-14.921683 , -15.050878 , -14.805627 , ...,  10.721007 ,
+           10.807286 ,  11.040987 ],
+         [-14.730922 , -15.050392 , -15.03129  , ...,  10.030292 ,
+           11.680907 ,   9.825537 ]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan, -18.5      ],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>3.647e+03 3.626e+03 ... 1.331e+03</div><input id='attrs-1d8ac11d-9e5a-4a27-9e24-fc835cb8c4f0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1d8ac11d-9e5a-4a27-9e24-fc835cb8c4f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-01aaa803-2f77-4948-83d8-460a106fcc06' class='xr-var-data-in' type='checkbox'><label for='data-01aaa803-2f77-4948-83d8-460a106fcc06' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[3647.302  , 3626.1448 , 3605.0535 , ..., 2177.24   ,
+          2172.76   , 2168.5872 ],
+         [3631.9788 , 3610.7317 , 3589.5503 , ..., 2151.4722 ,
+          2146.9385 , 2142.7153 ],
+         [3616.7803 , 3595.4436 , 3574.1714 , ..., 2125.7144 ,
+          2121.1257 , 2116.851  ],
+         ...,
+         [2981.6118 , 2955.6936 , 2929.78   , ...,  572.33936,
+           555.05414,  538.488  ],
+         [2985.4421 , 2959.5574 , 2933.678  , ...,  591.9699 ,
+           575.2748 ,  559.3078 ],
+         [2989.497  , 2963.6477 , 2937.8044 , ...,  612.09125,
+           595.9601 ,  580.5623 ]],
+
+        [[3672.302  , 3651.1448 , 3630.0535 , ..., 2202.24   ,
+          2197.76   , 2193.5872 ],
+         [3656.9788 , 3635.7317 , 3614.5503 , ..., 2176.4722 ,
+          2171.9385 , 2167.7153 ],
+         [3641.7803 , 3620.4436 , 3599.1714 , ..., 2150.7144 ,
+          2146.1257 , 2141.851  ],
+...
+         [3706.6118 , 3680.6936 , 3654.78   , ..., 1297.3394 ,
+          1280.0542 , 1263.4879 ],
+         [3710.4421 , 3684.5574 , 3658.678  , ..., 1316.9698 ,
+          1300.2748 , 1284.3079 ],
+         [3714.497  , 3688.6477 , 3662.8044 , ..., 1337.0913 ,
+          1320.9601 , 1305.5624 ]],
+
+        [[4397.302  , 4376.145  , 4355.0537 , ..., 2927.24   ,
+          2922.76   , 2918.5872 ],
+         [4381.9785 , 4360.732  , 4339.5503 , ..., 2901.4722 ,
+          2896.9385 , 2892.7153 ],
+         [4366.7803 , 4345.444  , 4324.1714 , ..., 2875.7144 ,
+          2871.1257 , 2866.851  ],
+         ...,
+         [3731.6118 , 3705.6936 , 3679.78   , ..., 1322.3394 ,
+          1305.0542 , 1288.4879 ],
+         [3735.4421 , 3709.5574 , 3683.678  , ..., 1341.9698 ,
+          1325.2748 , 1309.3079 ],
+         [3739.497  , 3713.6477 , 3687.8044 , ..., 1362.0913 ,
+          1345.9601 , 1330.5624 ]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>AZ</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>234.4 234.2 233.9 ... 323.4 325.4</div><input id='attrs-c1d2ffcb-2328-4604-b6c1-28c9d45e3639' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c1d2ffcb-2328-4604-b6c1-28c9d45e3639' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-245ebaab-f116-4aa3-bf0c-ac799b405e7d' class='xr-var-data-in' type='checkbox'><label for='data-245ebaab-f116-4aa3-bf0c-ac799b405e7d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[234.41006453, 234.16695917, 233.92100497, ..., 190.58097858,
+          189.90131208, 189.21893332],
+         [234.74436508, 234.50218791, 234.25714836, ..., 190.70438187,
+          190.01680857, 189.32642492],
+         [235.08148653, 234.84027891, 234.59619592, ..., 190.83077564,
+          190.13511585, 189.43654291],
+         ...,
+         [278.55643273, 278.62848702, 278.70181632, ..., 318.0934907 ,
+          320.0932016 , 322.2186804 ],
+         [279.05392713, 279.13024154, 279.20790276, ..., 319.79952732,
+          321.78035266, 323.87690515],
+         [279.55010954, 279.6306496 , 279.71260709, ..., 321.39473961,
+          323.35167242, 325.41492813]],
+
+        [[234.41006453, 234.16695917, 233.92100497, ..., 190.58097858,
+          189.90131208, 189.21893332],
+         [234.74436508, 234.50218791, 234.25714836, ..., 190.70438187,
+          190.01680857, 189.32642492],
+         [235.08148653, 234.84027891, 234.59619592, ..., 190.83077564,
+          190.13511585, 189.43654291],
+...
+         [278.55643273, 278.62848702, 278.70181632, ..., 318.0934907 ,
+          320.0932016 , 322.2186804 ],
+         [279.05392713, 279.13024154, 279.20790276, ..., 319.79952732,
+          321.78035266, 323.87690515],
+         [279.55010954, 279.6306496 , 279.71260709, ..., 321.39473961,
+          323.35167242, 325.41492813]],
+
+        [[234.41006453, 234.16695917, 233.92100497, ..., 190.58097858,
+          189.90131208, 189.21893332],
+         [234.74436508, 234.50218791, 234.25714836, ..., 190.70438187,
+          190.01680857, 189.32642492],
+         [235.08148653, 234.84027891, 234.59619592, ..., 190.83077564,
+          190.13511585, 189.43654291],
+         ...,
+         [278.55643273, 278.62848702, 278.70181632, ..., 318.0934907 ,
+          320.0932016 , 322.2186804 ],
+         [279.05392713, 279.13024154, 279.20790276, ..., 319.79952732,
+          321.78035266, 323.87690515],
+         [279.55010954, 279.6306496 , 279.71260709, ..., 321.39473961,
+          323.35167242, 325.41492813]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EL</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.6904 -0.689 ... 32.34 33.02</div><input id='attrs-0d9773dc-b869-4d98-8de7-1e34d6aef89b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d9773dc-b869-4d98-8de7-1e34d6aef89b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-95070b46-74f7-40c9-81ea-c623a4f8acae' class='xr-var-data-in' type='checkbox'><label for='data-95070b46-74f7-40c9-81ea-c623a4f8acae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[-0.69040103, -0.68896378, -0.68754606, ..., -0.65007122,
+          -0.65025648, -0.65043188],
+         [-0.68935861, -0.68792626, -0.68651368, ..., -0.65118008,
+          -0.65138619, -0.65158119],
+         [-0.68833246, -0.68690515, -0.68549786, ..., -0.65239576,
+          -0.65262391, -0.65283964],
+         ...,
+         [-0.6539359 , -0.65296505, -0.65203625, ..., -1.4797312 ,
+          -1.52127286, -1.5637217 ],
+         [-0.65408285, -0.65310714, -0.65217323, ..., -1.43565195,
+          -1.47293849, -1.51080005],
+         [-0.65423937, -0.65325856, -0.65231928, ..., -1.39357125,
+          -1.42706793, -1.46088482]],
+
+        [[-0.48472455, -0.48208722, -0.47945914, ..., -0.30551703,
+          -0.30499181, -0.30450277],
+         [-0.48281437, -0.48016659, -0.47752799, ..., -0.30249929,
+          -0.30196903, -0.30147529],
+         [-0.48092025, -0.47826204, -0.47561293, ..., -0.29949002,
+          -0.29895466, -0.29845614],
+...
+         [ 6.60168011,  6.66566392,  6.7306924 , ..., 32.47814415,
+          33.28233042, 34.08646512],
+         [ 6.59231343,  6.65606011,  6.72084323, ..., 31.60561713,
+          32.34499052, 33.08121907],
+         [ 6.58242218,  6.64591913,  6.71044389, ..., 30.75359034,
+          31.43334496, 32.10754648]],
+
+        [[ 5.45347163,  5.49050979,  5.52782886, ...,  9.57939385,
+           9.5999023 ,  9.61907752],
+         [ 5.48025695,  5.51774221,  5.55551731, ...,  9.69844482,
+           9.71967183,  9.73952164],
+         [ 5.50702979,  5.5449659 ,  5.58320099, ...,  9.82016757,
+           9.8421471 ,  9.86270358],
+         ...,
+         [ 6.84900511,  6.91509047,  6.98225551, ..., 33.39822505,
+          34.21357971, 35.02813873],
+         [ 6.83933085,  6.90517117,  6.97208269, ..., 32.51274931,
+          33.26315104, 34.00974476],
+         [ 6.8291148 ,  6.89469709,  6.96134165, ..., 31.64725387,
+          32.33781922, 33.02223261]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>u</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0f7cbc75-e06b-42e3-b3d8-ae4867c8e072' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0f7cbc75-e06b-42e3-b3d8-ae4867c8e072' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b94e69d1-38ca-4f02-bac6-5882f8a8952e' class='xr-var-data-in' type='checkbox'><label for='data-b94e69d1-38ca-4f02-bac6-5882f8a8952e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>u_wind</dd><dt><span>long_name :</span></dt><dd>meridional component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [ 2.92426395,  1.81836487,  0.6549518 , ..., 12.98633699,
+          14.54122578, 15.54234928],
+         [ 3.07236036,  1.1986057 ,  0.17522594, ..., 12.72250765,
+          13.51663113, 13.3668002 ],
+         [ 2.69850631,  1.65067465,  1.29835498, ..., 12.49634403,
+          13.78297962, 14.65452555]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>v</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-dbf282f0-0515-4ef7-bacf-01b50edd0762' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dbf282f0-0515-4ef7-bacf-01b50edd0762' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-22731167-d9f1-4ab1-ba81-c774d8a45dfd' class='xr-var-data-in' type='checkbox'><label for='data-22731167-d9f1-4ab1-ba81-c774d8a45dfd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>v_wind</dd><dt><span>long_name :</span></dt><dd>zonal component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [-4.63817812, -3.87931382, -2.65786413, ..., 12.97931339,
+          13.16455666, 14.26821328],
+         [-4.49364508, -3.54949934, -2.46213906, ..., 13.2173019 ,
+          13.59407715, 14.46747539],
+         [-4.67616551, -4.63610612, -4.04353836, ..., 13.286491  ,
+          14.23793039, 15.93004426]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+...
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]],
+
+        [[        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         ...,
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan],
+         [        nan,         nan,         nan, ...,         nan,
+                  nan,         nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>w</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-ac6ff5ea-c66d-475f-a4eb-0bf5cae5da70' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac6ff5ea-c66d-475f-a4eb-0bf5cae5da70' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ebabb5e6-dd68-4ceb-b9b2-12cb460aedbe' class='xr-var-data-in' type='checkbox'><label for='data-ebabb5e6-dd68-4ceb-b9b2-12cb460aedbe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>w_wind</dd><dt><span>long_name :</span></dt><dd>vertical component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         ...,
+         [-7.16228927e-03, -3.30814328e-03,  5.97220622e-04, ...,
+          -1.79361427e-02, -4.16247461e-02, -4.29050183e-02],
+         [-6.79547962e-03, -7.65604865e-03,  2.45868039e-04, ...,
+          -8.25559087e-03,  5.45049122e-03,  2.35204078e-02],
+         [-5.37518692e-03, -4.20510495e-03, -5.82118160e-03, ...,
+          -8.56762078e-03, -9.51920571e-03, -9.11640121e-03]],
+
+        [[            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+...
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan]],
+
+        [[            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         ...,
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan],
+         [            nan,             nan,             nan, ...,
+                      nan,             nan,             nan]]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-73c3a355-7b3b-4369-b1ce-76dea61b7656' class='xr-section-summary-in' type='checkbox'  ><label for='section-73c3a355-7b3b-4369-b1ce-76dea61b7656' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-195970a7-0ed8-4ff9-abe4-e779248d33be' class='xr-index-data-in' type='checkbox'/><label for='index-195970a7-0ed8-4ff9-abe4-e779248d33be' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:36:35.334000],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d7e582b1-9f09-4433-86ea-c4156dde8d33' class='xr-index-data-in' type='checkbox'/><label for='index-d7e582b1-9f09-4433-86ea-c4156dde8d33' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
+        4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,  7000.0,  7500.0,
+        8000.0,  8500.0,  9000.0,  9500.0, 10000.0, 10500.0, 11000.0, 11500.0,
+       12000.0, 12500.0, 13000.0, 13500.0, 14000.0, 14500.0, 15000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-216c2cc9-7f87-498d-af4f-00e93d9e812c' class='xr-index-data-in' type='checkbox'/><label for='index-216c2cc9-7f87-498d-af4f-00e93d9e812c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-50000.0, -49000.0, -48000.0, -47000.0, -46000.0, -45000.0, -44000.0,
+       -43000.0, -42000.0, -41000.0,
+       ...
+        41000.0,  42000.0,  43000.0,  44000.0,  45000.0,  46000.0,  47000.0,
+        48000.0,  49000.0,  50000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=101))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-07aebe21-710c-4d73-8c4a-3262b0b93c20' class='xr-index-data-in' type='checkbox'/><label for='index-07aebe21-710c-4d73-8c4a-3262b0b93c20' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-50000.0, -49000.0, -48000.0, -47000.0, -46000.0, -45000.0, -44000.0,
+       -43000.0, -42000.0, -41000.0,
+       ...
+        41000.0,  42000.0,  43000.0,  44000.0,  45000.0,  46000.0,  47000.0,
+        48000.0,  49000.0,  50000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=101))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-25e4e3f4-d5c7-46b2-960b-c7ec8a7132e9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-25e4e3f4-d5c7-46b2-960b-c7ec8a7132e9' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">w</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f3bf0a45010&gt;
+</pre></div>
+</div>
+<img alt="../../_images/81e0fc86b73aee14dd7fd9032c581ddc1316251bb90c16ab2f044583915ba40e.png" src="../../_images/81e0fc86b73aee14dd7fd9032c581ddc1316251bb90c16ab2f044583915ba40e.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pydda-visualization-routines">
+<h2>PyDDA visualization routines<a class="headerlink" href="#pydda-visualization-routines" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>PyDDA’s visualization routines support the native PyART grids that are output by PyDDA. These routines have an advantage over xarray’s plotting routines for adjusting your barb and quiver size by specifying their using parameters that are in scales of kilometers. This makes it easier to plot barb and quiver plots compared to using xarray’s functionality.</p>
+<p>For example, the documentation for <em>pydda.vis.plot_horiz_xsection_quiver</em> is given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pydda.vis.plot_horiz_xsection_quiver<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>PyDDA has the following visualization routines for your sets of grids:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Procedure</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>plot_horiz_xsection_barbs(Grids[, ax, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA using barbs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_xz_xsection_barbs(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the X-Z plane using barbs.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_yz_xsection_barbs(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the Y-Z plane using barbs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_horiz_xsection_barbs_map(Grids[, ax, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA onto a geographical map using barbs.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_horiz_xsection_streamlines(Grids[, ax, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA using streamlines.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_xz_xsection_streamlines(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the X-Z plane using streamlines.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_yz_xsection_streamlines(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the Y-Z plane using streamlines.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_horiz_xsection_streamlines_map(Grids[, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA using streamlines.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_horiz_xsection_quiver(Grids[, ax, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA using quivers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_xz_xsection_quiver(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the X-Z plane using quivers.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot_yz_xsection_quiver(Grids[, ax, …])</p></td>
+<td><p>Cross section of winds from wind fields generated by PyDDA in the Y-Z plane using quivers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot_horiz_xsection_quiver_map(Grids[, ax, …])</p></td>
+<td><p>Horizontal cross section of winds from wind fields generated by PyDDA using quivers onto a geographical map.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s show a quiver plot of this storm!</p>
+<p>We have specified the quivers to be 4 km apart and moved the key to the bottom right with the specific length indicating 20 m/s winds. Let’s look at the 3 km level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">pydda</span><span class="o">.</span><span class="n">vis</span><span class="o">.</span><span class="n">plot_horiz_xsection_quiver</span><span class="p">(</span>
+    <span class="n">grids</span><span class="p">,</span> <span class="n">quiver_spacing_x_km</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">quiver_spacing_y_km</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">quiver_width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+    <span class="n">quiverkey_len</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">w_vel_contours</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">quiverkey_loc</span><span class="o">=</span><span class="s1">&#39;bottom_right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;PyDDA retreived winds @3.18 km&#39;}, xlabel=&#39;X [km]&#39;, ylabel=&#39;Y [km]&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/bb41d29af958a937269690ff2dff939b40542c4d7a1223480e6d4836e1b6c25e.png" src="../../_images/bb41d29af958a937269690ff2dff939b40542c4d7a1223480e6d4836e1b6c25e.png" />
+</div>
+</div>
+<p>We can zoom in and modify the plot using standard matplotlib functions on the axis handle.</p>
+<p>It is much easier to see updrafts being placed just to the outside of the strongest precipitation, with potential new growth in the north of the domain with updraft velocities &gt; 7 m/s. The precipitation is downwind of the updraft as we would expect.</p>
+<p>Updrafts are right tilted due to the horizontal wind shear. The horizontal wind shear also causes the most intense precipitation to be downshear of the updraft. This therefore shows us that we have a good quality wind retrieval below about 5 km in altitude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">pydda</span><span class="o">.</span><span class="n">vis</span><span class="o">.</span><span class="n">plot_xz_xsection_quiver</span><span class="p">(</span>
+    <span class="n">grids</span><span class="p">,</span> <span class="n">quiver_spacing_x_km</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">quiver_spacing_z_km</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">quiver_width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+    <span class="n">quiverkey_len</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">w_vel_contours</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">quiverkey_loc</span><span class="o">=</span><span class="s1">&#39;bottom_right&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 8.0)
+</pre></div>
+</div>
+<img alt="../../_images/c24f470b355ec18b239871a15ca10dc16f8f088019635794c69060f0d588c966.png" src="../../_images/c24f470b355ec18b239871a15ca10dc16f8f088019635794c69060f0d588c966.png" />
+</div>
+</div>
+<p>Let’s view a horizontal cross section with barbs!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">pydda</span><span class="o">.</span><span class="n">vis</span><span class="o">.</span><span class="n">plot_horiz_xsection_barbs</span><span class="p">(</span>
+    <span class="n">grids</span><span class="p">,</span> <span class="n">barb_spacing_x_km</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">barb_spacing_y_km</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">w_vel_contours</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 50.0)
+</pre></div>
+</div>
+<img alt="../../_images/c521d35438325bc74f3b9dc85b8b142608d49de5960e2251f1335f35e9f53ba7.png" src="../../_images/c521d35438325bc74f3b9dc85b8b142608d49de5960e2251f1335f35e9f53ba7.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/pydda"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PyDDA</p>
+        </div>
+    </a>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2023.
+        
+          By the <a href="https://openradarscience.org/">Open Radar</a> Community.
+        
+          Last updated on 25 July 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
