@@ -1,13 +1,12 @@
 format: jb-book
 root: README
 parts:
-  - caption: Case Exploration
-    chapters:
-      - glob: notebooks/case-exploration/*
   - caption: Py-ART
     chapters:
       - file: notebooks/pyart/README
-      - glob: notebooks/pyart/*.ipynb
+      - file: notebooks/pyart/pyart-basics
+      - file: notebooks/pyart/pyart-corrections
+      - file: notebooks/pyart/pyart-gridding
   - caption: wradlib
     chapters:
       - file: notebooks/wradlib/README
@@ -20,3 +19,4 @@ parts:
   - caption: pydda
     chapters:
       - file: notebooks/pydda/README
+      - file: notebooks/pydda/Retrieving_winds_with_pydda
