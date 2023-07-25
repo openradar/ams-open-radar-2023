@@ -1,22 +1,16 @@
 format: jb-book
 root: README
 parts:
-  - caption: Py-ART
+  - caption: Notebooks
     chapters:
       - file: notebooks/pyart/README
-      - file: notebooks/pyart/pyart-basics
-      - file: notebooks/pyart/pyart-corrections
-      - file: notebooks/pyart/pyart-gridding
-  - caption: wradlib
-    chapters:
+        sections:
+          - file: notebooks/pyart/pyart-basics
+          - file: notebooks/pyart/pyart-corrections
+          - file: notebooks/pyart/pyart-gridding
       - file: notebooks/wradlib/README
-  - caption: LROSE
-    chapters:
       - file: notebooks/lrose/README
-  - caption: tobac
-    chapters:
       - file: notebooks/tobac/README
-  - caption: pydda
-    chapters:
       - file: notebooks/pydda/README
-      - file: notebooks/pydda/Retrieving_winds_with_pydda
+        sections:
+          - file: notebooks/pydda/Retrieving_winds_with_pydda
