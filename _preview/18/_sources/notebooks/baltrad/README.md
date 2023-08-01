@@ -1,3 +1,0 @@
-# BALTRAD
-
-BALTRAD content here.
