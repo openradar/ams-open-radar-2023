@@ -17,6 +17,8 @@ dependencies:
   - metpy
   - hvplot
   - holoviews
+  - pydda
+  - s3fs
   - geoviews
   - tensorflow-probability
   - pip
