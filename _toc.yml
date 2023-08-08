@@ -10,6 +10,8 @@ parts:
           - file: notebooks/pyart/pyart-gridding
       - file: notebooks/wradlib/README
       - file: notebooks/lrose/README
+        sections:
+          - file: notebooks/lrose/LROSE_Wind_tutorial
       - file: notebooks/tobac/README
       - file: notebooks/pydda/README
         sections:
