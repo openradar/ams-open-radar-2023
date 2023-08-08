@@ -190,10 +190,22 @@ const thebe_selector_output = ".output, .cell_output"
    Wradlib Tutorial
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../lrose/README.html">
    LROSE Tutorial
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lrose/LROSE_Wind_tutorial.html">
+     LROSE Wind Tutorial
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../tobac/README.html">
@@ -204,8 +216,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="README.html">
    PyDDA
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -456,7 +468,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 ##     JJ Helmus and SM Collis, JORS 2016, doi: 10.5334/jors.119
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-02 13:37:12.045105: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-08 13:12:02.451342: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -516,7 +528,7 @@ TensorFlow-probability detected. TensorFlow engine enabled!
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c9916a7a666cc305ae2d15d26abe6d0f518cb8448939dff6bc8f5b35b47be2dd.png" src="../../_images/c9916a7a666cc305ae2d15d26abe6d0f518cb8448939dff6bc8f5b35b47be2dd.png" />
+<img alt="../../_images/3ce8352b3108083c495ad38543cd28d002499425447e444ce9841076f425ef7f.png" src="../../_images/3ce8352b3108083c495ad38543cd28d002499425447e444ce9841076f425ef7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -531,7 +543,7 @@ TensorFlow-probability detected. TensorFlow engine enabled!
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/093de86fdf2f93081f9685cbcaf592e0ed56739675c631ea7d14ad80b171f1a6.png" src="../../_images/093de86fdf2f93081f9685cbcaf592e0ed56739675c631ea7d14ad80b171f1a6.png" />
+<img alt="../../_images/8fcfa74dd72d52f8df5508f6567dede32316f74651357c14fa3989424295da7a.png" src="../../_images/8fcfa74dd72d52f8df5508f6567dede32316f74651357c14fa3989424295da7a.png" />
 </div>
 </div>
 <p>Let’s despeckle the above radar data to remove some artifacts.</p>
@@ -551,7 +563,7 @@ TensorFlow-probability detected. TensorFlow engine enabled!
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/361a0a021d2719003a4f53cd304129fbc1cb7c486c83891eb0c1b06c430214b5.png" src="../../_images/361a0a021d2719003a4f53cd304129fbc1cb7c486c83891eb0c1b06c430214b5.png" />
+<img alt="../../_images/39f20cb5f84d1a25f6d7e7a9a3df575e24df3c2b9c79d67d74829d9b8d88e0cc.png" src="../../_images/39f20cb5f84d1a25f6d7e7a9a3df575e24df3c2b9c79d67d74829d9b8d88e0cc.png" />
 </div>
 </div>
 </div>
@@ -942,27 +954,27 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
 Dimensions:                      (time: 1, z: 31, y: 201, x: 201)
 Coordinates:
-  * time                         (time) object 2008-04-11 18:22:42
+  * time                         (time) object 2008-04-11 18:27:41
   * z                            (z) float64 0.0 500.0 ... 1.45e+04 1.5e+04
     lat                          (y, x) float64 33.74 33.74 ... 35.54 35.54
     lon                          (y, x) float64 -87.85 -87.84 ... -85.68 -85.67
   * y                            (y) float64 -1e+05 -9.9e+04 ... 9.9e+04 1e+05
   * x                            (x) float64 -1e+05 -9.9e+04 ... 9.9e+04 1e+05
 Data variables:
+    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
     spectrum_width               (time, z, y, x) float32 nan nan nan ... nan nan
-    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
-    total_power                  (time, z, y, x) float32 nan nan nan ... nan nan
-    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
     differential_phase           (time, z, y, x) float32 nan nan nan ... nan nan
     cross_correlation_ratio      (time, z, y, x) float32 nan nan nan ... nan nan
+    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
     corrected_velocity           (time, z, y, x) float32 nan nan nan ... nan nan
-    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
     reflectivity                 (time, z, y, x) float32 nan nan nan ... nan nan
-    ROI                          (time, z, y, x) float32 3.703e+03 ... 4.453e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-5f521ec3-0364-4107-a4a5-0b4f8aac4b71' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5f521ec3-0364-4107-a4a5-0b4f8aac4b71' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7dab464f-1006-4cc7-afb9-4dc76cd362b2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7dab464f-1006-4cc7-afb9-4dc76cd362b2' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:22:42</div><input id='attrs-83383158-3e9d-4c97-97f2-2c8ee1998b29' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-83383158-3e9d-4c97-97f2-2c8ee1998b29' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-887fd542-e893-46ff-a8d1-81149f48d725' class='xr-var-data-in' type='checkbox'><label for='data-887fd542-e893-46ff-a8d1-81149f48d725' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 22, 42, 0, has_year_zero=False)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-a2b4faba-703b-4a50-ab0d-5e5027ef9dad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a2b4faba-703b-4a50-ab0d-5e5027ef9dad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bb95585-6368-477f-a489-d7e37e9cbe3c' class='xr-var-data-in' type='checkbox'><label for='data-1bb95585-6368-477f-a489-d7e37e9cbe3c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
+    total_power                  (time, z, y, x) float32 nan nan nan ... nan nan
+    ROI                          (time, z, y, x) float32 3.703e+03 ... 4.453e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-aacbaec3-005e-4327-a9d7-45217a71ea7e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-aacbaec3-005e-4327-a9d7-45217a71ea7e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-26288fa1-63a9-458a-b270-e06bf3356de6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-26288fa1-63a9-458a-b270-e06bf3356de6' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:27:41</div><input id='attrs-de7e6362-d978-4d05-aa65-b4aa6af552c7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-de7e6362-d978-4d05-aa65-b4aa6af552c7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-79b8341d-bb6e-490e-8586-8dc286d1db7c' class='xr-var-data-in' type='checkbox'><label for='data-79b8341d-bb6e-490e-8586-8dc286d1db7c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 27, 41, 0, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-670d00d1-e5a7-4fb5-93d0-b039f0879044' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-670d00d1-e5a7-4fb5-93d0-b039f0879044' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fe4c02f9-bfe1-4d94-a595-2cb0d048ad3c' class='xr-var-data-in' type='checkbox'><label for='data-fe4c02f9-bfe1-4d94-a595-2cb0d048ad3c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
         4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
         9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
-       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>33.74 33.74 33.74 ... 35.54 35.54</div><input id='attrs-ec38b916-6cda-4543-96f1-b716a5909f4c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ec38b916-6cda-4543-96f1-b716a5909f4c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c9e4323-42f9-4bef-a4c8-d7f6a15c2e53' class='xr-var-data-in' type='checkbox'><label for='data-4c9e4323-42f9-4bef-a4c8-d7f6a15c2e53' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[33.74208929, 33.74218458, 33.74227891, ..., 33.74227891,
+       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>33.74 33.74 33.74 ... 35.54 35.54</div><input id='attrs-644830f1-a9d7-4498-9214-a33aacef8670' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-644830f1-a9d7-4498-9214-a33aacef8670' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0760f7a1-59d7-45da-a9dc-89605c2c99a1' class='xr-var-data-in' type='checkbox'><label for='data-0760f7a1-59d7-45da-a9dc-89605c2c99a1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[33.74208929, 33.74218458, 33.74227891, ..., 33.74227891,
         33.74218458, 33.74208929],
        [33.75108164, 33.75117695, 33.7512713 , ..., 33.7512713 ,
         33.75117695, 33.75108164],
@@ -974,7 +986,7 @@ Data variables:
        [35.53156137, 35.53166022, 35.53175807, ..., 35.53175807,
         35.53166022, 35.53156137],
        [35.54055367, 35.54065253, 35.5407504 , ..., 35.5407504 ,
-        35.54065253, 35.54055367]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.85 -87.84 ... -85.68 -85.67</div><input id='attrs-b198d8df-818c-43be-ba1b-7ad34adc0f0a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b198d8df-818c-43be-ba1b-7ad34adc0f0a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-648519ba-c0f2-4c1e-8cd3-272f9de3f701' class='xr-var-data-in' type='checkbox'><label for='data-648519ba-c0f2-4c1e-8cd3-272f9de3f701' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.85298099, -87.84216698, -87.83135294, ..., -85.71164694,
+        35.54065253, 35.54055367]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.85 -87.84 ... -85.68 -85.67</div><input id='attrs-25da7fc9-d93c-49d7-b6cd-3493ddecf0ae' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-25da7fc9-d93c-49d7-b6cd-3493ddecf0ae' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b28eb452-5e4c-49b0-b3e8-73aa41c59b98' class='xr-var-data-in' type='checkbox'><label for='data-b28eb452-5e4c-49b0-b3e8-73aa41c59b98' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.85298099, -87.84216698, -87.83135294, ..., -85.71164694,
         -85.70083291, -85.69001889],
        [-87.85309529, -87.84228014, -87.83146496, ..., -85.71153492,
         -85.70071975, -85.68990459],
@@ -986,7 +998,7 @@ Data variables:
        [-87.87657444, -87.86552458, -87.8544747 , ..., -85.68852518,
         -85.6774753 , -85.66642545],
        [-87.87669743, -87.86564635, -87.85459524, ..., -85.68840465,
-        -85.67735354, -85.66630245]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-750b77e4-15b4-4d0a-b1d1-75ee70da73a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-750b77e4-15b4-4d0a-b1d1-75ee70da73a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b77bd4d-0ebf-4d3b-9e93-c6b49a5a6b28' class='xr-var-data-in' type='checkbox'><label for='data-4b77bd4d-0ebf-4d3b-9e93-c6b49a5a6b28' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-9961343b-9a8c-44e1-adfb-fe956cf0c61b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9961343b-9a8c-44e1-adfb-fe956cf0c61b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c6e7c11c-0850-485c-b27a-6b968d1b9f86' class='xr-var-data-in' type='checkbox'><label for='data-c6e7c11c-0850-485c-b27a-6b968d1b9f86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2bd8eb9d-6244-4d49-aa85-7fe5af3f34a1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2bd8eb9d-6244-4d49-aa85-7fe5af3f34a1' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-430b372f-9673-4baf-a73c-5ed0d69788ee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-430b372f-9673-4baf-a73c-5ed0d69788ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3d0c98f2-b48d-4f97-bf0f-ded7bc31423e' class='xr-var-data-in' type='checkbox'><label for='data-3d0c98f2-b48d-4f97-bf0f-ded7bc31423e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+        -85.67735354, -85.66630245]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-16304ed1-541e-4b37-9a39-e77c9ff761ec' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-16304ed1-541e-4b37-9a39-e77c9ff761ec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f934dc34-5e95-415b-a0b1-bbd3f836af9f' class='xr-var-data-in' type='checkbox'><label for='data-f934dc34-5e95-415b-a0b1-bbd3f836af9f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-1984803e-c441-4a89-827f-339c90c75b60' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1984803e-c441-4a89-827f-339c90c75b60' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bebaca6b-54b7-4d40-9818-c6e0e2f4f8f5' class='xr-var-data-in' type='checkbox'><label for='data-bebaca6b-54b7-4d40-9818-c6e0e2f4f8f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0be3d403-9b91-41f5-9207-2cdb25b44d65' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0be3d403-9b91-41f5-9207-2cdb25b44d65' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b1faac44-3e4a-4b1c-8be5-e5e18c091725' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b1faac44-3e4a-4b1c-8be5-e5e18c091725' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-20984a7d-cfbc-4e2d-ab62-e5da84c43bf7' class='xr-var-data-in' type='checkbox'><label for='data-20984a7d-cfbc-4e2d-ab62-e5da84c43bf7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1026,7 +1038,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-3e5258a6-f950-4f90-a80e-bbdd3993f2d3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3e5258a6-f950-4f90-a80e-bbdd3993f2d3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eff3083e-a714-4b21-aba3-a5a9df0d141a' class='xr-var-data-in' type='checkbox'><label for='data-eff3083e-a714-4b21-aba3-a5a9df0d141a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0a7b4a60-e7c1-4d84-b736-57314d31c86d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0a7b4a60-e7c1-4d84-b736-57314d31c86d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0215b928-735f-47a9-9f5d-44f3d9ed87cb' class='xr-var-data-in' type='checkbox'><label for='data-0215b928-735f-47a9-9f5d-44f3d9ed87cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1066,7 +1078,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-cd8828ad-c4f5-40d5-acf3-72b28b380b06' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cd8828ad-c4f5-40d5-acf3-72b28b380b06' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-30aad844-8046-43c6-8502-eeff93aeb997' class='xr-var-data-in' type='checkbox'><label for='data-30aad844-8046-43c6-8502-eeff93aeb997' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b33d6894-be81-4785-9995-1918d30a75c9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b33d6894-be81-4785-9995-1918d30a75c9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ed38845-d400-42d9-b057-388c95068cf1' class='xr-var-data-in' type='checkbox'><label for='data-7ed38845-d400-42d9-b057-388c95068cf1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1106,7 +1118,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-d61e9005-0d40-477c-959b-d0147fd386cf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d61e9005-0d40-477c-959b-d0147fd386cf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b3b72e6-e24f-46b4-b21e-52780c524c07' class='xr-var-data-in' type='checkbox'><label for='data-9b3b72e6-e24f-46b4-b21e-52780c524c07' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-046430be-e246-42a1-892b-6edfce185465' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-046430be-e246-42a1-892b-6edfce185465' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9fa20d9a-b145-4c88-8e1e-5b8b11b85ad2' class='xr-var-data-in' type='checkbox'><label for='data-9fa20d9a-b145-4c88-8e1e-5b8b11b85ad2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1146,7 +1158,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-14338786-4040-4872-8d30-7c03baaec2bf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-14338786-4040-4872-8d30-7c03baaec2bf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-88ae30a9-f977-4ccb-a5a5-f099c0a48d04' class='xr-var-data-in' type='checkbox'><label for='data-88ae30a9-f977-4ccb-a5a5-f099c0a48d04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-c019ca5b-dc0a-4b3b-8603-76a0487adaf2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c019ca5b-dc0a-4b3b-8603-76a0487adaf2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-636e3268-f599-457a-92ad-b2c980b6f266' class='xr-var-data-in' type='checkbox'><label for='data-636e3268-f599-457a-92ad-b2c980b6f266' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1186,7 +1198,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-83e3d659-13ef-4c3c-8286-b26d81c3105d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-83e3d659-13ef-4c3c-8286-b26d81c3105d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fe6bce20-2c8f-4c04-adff-a64505b28d8d' class='xr-var-data-in' type='checkbox'><label for='data-fe6bce20-2c8f-4c04-adff-a64505b28d8d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-2cfd0867-6aa2-458a-846d-13c9442f8381' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2cfd0867-6aa2-458a-846d-13c9442f8381' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-892020f2-730f-4e75-8615-64e166b011c6' class='xr-var-data-in' type='checkbox'><label for='data-892020f2-730f-4e75-8615-64e166b011c6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1226,7 +1238,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-178a0d04-db9f-4cfc-9ff0-6a6206c164b5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-178a0d04-db9f-4cfc-9ff0-6a6206c164b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e78f6535-614c-439f-b012-9ee642374ba1' class='xr-var-data-in' type='checkbox'><label for='data-e78f6535-614c-439f-b012-9ee642374ba1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-29902db5-4edb-4ec5-be14-c87a8545e9bd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-29902db5-4edb-4ec5-be14-c87a8545e9bd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d13f5e1b-3205-48e0-b835-796fdac7f012' class='xr-var-data-in' type='checkbox'><label for='data-d13f5e1b-3205-48e0-b835-796fdac7f012' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1266,7 +1278,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-e42d9576-17b5-498d-8d4e-f62a2fb7b00d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e42d9576-17b5-498d-8d4e-f62a2fb7b00d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2960cbd-7390-4ad1-8504-ee99ce7060ca' class='xr-var-data-in' type='checkbox'><label for='data-a2960cbd-7390-4ad1-8504-ee99ce7060ca' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-2d070d51-4ee4-4f8c-ab03-9529a76ef97a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2d070d51-4ee4-4f8c-ab03-9529a76ef97a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-64b3f3e3-3f8c-414d-94df-28eb35bcaca9' class='xr-var-data-in' type='checkbox'><label for='data-64b3f3e3-3f8c-414d-94df-28eb35bcaca9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1306,7 +1318,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-c4a375e9-e9fc-401f-b8e2-fe971eafc056' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c4a375e9-e9fc-401f-b8e2-fe971eafc056' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35ebb61a-cf3a-4c50-8bb8-00dd56bf9683' class='xr-var-data-in' type='checkbox'><label for='data-35ebb61a-cf3a-4c50-8bb8-00dd56bf9683' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-4850b9b3-cb0a-4a88-b734-b69fbbe5f510' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4850b9b3-cb0a-4a88-b734-b69fbbe5f510' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b61bfca-ac4e-49a9-8d01-a8f8e1048aba' class='xr-var-data-in' type='checkbox'><label for='data-4b61bfca-ac4e-49a9-8d01-a8f8e1048aba' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -1346,7 +1358,7 @@ Data variables:
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>3.703e+03 3.685e+03 ... 4.453e+03</div><input id='attrs-460f17b9-ad6c-4228-b7f9-e2f4df428ea0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-460f17b9-ad6c-4228-b7f9-e2f4df428ea0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-941fb844-05bc-475a-8b76-3809835d433b' class='xr-var-data-in' type='checkbox'><label for='data-941fb844-05bc-475a-8b76-3809835d433b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[3703.2485, 3684.7788, 3666.4033, ..., 3666.4033, 3684.7788,
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>3.703e+03 3.685e+03 ... 4.453e+03</div><input id='attrs-b724bdba-ac28-46a5-b15c-6daec413ebbc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b724bdba-ac28-46a5-b15c-6daec413ebbc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9beb0dff-14cd-4b34-a576-ff5ce0ae82c0' class='xr-var-data-in' type='checkbox'><label for='data-9beb0dff-14cd-4b34-a576-ff5ce0ae82c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[3703.2485, 3684.7788, 3666.4033, ..., 3666.4033, 3684.7788,
           3703.2485],
          [3684.7788, 3666.216 , 3647.747 , ..., 3647.747 , 3666.216 ,
           3684.7788],
@@ -1386,22 +1398,22 @@ Data variables:
          [4434.779 , 4416.2163, 4397.747 , ..., 4397.747 , 4416.2163,
           4434.779 ],
          [4453.2485, 4434.779 , 4416.4033, ..., 4416.4033, 4434.779 ,
-          4453.2485]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d1059e51-4b99-496b-88b3-bf1a44be702c' class='xr-section-summary-in' type='checkbox'  ><label for='section-d1059e51-4b99-496b-88b3-bf1a44be702c' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6203be03-9f47-4752-96a8-c954e4313c1f' class='xr-index-data-in' type='checkbox'/><label for='index-6203be03-9f47-4752-96a8-c954e4313c1f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:22:42],
-            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b240460a-2800-46eb-adc2-c9f96eff70fe' class='xr-index-data-in' type='checkbox'/><label for='index-b240460a-2800-46eb-adc2-c9f96eff70fe' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
+          4453.2485]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-20ec8c73-b1b1-4e8c-a7e6-97be86c30463' class='xr-section-summary-in' type='checkbox'  ><label for='section-20ec8c73-b1b1-4e8c-a7e6-97be86c30463' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-90b2945b-2b51-4d87-a2e5-2060e152fbea' class='xr-index-data-in' type='checkbox'/><label for='index-90b2945b-2b51-4d87-a2e5-2060e152fbea' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:27:41],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-080312f6-5d1c-45cc-b23e-eb5dcc6e8cb5' class='xr-index-data-in' type='checkbox'/><label for='index-080312f6-5d1c-45cc-b23e-eb5dcc6e8cb5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
         4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,  7000.0,  7500.0,
         8000.0,  8500.0,  9000.0,  9500.0, 10000.0, 10500.0, 11000.0, 11500.0,
        12000.0, 12500.0, 13000.0, 13500.0, 14000.0, 14500.0, 15000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-731c2bf9-2e3c-4667-838e-d27e674780b6' class='xr-index-data-in' type='checkbox'/><label for='index-731c2bf9-2e3c-4667-838e-d27e674780b6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4b657c01-799f-4c54-8cba-d3dc544fe56b' class='xr-index-data-in' type='checkbox'/><label for='index-4b657c01-799f-4c54-8cba-d3dc544fe56b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
         -94000.0,  -93000.0,  -92000.0,  -91000.0,
        ...
          91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
          97000.0,   98000.0,   99000.0,  100000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fb1041a1-5d83-4c06-9ffa-46ae403608f0' class='xr-index-data-in' type='checkbox'/><label for='index-fb1041a1-5d83-4c06-9ffa-46ae403608f0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-07eb9293-7c09-4ee5-aa23-37200d02b911' class='xr-index-data-in' type='checkbox'/><label for='index-07eb9293-7c09-4ee5-aa23-37200d02b911' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
         -94000.0,  -93000.0,  -92000.0,  -91000.0,
        ...
          91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
          97000.0,   98000.0,   99000.0,  100000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-21f897f5-ea94-45ff-b7cd-173fd92c4090' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-21f897f5-ea94-45ff-b7cd-173fd92c4090' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fccb9997-5045-4c2c-9bd6-0ff3f6ead6c1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fccb9997-5045-4c2c-9bd6-0ff3f6ead6c1' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Let’s make sure the grid looks good!</p>
 <div class="cell docutils container">
@@ -1415,10 +1427,10 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3bd718d290&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b8bc1d590&gt;
 </pre></div>
 </div>
-<img alt="../../_images/cfb73b0847a2daa97e5543b75c540d027f5ef1511df102b1f77b005e6e301841.png" src="../../_images/cfb73b0847a2daa97e5543b75c540d027f5ef1511df102b1f77b005e6e301841.png" />
+<img alt="../../_images/acb4bd641e84889617964984644bda3409dd5bbf8abaefc4f139a4291afd4a7e.png" src="../../_images/acb4bd641e84889617964984644bda3409dd5bbf8abaefc4f139a4291afd4a7e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1432,10 +1444,10 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3bd7396690&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b8bc34110&gt;
 </pre></div>
 </div>
-<img alt="../../_images/a33b04c412283109d3eb4143a009c66c59a442525712a48a38b1fed1d4f8aeb4.png" src="../../_images/a33b04c412283109d3eb4143a009c66c59a442525712a48a38b1fed1d4f8aeb4.png" />
+<img alt="../../_images/84b529b160e6a1ac1ecd7dc7f416db3097d5fa711a86727c99447775c888672a.png" src="../../_images/84b529b160e6a1ac1ecd7dc7f416db3097d5fa711a86727c99447775c888672a.png" />
 </div>
 </div>
 <div class="section" id="nexrad-data">
@@ -1537,7 +1549,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b94699910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b3ffd0810&gt;
 </pre></div>
 </div>
 <img alt="../../_images/eef81a8efabbf8c5d0d4f623e88cd22ed263d730a75ae4035fdc4a86fe60a2cf.png" src="../../_images/eef81a8efabbf8c5d0d4f623e88cd22ed263d730a75ae4035fdc4a86fe60a2cf.png" />
@@ -1554,7 +1566,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b95bb31d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b8bb0e9d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/03beaf151af885f5cd0d863f613fb804f38a78e5afa4fcfcfaf107262cff5229.png" src="../../_images/03beaf151af885f5cd0d863f613fb804f38a78e5afa4fcfcfaf107262cff5229.png" />
@@ -1571,7 +1583,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b9467ab50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f3b3ff3e9d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/0054e1bb418606674db0e0fd867773145a790e9834d07d58bff3980e2fd99427.png" src="../../_images/0054e1bb418606674db0e0fd867773145a790e9834d07d58bff3980e2fd99427.png" />
@@ -1730,371 +1742,355 @@ Data variables:
 Calculating weights for radars 1 and 0
 Calculating weights for models...
 Starting solver 
-rmsVR = 20.80588549699817
-Total points: 381210
+rmsVR = 21.001381127793604
+Total points: 417538
 The max of w_init is 0.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-      0|6416.9904|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000
+      0|6172.0877|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000|   0.0000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 12.12495239557637
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     10|2722.4633| 174.8725|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  10.1859
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 12.150193086745558
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 12.124359616189755
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     20|2722.2982| 174.9603|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  10.1898
+     10|2530.9787| 155.9970|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  10.8493
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 4.685123867680228
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     30|2314.7604|  76.7986|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   6.4176
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 7.369
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 6.749539366249316
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 12.150680856980925
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     40|1883.7585|  83.8079|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   7.3739
+     20|2530.8167| 156.0788|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  10.8536
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 6.752714308289048
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     50|1883.7561|  83.8087|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   7.3739
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 2.3104872675802097
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 5.156338066964254
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     60|1624.7944|  81.7418|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   8.1084
+     30|2130.9099|  63.0158|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   6.1905
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 4.123
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 6.580
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 5.460366371488419
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     70| 826.0558| 113.5365|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  11.3047
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 4.217
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.1851384750670517
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.9874725435817253
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     80| 581.3962| 105.4919|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  12.3414
+     40|1244.6826|  68.2368|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|   8.0836
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 3.509
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 5.120
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.8206720047369375
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-     90| 466.3507|  97.1082|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  12.7867
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.451
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.8584391462336353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.2412341766844577
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    100| 377.9280|  90.3053|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  12.8426
+     50| 722.2680|  74.0078|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  10.2082
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.458
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.033
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.536168617382979
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    110| 340.2323|  84.1497|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  14.7431
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.3812080651039782
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.8827488138356531
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    120| 330.8495|  83.2539|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  15.4581
+     60| 507.0073|  66.4436|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  11.0129
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.3812328116047676
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    130| 330.8495|  83.2539|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  15.4581
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.315
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2590121970361984
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.9742678691476832
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    140| 325.0543|  80.7275|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  15.4439
+     70| 451.2851|  67.5155|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  11.4335
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.545
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.3789368853127422
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.974422680043724
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    150| 314.8199|  75.6673|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  15.7999
+     80| 451.2850|  67.5155|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  11.4335
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.345
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.639
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.48021301459336735
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    160| 307.4118|  72.9627|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  16.3512
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.594
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 2.23782924461144
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 2.9107134106350263
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    170| 299.9649|  68.1606|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  17.9533
+     90| 436.3723|  64.5571|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  11.3857
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.399
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.725
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.2930328889711709
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    180| 292.3328|  64.8986|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  20.0415
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 2.765
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.7578912850956013
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.8932355885420143
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    190| 282.6097|  61.9330|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  22.3969
+    100| 386.8156|  62.0140|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.3877
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.4567361126974363
-Max change in w: 1.578
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.737
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    200| 270.3213|  60.5669|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  23.5626
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.27666618174684005
-Max change in w: 1.914
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.5652369346230995
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    210| 248.3295|  61.5691|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  25.0460
+    110| 353.4804|  58.8663|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.4588
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.22258819358189044
-Max change in w: 1.320
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    220| 236.9127|  62.0508|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.0819
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.45329603846586014
-Max change in w: 1.479
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.3731897567477618
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    230| 234.5272|  61.5391|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.6258
+    120| 353.1201|  59.0072|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.4592
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.701489675104713
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    240| 234.6443|  61.4047|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.9077
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.628102398200176
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 1.2436222331151787
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    250| 234.7045|  61.3155|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.9611
+    130| 353.0434|  58.8209|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.4584
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1624747496615701
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.025
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    260| 234.6487|  61.3135|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.9339
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.136
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1703891274487388
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.4973835486329529
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    270| 237.1776|  62.6899|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  27.4896
+    140| 341.0108|  54.8813|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.5175
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.170388764750651
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    280| 234.6918|  61.2648|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.9688
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.17038912744655763
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.7041252386846206
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    290| 234.6899|  61.2619|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.9688
+    150| 323.0764|  54.6125|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.8139
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2421366455874247
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    300| 233.6787|  60.0015|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.8040
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.15211403378065974
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.7098920656183063
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    310| 233.7652|  59.8739|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7656
+    160| 323.0746|  54.6137|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.8140
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1521645416374231
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    320| 233.7651|  59.8739|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7656
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.14061042191031914
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.40580414599572184
+Max change in w: 0.938
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    330| 233.8412|  59.7497|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7590
+    170| 324.0529|  53.4488|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.7916
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.505
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.15075303202469906
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    340| 233.8712|  59.7163|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7556
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1400154381653818
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2882053952956341
+Max change in w: 0.620
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    350| 233.8838|  59.7030|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7535
+    180| 308.8963|  53.8082|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  11.8321
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1383790729699552
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    360| 234.3783|  59.5624|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.6967
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.15165010088430264
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.3942438875819903
+Max change in w: 2.254
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    370| 233.9249|  59.6616|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7454
+    190| 279.3409|  53.6114|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  13.8575
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.12414946645712716
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    380| 233.9195|  59.6666|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7466
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.12967646180286702
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.38558901362804376
+Max change in w: 4.926
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    390| 233.9175|  59.6686|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7469
+    200| 236.7083|  51.8027|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  18.3365
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.10193282839799322
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    400| 233.9356|  59.6265|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7369
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.16364405577626956
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2562690771767815
+Max change in w: 1.231
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    410| 233.9506|  59.6109|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7327
+    210| 231.6093|  51.5665|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  19.0693
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.16342580844746618
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    420| 233.9505|  59.6110|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7327
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.16339550900372232
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.48864778589879554
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    430| 233.9505|  59.6110|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7327
+    220| 229.2364|  50.2691|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  19.5058
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.16342580840568213
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.079
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2468148913834536
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
-    440| 233.9505|  59.6110|   0.0002|   0.0000|   0.0000|   0.0000|   0.0000|  26.7327
+    230| 229.4715|  47.6644|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.0763
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.511
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.3198924084004819
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    240| 230.6604|  46.1916|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.3820
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2887667643882199
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    250| 231.0629|  45.7384|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.4754
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.19340851994276842
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    260| 231.2216|  45.5219|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.5229
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1862572576052888
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    270| 231.7137|  45.0241|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6471
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.18635601330344453
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    280| 231.7137|  45.0241|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6471
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 1.219
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.3618007240990505
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    290| 228.8675|  44.5333|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6199
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.36180047543222854
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    300| 228.6316|  44.6956|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6187
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.3618007240984825
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    310| 228.6324|  44.6898|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6185
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1129387492354565
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    320| 227.9623|  44.0041|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6223
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.598
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.13225745487711837
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    330| 226.5017|  42.9949|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6196
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.1779700782754869
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    340| 225.1384|  42.4939|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.6329
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.512
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.2992461391450468
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    350| 223.2696|  41.0641|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7637
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.222813428455791
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    360| 223.2696|  41.0641|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7637
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.22281408637133016
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    370| 223.2696|  41.0641|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7637
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max change in w: 0.933
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.15526207647606974
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    380| 222.8430|  40.4578|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7515
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08570593193223539
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    390| 222.9878|  40.2805|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7561
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08838504401947501
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    400| 222.9639|  40.3027|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7558
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08797045953677216
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    410| 222.9639|  40.3027|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7558
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the cost functions is 0.08838505016882779
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nfeval | Jvel    | Jmass   | Jsmooth |   Jbg   | Jvort   | Jmodel  | Jpoint  | Max w  
+    420| 222.9639|  40.3027|   0.0001|   0.0000|   0.0000|   0.0000|   0.0000|  20.7558
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Applying low pass filter to wind field...
-Done! Time = 577.6
+Done! Time = 671.4
 </pre></div>
 </div>
 </div>
@@ -2483,30 +2479,30 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
 Dimensions:                      (time: 1, z: 31, y: 201, x: 201)
 Coordinates:
-  * time                         (time) object 2008-04-11 18:22:42
+  * time                         (time) object 2008-04-11 18:27:41
   * z                            (z) float64 0.0 500.0 ... 1.45e+04 1.5e+04
     lat                          (y, x) float64 33.74 33.74 ... 35.54 35.54
     lon                          (y, x) float64 -87.85 -87.84 ... -85.68 -85.67
   * y                            (y) float64 -1e+05 -9.9e+04 ... 9.9e+04 1e+05
   * x                            (x) float64 -1e+05 -9.9e+04 ... 9.9e+04 1e+05
 Data variables: (12/15)
+    differential_reflectivity    (time, z, y, x) float32 nan nan nan ... nan nan
     spectrum_width               (time, z, y, x) float32 nan nan nan ... nan nan
-    specific_differential_phase  (time, z, y, x) float32 nan nan nan ... nan nan
-    total_power                  (time, z, y, x) float32 nan nan nan ... nan nan
-    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
     differential_phase           (time, z, y, x) float32 nan nan nan ... nan nan
     cross_correlation_ratio      (time, z, y, x) float32 nan nan nan ... nan nan
+    velocity                     (time, z, y, x) float32 nan nan nan ... nan nan
+    corrected_velocity           (time, z, y, x) float32 nan nan nan ... nan nan
     ...                           ...
     ROI                          (time, z, y, x) float32 3.703e+03 ... 4.453e+03
     u                            (time, z, y, x) float64 nan nan nan ... nan nan
     v                            (time, z, y, x) float64 nan nan nan ... nan nan
     w                            (time, z, y, x) float64 nan nan nan ... nan nan
     AZ                           (time, z, y, x) float64 225.0 224.7 ... 45.0
-    EL                           (time, z, y, x) float64 -0.5499 -0.5478 ... 5.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f61f92aa-ee37-422a-a416-3f8966419d55' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f61f92aa-ee37-422a-a416-3f8966419d55' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-446cd41a-703b-446d-aa77-658ca57a8604' class='xr-section-summary-in' type='checkbox'  checked><label for='section-446cd41a-703b-446d-aa77-658ca57a8604' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:22:42</div><input id='attrs-d42bd303-99eb-4841-9b76-cdc654c82c07' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d42bd303-99eb-4841-9b76-cdc654c82c07' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ad7a26ed-e9ef-4b2d-84c3-05aeff80660c' class='xr-var-data-in' type='checkbox'><label for='data-ad7a26ed-e9ef-4b2d-84c3-05aeff80660c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 22, 42, 0, has_year_zero=False)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-4bae6ecd-5219-4e2b-9245-d50e276ad80c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4bae6ecd-5219-4e2b-9245-d50e276ad80c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-41d245ed-16ee-4c2b-b07c-b0ed77d891e9' class='xr-var-data-in' type='checkbox'><label for='data-41d245ed-16ee-4c2b-b07c-b0ed77d891e9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+    EL                           (time, z, y, x) float64 -0.5499 -0.5478 ... 5.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-fce2eb7a-1da4-4f95-a77a-9a2b17f9f4ec' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fce2eb7a-1da4-4f95-a77a-9a2b17f9f4ec' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-fc55b309-d504-4106-86ea-26c3e14014b8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fc55b309-d504-4106-86ea-26c3e14014b8' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:27:41</div><input id='attrs-ceecb2fa-0f99-4bbd-90f3-6e89762a4af4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ceecb2fa-0f99-4bbd-90f3-6e89762a4af4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-51c20197-418a-49a0-83bc-422832084a50' class='xr-var-data-in' type='checkbox'><label for='data-51c20197-418a-49a0-83bc-422832084a50' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 27, 41, 0, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-5515496e-fe9c-4e2f-96fd-3d79f65a1e46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5515496e-fe9c-4e2f-96fd-3d79f65a1e46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a11b79a-28b5-4c62-898e-e9c308398ae9' class='xr-var-data-in' type='checkbox'><label for='data-7a11b79a-28b5-4c62-898e-e9c308398ae9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
         4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
         9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
-       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>33.74 33.74 33.74 ... 35.54 35.54</div><input id='attrs-47c4558c-ab35-4039-b3bb-fa414d6b3f54' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-47c4558c-ab35-4039-b3bb-fa414d6b3f54' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9043b1d1-9d65-43ee-9fa1-8fa4072e3208' class='xr-var-data-in' type='checkbox'><label for='data-9043b1d1-9d65-43ee-9fa1-8fa4072e3208' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[33.74208929, 33.74218458, 33.74227891, ..., 33.74227891,
+       13500., 14000., 14500., 15000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>33.74 33.74 33.74 ... 35.54 35.54</div><input id='attrs-76a4d15b-5370-42a5-a9c7-330a33787b5a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76a4d15b-5370-42a5-a9c7-330a33787b5a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15f07e12-6660-4290-be63-4c611c4309e9' class='xr-var-data-in' type='checkbox'><label for='data-15f07e12-6660-4290-be63-4c611c4309e9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[33.74208929, 33.74218458, 33.74227891, ..., 33.74227891,
         33.74218458, 33.74208929],
        [33.75108164, 33.75117695, 33.7512713 , ..., 33.7512713 ,
         33.75117695, 33.75108164],
@@ -2518,7 +2514,7 @@ Data variables: (12/15)
        [35.53156137, 35.53166022, 35.53175807, ..., 35.53175807,
         35.53166022, 35.53156137],
        [35.54055367, 35.54065253, 35.5407504 , ..., 35.5407504 ,
-        35.54065253, 35.54055367]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.85 -87.84 ... -85.68 -85.67</div><input id='attrs-85f7e372-03c5-4d7f-afb1-2c2aab0d2a31' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-85f7e372-03c5-4d7f-afb1-2c2aab0d2a31' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-083b4661-cff3-4dcc-8b4b-4fa12e1af0a0' class='xr-var-data-in' type='checkbox'><label for='data-083b4661-cff3-4dcc-8b4b-4fa12e1af0a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.85298099, -87.84216698, -87.83135294, ..., -85.71164694,
+        35.54065253, 35.54055367]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.85 -87.84 ... -85.68 -85.67</div><input id='attrs-0379195f-4e69-4aa3-afab-4abc692bc990' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0379195f-4e69-4aa3-afab-4abc692bc990' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1653cd69-c9c5-4c4e-a1f6-659f3ea4a873' class='xr-var-data-in' type='checkbox'><label for='data-1653cd69-c9c5-4c4e-a1f6-659f3ea4a873' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-87.85298099, -87.84216698, -87.83135294, ..., -85.71164694,
         -85.70083291, -85.69001889],
        [-87.85309529, -87.84228014, -87.83146496, ..., -85.71153492,
         -85.70071975, -85.68990459],
@@ -2530,7 +2526,7 @@ Data variables: (12/15)
        [-87.87657444, -87.86552458, -87.8544747 , ..., -85.68852518,
         -85.6774753 , -85.66642545],
        [-87.87669743, -87.86564635, -87.85459524, ..., -85.68840465,
-        -85.67735354, -85.66630245]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-69a221a1-ccb7-4520-8979-f4756cae5265' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69a221a1-ccb7-4520-8979-f4756cae5265' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2ae80e15-0c09-4dd9-9de2-d1a6c96320bb' class='xr-var-data-in' type='checkbox'><label for='data-2ae80e15-0c09-4dd9-9de2-d1a6c96320bb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-ea2ff1cf-6322-4a01-897e-49d21e5bae49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ea2ff1cf-6322-4a01-897e-49d21e5bae49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5cd08909-585a-41f5-a0a1-16132280ff37' class='xr-var-data-in' type='checkbox'><label for='data-5cd08909-585a-41f5-a0a1-16132280ff37' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c3ea43f2-a817-42ae-9da8-f50b15505a69' class='xr-section-summary-in' type='checkbox'  ><label for='section-c3ea43f2-a817-42ae-9da8-f50b15505a69' class='xr-section-summary' >Data variables: <span>(15)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-a716499d-a249-4860-8e69-910000d99875' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a716499d-a249-4860-8e69-910000d99875' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-72cf3d12-f39d-483e-8bed-a3c2cb152d6a' class='xr-var-data-in' type='checkbox'><label for='data-72cf3d12-f39d-483e-8bed-a3c2cb152d6a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+        -85.67735354, -85.66630245]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-0371828d-2056-4f29-bd3e-d9790f2dd6e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0371828d-2056-4f29-bd3e-d9790f2dd6e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f65933cb-f060-4e79-82fd-ebd7e21a196d' class='xr-var-data-in' type='checkbox'><label for='data-f65933cb-f060-4e79-82fd-ebd7e21a196d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-0c4553e2-a12f-4fa0-8a33-c1b4dc07fb11' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0c4553e2-a12f-4fa0-8a33-c1b4dc07fb11' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a10b302-2a28-43bf-9f81-3f1ff563da30' class='xr-var-data-in' type='checkbox'><label for='data-6a10b302-2a28-43bf-9f81-3f1ff563da30' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3bf10cca-bf52-4b0c-8787-a15c53c218a2' class='xr-section-summary-in' type='checkbox'  ><label for='section-3bf10cca-bf52-4b0c-8787-a15c53c218a2' class='xr-section-summary' >Data variables: <span>(15)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0aa58fb7-ab87-4b93-810f-59afe0abcc49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0aa58fb7-ab87-4b93-810f-59afe0abcc49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5478669a-9161-46cf-8735-af5a3c600ad8' class='xr-var-data-in' type='checkbox'><label for='data-5478669a-9161-46cf-8735-af5a3c600ad8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2570,7 +2566,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b16d98d0-4ecb-4368-a0b3-8d1f21f88c6f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b16d98d0-4ecb-4368-a0b3-8d1f21f88c6f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bab2a780-798f-462d-bd0e-60dd805f8e7a' class='xr-var-data-in' type='checkbox'><label for='data-bab2a780-798f-462d-bd0e-60dd805f8e7a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spectrum_width</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-3caf9b6e-8109-4950-b4dd-9af9ebdaef01' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3caf9b6e-8109-4950-b4dd-9af9ebdaef01' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e1a7cea4-bd0e-4621-9a71-7989bd467870' class='xr-var-data-in' type='checkbox'><label for='data-e1a7cea4-bd0e-4621-9a71-7989bd467870' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>doppler_spectrum_width</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2610,7 +2606,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-c0bf0cef-f795-4629-b2cf-e151fe52d926' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c0bf0cef-f795-4629-b2cf-e151fe52d926' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-76346c49-b928-4817-be72-1dd7db07d73e' class='xr-var-data-in' type='checkbox'><label for='data-76346c49-b928-4817-be72-1dd7db07d73e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-2b4b1424-1f23-4f2f-990f-1d6fc1e5fdf4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2b4b1424-1f23-4f2f-990f-1d6fc1e5fdf4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d02f1503-0f98-439e-a847-85924c76d072' class='xr-var-data-in' type='checkbox'><label for='data-d02f1503-0f98-439e-a847-85924c76d072' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2650,7 +2646,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-51cf6545-cfb9-4d0d-947e-df1e2fb31338' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51cf6545-cfb9-4d0d-947e-df1e2fb31338' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8a7b3e6-a7a9-4ebd-afd6-659c26a51e0f' class='xr-var-data-in' type='checkbox'><label for='data-a8a7b3e6-a7a9-4ebd-afd6-659c26a51e0f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-acaf915b-eb2c-412e-bff5-801f959bb070' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-acaf915b-eb2c-412e-bff5-801f959bb070' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6684059b-bb6e-4e7e-9102-f5ad33eccad4' class='xr-var-data-in' type='checkbox'><label for='data-6684059b-bb6e-4e7e-9102-f5ad33eccad4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2690,7 +2686,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-d0d57b36-5e0e-4bb9-afa1-b38d9ad88f9a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d0d57b36-5e0e-4bb9-afa1-b38d9ad88f9a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c151a562-0dd4-485f-9982-23bed02e84f1' class='xr-var-data-in' type='checkbox'><label for='data-c151a562-0dd4-485f-9982-23bed02e84f1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees</dd><dt><span>standard_name :</span></dt><dd>differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Differential phase (PhiDP)</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-9cea4e83-ad22-4d5a-bf30-f8c52baad7a2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9cea4e83-ad22-4d5a-bf30-f8c52baad7a2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d51adc7a-41d2-49f8-8459-c890b6989dda' class='xr-var-data-in' type='checkbox'><label for='data-d51adc7a-41d2-49f8-8459-c890b6989dda' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Mean dopper velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2730,7 +2726,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>cross_correlation_ratio</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-8bf77823-5136-405a-a018-569102bf9d50' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8bf77823-5136-405a-a018-569102bf9d50' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-67358810-216e-4512-910e-7379843c48ee' class='xr-var-data-in' type='checkbox'><label for='data-67358810-216e-4512-910e-7379843c48ee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ratio</dd><dt><span>standard_name :</span></dt><dd>cross_correlation_ratio_hv</dd><dt><span>long_name :</span></dt><dd>Cross correlation ratio (RHOHV)</dd><dt><span>valid_max :</span></dt><dd>1.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-b4c5bd17-d52a-4670-8dee-54f16d11be6e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b4c5bd17-d52a-4670-8dee-54f16d11be6e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-10588916-83bb-4f8d-9b6b-8426874cb0cb' class='xr-var-data-in' type='checkbox'><label for='data-10588916-83bb-4f8d-9b6b-8426874cb0cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2770,7 +2766,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>corrected_velocity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0140e993-ef2b-4160-be10-23c1a5b6c970' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0140e993-ef2b-4160-be10-23c1a5b6c970' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8bf3b28-e48a-4474-a093-9499e96304f5' class='xr-var-data-in' type='checkbox'><label for='data-a8bf3b28-e48a-4474-a093-9499e96304f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>corrected_radial_velocity_of_scatterers_away_from_instrument</dd><dt><span>long_name :</span></dt><dd>Corrected mean doppler velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-2ca5f7ee-ac1d-42c0-9d75-82ff50071932' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2ca5f7ee-ac1d-42c0-9d75-82ff50071932' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8e13c936-b519-4f37-a40d-29ad901f2a75' class='xr-var-data-in' type='checkbox'><label for='data-8e13c936-b519-4f37-a40d-29ad901f2a75' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2810,7 +2806,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>differential_reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-498bde73-d65e-4b64-a1d2-6e574db67d45' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-498bde73-d65e-4b64-a1d2-6e574db67d45' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-95c536e3-e83c-4e9b-956c-dc14c5d6f047' class='xr-var-data-in' type='checkbox'><label for='data-95c536e3-e83c-4e9b-956c-dc14c5d6f047' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dB</dd><dt><span>standard_name :</span></dt><dd>log_differential_reflectivity_hv</dd><dt><span>long_name :</span></dt><dd>Differential reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>specific_differential_phase</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-36b40ca8-a5c1-4686-afad-ae41eb5df1a7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-36b40ca8-a5c1-4686-afad-ae41eb5df1a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6734736d-6655-4ac7-9d5c-3d37405441f0' class='xr-var-data-in' type='checkbox'><label for='data-6734736d-6655-4ac7-9d5c-3d37405441f0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees/km</dd><dt><span>standard_name :</span></dt><dd>specific_differential_phase_hv</dd><dt><span>long_name :</span></dt><dd>Specific differential phase (KDP)</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2850,7 +2846,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-df57313f-eff0-4f1c-9c81-7b9bd31fe7da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-df57313f-eff0-4f1c-9c81-7b9bd31fe7da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-59b462b2-d553-47dc-a6b7-abb12bbe1ed1' class='xr-var-data-in' type='checkbox'><label for='data-59b462b2-d553-47dc-a6b7-abb12bbe1ed1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>total_power</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-a1e2df5e-e0c7-4db6-9fb5-fac3b36fb97d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a1e2df5e-e0c7-4db6-9fb5-fac3b36fb97d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38511693-6e5d-4186-91cf-809b70037d69' class='xr-var-data-in' type='checkbox'><label for='data-38511693-6e5d-4186-91cf-809b70037d69' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Total power</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2890,7 +2886,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>3.703e+03 3.685e+03 ... 4.453e+03</div><input id='attrs-b0963788-5dc9-4d2d-97f4-4b3909d03374' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b0963788-5dc9-4d2d-97f4-4b3909d03374' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-55a3d37b-6ceb-4f0f-854e-a15c4e184bb7' class='xr-var-data-in' type='checkbox'><label for='data-55a3d37b-6ceb-4f0f-854e-a15c4e184bb7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[3703.2485, 3684.7788, 3666.4033, ..., 3666.4033, 3684.7788,
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>3.703e+03 3.685e+03 ... 4.453e+03</div><input id='attrs-8669748b-94eb-46ae-927d-5f129fa3d3f6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8669748b-94eb-46ae-927d-5f129fa3d3f6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dc282800-c0a9-4b7c-902d-76a501825b39' class='xr-var-data-in' type='checkbox'><label for='data-dc282800-c0a9-4b7c-902d-76a501825b39' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[3703.2485, 3684.7788, 3666.4033, ..., 3666.4033, 3684.7788,
           3703.2485],
          [3684.7788, 3666.216 , 3647.747 , ..., 3647.747 , 3666.216 ,
           3684.7788],
@@ -2930,7 +2926,7 @@ Data variables: (12/15)
          [4434.779 , 4416.2163, 4397.747 , ..., 4397.747 , 4416.2163,
           4434.779 ],
          [4453.2485, 4434.779 , 4416.4033, ..., 4416.4033, 4434.779 ,
-          4453.2485]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>u</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-a186a1ec-aea9-41ab-aee7-5940b9c7d3aa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a186a1ec-aea9-41ab-aee7-5940b9c7d3aa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c82000b6-0eac-4011-ac59-e970d8f8cae4' class='xr-var-data-in' type='checkbox'><label for='data-c82000b6-0eac-4011-ac59-e970d8f8cae4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>u_wind</dd><dt><span>long_name :</span></dt><dd>meridional component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+          4453.2485]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>u</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-561acd8a-e81d-4874-892a-4a116eb56555' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-561acd8a-e81d-4874-892a-4a116eb56555' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f98eb8eb-fb24-4dbd-a433-692a1572c5b2' class='xr-var-data-in' type='checkbox'><label for='data-f98eb8eb-fb24-4dbd-a433-692a1572c5b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>u_wind</dd><dt><span>long_name :</span></dt><dd>meridional component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -2970,7 +2966,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>v</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-77f5bd8c-574c-48ae-a3bd-a1f51fb00b05' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-77f5bd8c-574c-48ae-a3bd-a1f51fb00b05' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-36d7a03e-e17c-4d39-925b-35691eefb23a' class='xr-var-data-in' type='checkbox'><label for='data-36d7a03e-e17c-4d39-925b-35691eefb23a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>v_wind</dd><dt><span>long_name :</span></dt><dd>zonal component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>v</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-4cb94cfc-7220-4bc3-9dd8-534a61e72364' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4cb94cfc-7220-4bc3-9dd8-534a61e72364' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1a45fd44-8c2f-4f7d-b6c4-904064301918' class='xr-var-data-in' type='checkbox'><label for='data-1a45fd44-8c2f-4f7d-b6c4-904064301918' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>v_wind</dd><dt><span>long_name :</span></dt><dd>zonal component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -3010,7 +3006,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>w</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-82440495-5ede-4c44-8820-563c88f80d5f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82440495-5ede-4c44-8820-563c88f80d5f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7611a5a7-3d1a-4cfa-8c72-3b1708673e4a' class='xr-var-data-in' type='checkbox'><label for='data-7611a5a7-3d1a-4cfa-8c72-3b1708673e4a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>w_wind</dd><dt><span>long_name :</span></dt><dd>vertical component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>w</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-0f69b17b-c4fa-4aee-8d38-00c3faa76b6f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0f69b17b-c4fa-4aee-8d38-00c3faa76b6f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c2e8d3d5-ad0f-484a-9b89-1fccee52d960' class='xr-var-data-in' type='checkbox'><label for='data-c2e8d3d5-ad0f-484a-9b89-1fccee52d960' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters_per_second</dd><dt><span>standard_name :</span></dt><dd>w_wind</dd><dt><span>long_name :</span></dt><dd>vertical component of wind velocity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd><dt><span>valid_min :</span></dt><dd>-80.39999961853027</dd><dt><span>valid_max :</span></dt><dd>80.39999961853027</dd><dt><span>min_bca :</span></dt><dd>30.0</dd><dt><span>max_bca :</span></dt><dd>150.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
          ...,
@@ -3050,7 +3046,7 @@ Data variables: (12/15)
          ...,
          [nan, nan, nan, ..., nan, nan, nan],
          [nan, nan, nan, ..., nan, nan, nan],
-         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>AZ</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>225.0 224.7 224.4 ... 44.71 45.0</div><input id='attrs-d94735bc-cea4-490e-8cf5-649814bd0764' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d94735bc-cea4-490e-8cf5-649814bd0764' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f2c2a18d-2701-4e5f-9f83-59b081a6e2f2' class='xr-var-data-in' type='checkbox'><label for='data-f2c2a18d-2701-4e5f-9f83-59b081a6e2f2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[225.        , 224.71208393, 224.42127443, ..., 135.57872557,
+         [nan, nan, nan, ..., nan, nan, nan]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>AZ</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>225.0 224.7 224.4 ... 44.71 45.0</div><input id='attrs-4098ed34-d064-42bc-a514-16699cc3582d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4098ed34-d064-42bc-a514-16699cc3582d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ea6bf98d-3636-4fd1-b281-dcf71da30b71' class='xr-var-data-in' type='checkbox'><label for='data-ea6bf98d-3636-4fd1-b281-dcf71da30b71' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[225.        , 224.71208393, 224.42127443, ..., 135.57872557,
           135.28791607, 135.        ],
          [225.28791607, 225.        , 224.70916098, ..., 135.29083902,
           135.        , 134.71208393],
@@ -3090,7 +3086,7 @@ Data variables: (12/15)
          [314.71208393, 315.        , 315.29083902, ...,  44.70916098,
            45.        ,  45.28791607],
          [315.        , 315.28791607, 315.57872557, ...,  44.42127443,
-           44.71208393,  45.        ]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EL</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.5499 -0.5478 ... 5.532 5.5</div><input id='attrs-5f7f707c-188e-44ea-9940-e20e6a3c8255' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5f7f707c-188e-44ea-9940-e20e6a3c8255' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a3ba4fe5-c80e-43d8-90f2-b4eda710f17d' class='xr-var-data-in' type='checkbox'><label for='data-a3ba4fe5-c80e-43d8-90f2-b4eda710f17d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[-0.54986102, -0.54784787, -0.54584861, ..., -0.54584861,
+           44.71208393,  45.        ]]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EL</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.5499 -0.5478 ... 5.532 5.5</div><input id='attrs-a6e6bced-a463-473f-93df-7990a7057352' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a6e6bced-a463-473f-93df-7990a7057352' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-57a86ee4-35b2-4620-a0b5-48585c597cfb' class='xr-var-data-in' type='checkbox'><label for='data-57a86ee4-35b2-4620-a0b5-48585c597cfb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees from north</dd><dt><span>long_name :</span></dt><dd>Azimuth</dd><dt><span>standard_name :</span></dt><dd>Azimuth</dd><dt><span>missing_value :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[-0.54986102, -0.54784787, -0.54584861, ..., -0.54584861,
           -0.54784787, -0.54986102],
          [-0.54784787, -0.54582828, -0.54382262, ..., -0.54382262,
           -0.54582828, -0.54784787],
@@ -3130,22 +3126,22 @@ Data variables: (12/15)
          [ 5.53214866,  5.56472982,  5.59744839, ...,  5.59744839,
            5.56472982,  5.53214866],
          [ 5.50002793,  5.53214866,  5.56440004, ...,  5.56440004,
-           5.53214866,  5.50002793]]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ef514352-8aed-403c-b575-da1675149e6f' class='xr-section-summary-in' type='checkbox'  ><label for='section-ef514352-8aed-403c-b575-da1675149e6f' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-196849ee-e74a-4609-b94f-6540f6d42175' class='xr-index-data-in' type='checkbox'/><label for='index-196849ee-e74a-4609-b94f-6540f6d42175' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:22:42],
-            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7aeba962-502d-4fe3-a2c7-4e9ae3fe18a4' class='xr-index-data-in' type='checkbox'/><label for='index-7aeba962-502d-4fe3-a2c7-4e9ae3fe18a4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
+           5.53214866,  5.50002793]]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0f65e791-b3a5-4254-a424-22ca8039c763' class='xr-section-summary-in' type='checkbox'  ><label for='section-0f65e791-b3a5-4254-a424-22ca8039c763' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fd24803d-b16a-48a1-8ecd-f717764cfaa5' class='xr-index-data-in' type='checkbox'/><label for='index-fd24803d-b16a-48a1-8ecd-f717764cfaa5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:27:41],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d597d6df-adae-4104-b6bf-103bb5faf2f8' class='xr-index-data-in' type='checkbox'/><label for='index-d597d6df-adae-4104-b6bf-103bb5faf2f8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
         4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,  7000.0,  7500.0,
         8000.0,  8500.0,  9000.0,  9500.0, 10000.0, 10500.0, 11000.0, 11500.0,
        12000.0, 12500.0, 13000.0, 13500.0, 14000.0, 14500.0, 15000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1d7020f2-0749-45aa-9a46-14e94d1cb339' class='xr-index-data-in' type='checkbox'/><label for='index-1d7020f2-0749-45aa-9a46-14e94d1cb339' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1aa67df4-e549-418c-91a2-8906141dde09' class='xr-index-data-in' type='checkbox'/><label for='index-1aa67df4-e549-418c-91a2-8906141dde09' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
         -94000.0,  -93000.0,  -92000.0,  -91000.0,
        ...
          91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
          97000.0,   98000.0,   99000.0,  100000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-de4aad55-c8cd-4479-a51d-01fd4c6867c3' class='xr-index-data-in' type='checkbox'/><label for='index-de4aad55-c8cd-4479-a51d-01fd4c6867c3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-09082336-8c21-422b-acbc-51be32f81819' class='xr-index-data-in' type='checkbox'/><label for='index-09082336-8c21-422b-acbc-51be32f81819' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
         -94000.0,  -93000.0,  -92000.0,  -91000.0,
        ...
          91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
          97000.0,   98000.0,   99000.0,  100000.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c5e2206c-8635-479c-afd9-7f256e8e3f1d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c5e2206c-8635-479c-afd9-7f256e8e3f1d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7167e12b-587e-4f4b-bc8d-688fb1a71bbb' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7167e12b-587e-4f4b-bc8d-688fb1a71bbb' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3155,10 +3151,10 @@ Data variables: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f3b94645fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f3b3ff1bed0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/841d141953484029f8329418fd9d82636642fd65d108b2b5f7c9db724494596b.png" src="../../_images/841d141953484029f8329418fd9d82636642fd65d108b2b5f7c9db724494596b.png" />
+<img alt="../../_images/36b047947cfe8b033d1693f879493da69a64e3a3639e1dd16c8946f051fae8aa.png" src="../../_images/36b047947cfe8b033d1693f879493da69a64e3a3639e1dd16c8946f051fae8aa.png" />
 </div>
 </div>
 </div>
@@ -3256,7 +3252,7 @@ Data variables: (12/15)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;PyDDA retreived winds @3.18 km&#39;}, xlabel=&#39;X [km]&#39;, ylabel=&#39;Y [km]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/cd9cdea11655aa51ca5fb741f6c3bb6267027b477ce20730a01913c916c7c844.png" src="../../_images/cd9cdea11655aa51ca5fb741f6c3bb6267027b477ce20730a01913c916c7c844.png" />
+<img alt="../../_images/f65750644833037ee15cea95570e517778fb3df0b5c1e2c661bc0777b68ddf04.png" src="../../_images/f65750644833037ee15cea95570e517778fb3df0b5c1e2c661bc0777b68ddf04.png" />
 </div>
 </div>
 <p>We can zoom in and modify the plot using standard matplotlib functions on the axis handle.</p>
@@ -3278,7 +3274,7 @@ Data variables: (12/15)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 15.0)
 </pre></div>
 </div>
-<img alt="../../_images/0ebee96fca4a881ffca6a4f8135536b6b5f4e721c034f260aa3fca48aa6b0f02.png" src="../../_images/0ebee96fca4a881ffca6a4f8135536b6b5f4e721c034f260aa3fca48aa6b0f02.png" />
+<img alt="../../_images/7ed6d52d0a7f24861ac9db727c06163d08e872fac2e4926a2ccf296d855d68fc.png" src="../../_images/7ed6d52d0a7f24861ac9db727c06163d08e872fac2e4926a2ccf296d855d68fc.png" />
 </div>
 </div>
 <p>Let’s view a horizontal cross section with barbs!</p>
@@ -3297,7 +3293,7 @@ Data variables: (12/15)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 70.0)
 </pre></div>
 </div>
-<img alt="../../_images/60e4ad8fbb0e93614cb6d7387f78624185c08ccd8440462fdb97bb372d87bee1.png" src="../../_images/60e4ad8fbb0e93614cb6d7387f78624185c08ccd8440462fdb97bb372d87bee1.png" />
+<img alt="../../_images/032a34a7a88496e921adfb2b00c766085630822721758444a97ed40e3382a84b.png" src="../../_images/032a34a7a88496e921adfb2b00c766085630822721758444a97ed40e3382a84b.png" />
 </div>
 </div>
 </div>
@@ -3378,7 +3374,7 @@ Data variables: (12/15)
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 2 August 2023.
+          Last updated on 8 August 2023.
         </p>
       </div>
     </div>
