@@ -450,7 +450,7 @@ preGridded = "n";
 // Type: string
 //
 
-inDir = "../data/";
+inDir = "./data/";
 
 ///////////// fileRegex ///////////////////////////////
 //
@@ -493,7 +493,7 @@ outTxt = "fractl_verif.txt";
 // Type: string
 //
 
-outNc = "../output_frac/";
+outNc = "./output_frac/";
 
 //======================================================================
 //
