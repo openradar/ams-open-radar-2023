@@ -1,0 +1,1505 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wradlib time series data and quasi vertical profiles &#8212; AMS Open Radar Short Course 2023</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://openradarscience.org">
+  <img src="../../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://openradarscience.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/radar-cookbook">Radar Cookbook</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/openradar" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   AMS Open Radar Short Course 2023
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pyart/README.html">
+   Py-ART Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-basics.html">
+     Py-ART Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-corrections.html">
+     Py-ART Corrections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-gridding.html">
+     Py-ART Gridding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Wradlib Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lrose/README.html">
+   LROSE Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lrose/LROSE_Wind_tutorial.html">
+     LROSE Wind Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tobac/README.html">
+   TOBAC
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pydda/README.html">
+   PyDDA
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pydda/Retrieving_winds_with_pydda.html">
+     PyDDA tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/wradlib/wradlib_quasi_vertical_profiles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/openradar/ams-open-radar-2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/openradar/ams-open-radar-2022//issues/new?title=Issue%20on%20page%20%2Fnotebooks/wradlib/wradlib_quasi_vertical_profiles.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2022/edit/main/notebooks/wradlib/wradlib_quasi_vertical_profiles.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2022/main?urlpath=lab/tree/notebooks/wradlib/wradlib_quasi_vertical_profiles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-australian-radar-data">
+   Import Australian Radar Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-quasi-vertical-profile-qvp">
+   Single Quasi Vertical Profile (QVP)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timeseries-qvp">
+   TimeSeries QVP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#georeference-and-add-height-coordinate">
+     Georeference and add height coordinate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-statistics">
+     Calculate Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-qvps">
+     Plot QVP’s
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-and-references">
+   Resources and references
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <p><a class="reference internal" href="notebooks/images/logos/wradlib_logo.svg.png"><img alt="wradlib logo png" class="align-left" src="notebooks/images/logos/wradlib_logo.svg.png" style="width: 250px;" /></a></img></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="wradlib-time-series-data-and-quasi-vertical-profiles">
+<h1>wradlib time series data and quasi vertical profiles<a class="headerlink" href="#wradlib-time-series-data-and-quasi-vertical-profiles" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<hr class="docutils" />
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Within this notebook, we will cover:</p>
+<ol class="arabic simple">
+<li><p>Reading radar sweep timeseries data into xarray based RadarVolume</p></li>
+<li><p>Examination of RadarVolume and Sweep</p></li>
+<li><p>Calculation of Quasivertical Profiles and Plotting</p></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/matplotlib/matplotlib-basics.html">Matplotlib Basics</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic Plotting</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://tutorial.xarray.dev/intro.html">Xarray Basics</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic Dataset/DataArray</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://tutorial.xarray.dev/intro.html">Xarray Plotting</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic Plotting/Faceting</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 7.5 minutes</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span> <span class="k">as</span> <span class="n">tqdm</span>
+
+<span class="kn">import</span> <span class="nn">wradlib</span> <span class="k">as</span> <span class="nn">wrl</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-australian-radar-data">
+<h2>Import Australian Radar Data<a class="headerlink" href="#import-australian-radar-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>It is assumed, that data from IDR71 (Terrey Hills, Sidney) from 20th of December 2018 is used in this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fglob</span> <span class="o">=</span> <span class="s2">&quot;data/hdf5/terrey_*.h5&quot;</span>
+<span class="n">idr71</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">fglob</span><span class="p">)</span>
+<span class="n">idr71</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Files available: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idr71</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Files available: 40
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="single-quasi-vertical-profile-qvp">
+<h2>Single Quasi Vertical Profile (QVP)<a class="headerlink" href="#single-quasi-vertical-profile-qvp" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odh</span> <span class="o">=</span> <span class="n">wrl</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">open_odim_dataset</span><span class="p">(</span><span class="n">idr71</span><span class="p">[</span><span class="mi">24</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/wradlib/io/hdf.py:92: FutureWarning: `open_odim_dataset` functionality has been moved to `xradar`-package and will be removed in 2.0. Use `open_odim_datatree` from `xradar`-package.
+  return open_radar_dataset(filename_or_obj, engine=OdimBackendEntrypoint, **kwargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">odh</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wradlib.RadarVolume&gt;
+Dimension(s): (sweep: 1)
+Elevation(s): (32.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example shows how to create a so called QVP. We need to define a function to add a height coordinate for plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_height</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">wrl</span><span class="o">.</span><span class="n">georef</span><span class="o">.</span><span class="n">georeference_dataset</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="p">([</span><span class="s2">&quot;range&quot;</span><span class="p">],</span> <span class="n">height</span><span class="o">.</span><span class="n">data</span><span class="p">)})</span>
+    <span class="k">return</span> <span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">swp</span> <span class="o">=</span> <span class="n">odh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_height</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">swp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:            (azimuth: 360, range: 200)
+Coordinates: (12/16)
+  * azimuth            (azimuth) float32 0.5 1.5 2.5 3.5 ... 357.5 358.5 359.5
+    elevation          (azimuth) float32 32.0 32.0 32.0 32.0 ... 32.0 32.0 32.0
+    rtime              (azimuth) datetime64[ns] ...
+  * range              (range) float32 125.0 375.0 625.0 ... 4.962e+04 4.988e+04
+    sweep_mode         &lt;U20 &#x27;azimuth_surveillance&#x27;
+    longitude          float64 151.2
+    ...                 ...
+    y                  (azimuth, range) float32 106.0 318.0 ... 4.216e+04
+    z                  (azimuth, range) float32 262.0 395.0 ... 2.673e+04
+    gr                 (azimuth, range) float32 106.0 318.0 ... 4.216e+04
+    rays               (azimuth, range) float32 0.5 0.5 0.5 ... 359.5 359.5
+    bins               (azimuth, range) float32 125.0 375.0 ... 4.988e+04
+    height             (range) float32 262.0 395.0 527.0 ... 2.66e+04 2.673e+04
+Data variables:
+    DBZH               (azimuth, range) float32 ...
+    VRADH              (azimuth, range) float32 ...
+    WRADH              (azimuth, range) float32 ...
+    TH                 (azimuth, range) float32 ...
+    ZDR                (azimuth, range) float32 ...
+    RHOHV              (azimuth, range) float32 ...
+    PHIDP              (azimuth, range) float32 ...
+    SNRH               (azimuth, range) float32 ...
+    sweep_number       int64 ...
+    prt_mode           &lt;U7 ...
+    follow_mode        &lt;U7 ...
+    sweep_fixed_angle  float64 32.0
+Attributes:
+    fixed_angle:  32.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-bac52932-62f6-424d-ad25-5fa61f256e94' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bac52932-62f6-424d-ad25-5fa61f256e94' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>azimuth</span>: 360</li><li><span class='xr-has-index'>range</span>: 200</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-571d968c-e6c6-46f7-ad48-146e663eff91' class='xr-section-summary-in' type='checkbox'  checked><label for='section-571d968c-e6c6-46f7-ad48-146e663eff91' class='xr-section-summary' >Coordinates: <span>(16)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>azimuth</span></div><div class='xr-var-dims'>(azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-cafc9d4e-2c8b-407e-9af0-47e37f9e8b9f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cafc9d4e-2c8b-407e-9af0-47e37f9e8b9f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8632a5cc-1ff1-49e0-84c3-14f7d2557a50' class='xr-var-data-in' type='checkbox'><label for='data-8632a5cc-1ff1-49e0-84c3-14f7d2557a50' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>ray_azimuth_angle</dd><dt><span>long_name :</span></dt><dd>azimuth_angle_from_true_north</dd><dt><span>units :</span></dt><dd>degrees</dd><dt><span>axis :</span></dt><dd>radial_azimuth_coordinate</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>elevation</span></div><div class='xr-var-dims'>(azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>32.0 32.0 32.0 ... 32.0 32.0 32.0</div><input id='attrs-3a951c2b-aecb-4325-9d77-720e7549b1dd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3a951c2b-aecb-4325-9d77-720e7549b1dd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-252c899d-3cca-4793-a5ab-115c35dbde84' class='xr-var-data-in' type='checkbox'><label for='data-252c899d-3cca-4793-a5ab-115c35dbde84' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>ray_elevation_angle</dd><dt><span>long_name :</span></dt><dd>elevation_angle_from_horizontal_plane</dd><dt><span>units :</span></dt><dd>degrees</dd><dt><span>axis :</span></dt><dd>radial_elevation_coordinate</dd></dl></div><div class='xr-var-data'><pre>array([32., 32., 32., ..., 32., 32., 32.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rtime</span></div><div class='xr-var-dims'>(azimuth)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c746e7cc-6e4e-40e5-a34b-b80d7609f0ff' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c746e7cc-6e4e-40e5-a34b-b80d7609f0ff' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a79d4b59-9e81-4be4-9f34-1e4c1ea87a69' class='xr-var-data-in' type='checkbox'><label for='data-a79d4b59-9e81-4be4-9f34-1e4c1ea87a69' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>[360 values with dtype=datetime64[ns]]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>range</span></div><div class='xr-var-dims'>(range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>125.0 375.0 ... 4.962e+04 4.988e+04</div><input id='attrs-f49d3271-d60b-4d87-b755-797e1fcdaf37' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f49d3271-d60b-4d87-b755-797e1fcdaf37' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5b5131ce-804f-4b71-9df7-4e3ee30d9e32' class='xr-var-data-in' type='checkbox'><label for='data-5b5131ce-804f-4b71-9df7-4e3ee30d9e32' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>meters</dd><dt><span>standard_name :</span></dt><dd>projection_range_coordinate</dd><dt><span>long_name :</span></dt><dd>range_to_measurement_volume</dd><dt><span>axis :</span></dt><dd>radial_range_coordinate</dd><dt><span>meters_between_gates :</span></dt><dd>250.0</dd><dt><span>spacing_is_constant :</span></dt><dd>true</dd><dt><span>meters_to_center_of_first_gate :</span></dt><dd>125.0</dd></dl></div><div class='xr-var-data'><pre>array([  125.,   375.,   625.,   875.,  1125.,  1375.,  1625.,  1875.,  2125.,
+        2375.,  2625.,  2875.,  3125.,  3375.,  3625.,  3875.,  4125.,  4375.,
+        4625.,  4875.,  5125.,  5375.,  5625.,  5875.,  6125.,  6375.,  6625.,
+        6875.,  7125.,  7375.,  7625.,  7875.,  8125.,  8375.,  8625.,  8875.,
+        9125.,  9375.,  9625.,  9875., 10125., 10375., 10625., 10875., 11125.,
+       11375., 11625., 11875., 12125., 12375., 12625., 12875., 13125., 13375.,
+       13625., 13875., 14125., 14375., 14625., 14875., 15125., 15375., 15625.,
+       15875., 16125., 16375., 16625., 16875., 17125., 17375., 17625., 17875.,
+       18125., 18375., 18625., 18875., 19125., 19375., 19625., 19875., 20125.,
+       20375., 20625., 20875., 21125., 21375., 21625., 21875., 22125., 22375.,
+       22625., 22875., 23125., 23375., 23625., 23875., 24125., 24375., 24625.,
+       24875., 25125., 25375., 25625., 25875., 26125., 26375., 26625., 26875.,
+       27125., 27375., 27625., 27875., 28125., 28375., 28625., 28875., 29125.,
+       29375., 29625., 29875., 30125., 30375., 30625., 30875., 31125., 31375.,
+       31625., 31875., 32125., 32375., 32625., 32875., 33125., 33375., 33625.,
+       33875., 34125., 34375., 34625., 34875., 35125., 35375., 35625., 35875.,
+       36125., 36375., 36625., 36875., 37125., 37375., 37625., 37875., 38125.,
+       38375., 38625., 38875., 39125., 39375., 39625., 39875., 40125., 40375.,
+       40625., 40875., 41125., 41375., 41625., 41875., 42125., 42375., 42625.,
+       42875., 43125., 43375., 43625., 43875., 44125., 44375., 44625., 44875.,
+       45125., 45375., 45625., 45875., 46125., 46375., 46625., 46875., 47125.,
+       47375., 47625., 47875., 48125., 48375., 48625., 48875., 49125., 49375.,
+       49625., 49875.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_mode</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>&lt;U20</div><div class='xr-var-preview xr-preview'>&#x27;azimuth_surveillance&#x27;</div><input id='attrs-a5886bea-26d1-4935-98b9-005037e6a979' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a5886bea-26d1-4935-98b9-005037e6a979' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-59020da5-fa49-4778-9732-6f39684471b6' class='xr-var-data-in' type='checkbox'><label for='data-59020da5-fa49-4778-9732-6f39684471b6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(&#x27;azimuth_surveillance&#x27;, dtype=&#x27;&lt;U20&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>151.2</div><input id='attrs-5d1834ec-356b-477d-967e-ccf954ed7169' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5d1834ec-356b-477d-967e-ccf954ed7169' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ca3149a-2e2d-4576-ac35-053aed813f11' class='xr-var-data-in' type='checkbox'><label for='data-5ca3149a-2e2d-4576-ac35-053aed813f11' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array(151.209)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-33.7</div><input id='attrs-2e84b4b8-bc33-4ce8-9517-f01b3e175252' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e84b4b8-bc33-4ce8-9517-f01b3e175252' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61222df1-f8ff-4486-8459-3f5aacea0bd1' class='xr-var-data-in' type='checkbox'><label for='data-61222df1-f8ff-4486-8459-3f5aacea0bd1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array(-33.700802)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>altitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>195.0</div><input id='attrs-ee5f4af3-f30c-44c4-8aa6-745a5d8654e4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ee5f4af3-f30c-44c4-8aa6-745a5d8654e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aec54653-045a-453f-aa81-e58b70a7310a' class='xr-var-data-in' type='checkbox'><label for='data-aec54653-045a-453f-aa81-e58b70a7310a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>altitude</dd><dt><span>units :</span></dt><dd>meters</dd><dt><span>standard_name :</span></dt><dd>altitude</dd></dl></div><div class='xr-var-data'><pre>array(195.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-12-20T07:28:37.015277824</div><input id='attrs-29361873-bddf-4ea5-9844-1c943847cf96' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-29361873-bddf-4ea5-9844-1c943847cf96' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb65f469-0cd1-4196-a626-9ec794e4e3e4' class='xr-var-data-in' type='checkbox'><label for='data-cb65f469-0cd1-4196-a626-9ec794e4e3e4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(&#x27;2018-12-20T07:28:37.015277824&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.925 2.775 4.625 ... -366.1 -367.9</div><input id='attrs-7a0a7647-f368-4403-893f-cbbfe7c5f5a7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7a0a7647-f368-4403-893f-cbbfe7c5f5a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96181dda-c2b7-4e9e-9e33-eda33d877361' class='xr-var-data-in' type='checkbox'><label for='data-96181dda-c2b7-4e9e-9e33-eda33d877361' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.25039411e-01,  2.77507472e+00,  4.62505293e+00, ...,
+         3.64268585e+02,  3.66107300e+02,  3.67945923e+02],
+       [ 2.77483320e+00,  8.32436943e+00,  1.38737335e+01, ...,
+         1.09269348e+03,  1.09820911e+03,  1.10372437e+03],
+       [ 4.62378168e+00,  1.38711271e+01,  2.31181889e+01, ...,
+         1.82078552e+03,  1.82997632e+03,  1.83916663e+03],
+       ...,
+       [-4.62379789e+00, -1.38711758e+01, -2.31182690e+01, ...,
+        -1.82079199e+03, -1.82998279e+03, -1.83917297e+03],
+       [-2.77481151e+00, -8.32430363e+00, -1.38736248e+01, ...,
+        -1.09268494e+03, -1.09820044e+03, -1.10371570e+03],
+       [-9.25030112e-01, -2.77504683e+00, -4.62500668e+00, ...,
+        -3.64264954e+02, -3.66103638e+02, -3.67942230e+02]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>y</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>106.0 318.0 ... 4.195e+04 4.216e+04</div><input id='attrs-1b5c0ca9-9fd7-497e-8ad0-c5d808881fee' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1b5c0ca9-9fd7-497e-8ad0-c5d808881fee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-097633af-b16a-44b5-8b05-73f1a6b4e4c4' class='xr-var-data-in' type='checkbox'><label for='data-097633af-b16a-44b5-8b05-73f1a6b4e4c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[  105.9987  ,   317.99112 ,   529.977   , ..., 41740.92    ,
+        41951.617   , 42162.3     ],
+       [  105.966415,   317.89426 ,   529.81555 , ..., 41728.207   ,
+        41938.84    , 42149.457   ],
+       [  105.90185 ,   317.70056 ,   529.49274 , ..., 41702.78    ,
+        41913.285   , 42123.777   ],
+       ...,
+       [  105.90185 ,   317.70056 ,   529.49274 , ..., 41702.78    ,
+        41913.285   , 42123.777   ],
+       [  105.966415,   317.89426 ,   529.81555 , ..., 41728.207   ,
+        41938.84    , 42149.457   ],
+       [  105.9987  ,   317.99112 ,   529.977   , ..., 41740.92    ,
+        41951.617   , 42162.3     ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>z</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>262.0 395.0 ... 2.66e+04 2.673e+04</div><input id='attrs-3bad39ac-0510-4df7-b37b-9652396542ee' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3bad39ac-0510-4df7-b37b-9652396542ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-37d37eae-992e-4f5a-b079-03db892da9c7' class='xr-var-data-in' type='checkbox'><label for='data-37d37eae-992e-4f5a-b079-03db892da9c7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[  262.,   395.,   527., ..., 26463., 26597., 26730.],
+       [  262.,   395.,   527., ..., 26463., 26597., 26730.],
+       [  262.,   395.,   527., ..., 26463., 26597., 26730.],
+       ...,
+       [  262.,   395.,   527., ..., 26463., 26597., 26730.],
+       [  262.,   395.,   527., ..., 26463., 26597., 26730.],
+       [  262.,   395.,   527., ..., 26463., 26597., 26730.]],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gr</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>106.0 318.0 ... 4.195e+04 4.216e+04</div><input id='attrs-eab28cb8-9d2c-44b8-9f62-d355f84049fd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-eab28cb8-9d2c-44b8-9f62-d355f84049fd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-baf8aafa-d066-4f49-a5ac-4ee5f86f1855' class='xr-var-data-in' type='checkbox'><label for='data-baf8aafa-d066-4f49-a5ac-4ee5f86f1855' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[  106.00274,   318.00323,   529.9972 , ..., 41742.51   ,
+        41953.215  , 42163.906  ],
+       [  106.00274,   318.00323,   529.9972 , ..., 41742.51   ,
+        41953.215  , 42163.906  ],
+       [  106.00274,   318.00323,   529.9972 , ..., 41742.508  ,
+        41953.215  , 42163.91   ],
+       ...,
+       [  106.00274,   318.00323,   529.9972 , ..., 41742.51   ,
+        41953.215  , 42163.91   ],
+       [  106.00274,   318.00323,   529.9972 , ..., 41742.51   ,
+        41953.215  , 42163.906  ],
+       [  106.00274,   318.00323,   529.9972 , ..., 41742.51   ,
+        41953.215  , 42163.906  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rays</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 0.5 0.5 ... 359.5 359.5 359.5</div><input id='attrs-01bb1282-9e16-4d32-86aa-4714f1bea48f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-01bb1282-9e16-4d32-86aa-4714f1bea48f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87d93da0-fae1-4abf-adf2-556761989bda' class='xr-var-data-in' type='checkbox'><label for='data-87d93da0-fae1-4abf-adf2-556761989bda' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[  0.5,   0.5,   0.5, ...,   0.5,   0.5,   0.5],
+       [  1.5,   1.5,   1.5, ...,   1.5,   1.5,   1.5],
+       [  2.5,   2.5,   2.5, ...,   2.5,   2.5,   2.5],
+       ...,
+       [357.5, 357.5, 357.5, ..., 357.5, 357.5, 357.5],
+       [358.5, 358.5, 358.5, ..., 358.5, 358.5, 358.5],
+       [359.5, 359.5, 359.5, ..., 359.5, 359.5, 359.5]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>bins</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>125.0 375.0 ... 4.962e+04 4.988e+04</div><input id='attrs-a195bced-0d04-410e-a820-40b821516149' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a195bced-0d04-410e-a820-40b821516149' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eab90894-7ab4-4e14-b3c7-b9b49911ac54' class='xr-var-data-in' type='checkbox'><label for='data-eab90894-7ab4-4e14-b3c7-b9b49911ac54' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[  125.,   375.,   625., ..., 49375., 49625., 49875.],
+       [  125.,   375.,   625., ..., 49375., 49625., 49875.],
+       [  125.,   375.,   625., ..., 49375., 49625., 49875.],
+       ...,
+       [  125.,   375.,   625., ..., 49375., 49625., 49875.],
+       [  125.,   375.,   625., ..., 49375., 49625., 49875.],
+       [  125.,   375.,   625., ..., 49375., 49625., 49875.]],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>(range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>262.0 395.0 ... 2.66e+04 2.673e+04</div><input id='attrs-bcb9f00e-00f1-49a6-85f6-b54bc2eb9e19' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bcb9f00e-00f1-49a6-85f6-b54bc2eb9e19' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b50bfb86-1e99-4e61-98bb-2b0c2f95c462' class='xr-var-data-in' type='checkbox'><label for='data-b50bfb86-1e99-4e61-98bb-2b0c2f95c462' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  262.,   395.,   527.,   659.,   792.,   924.,  1057.,  1189.,
+        1322.,  1454.,  1587.,  1719.,  1852.,  1985.,  2117.,  2250.,
+        2382.,  2515.,  2647.,  2780.,  2912.,  3045.,  3178.,  3310.,
+        3442.,  3576.,  3708.,  3841.,  3973.,  4106.,  4238.,  4371.,
+        4504.,  4636.,  4769.,  4902.,  5034.,  5167.,  5300.,  5433.,
+        5565.,  5698.,  5830.,  5963.,  6096.,  6228.,  6362.,  6494.,
+        6628.,  6760.,  6892.,  7026.,  7158.,  7291.,  7424.,  7556.,
+        7689.,  7822.,  7954.,  8087.,  8220.,  8353.,  8486.,  8619.,
+        8752.,  8884.,  9017.,  9150.,  9283.,  9416.,  9548.,  9681.,
+        9814.,  9947., 10080., 10213., 10346., 10479., 10612., 10744.,
+       10877., 11010., 11143., 11276., 11409., 11542., 11675., 11808.,
+       11940., 12074., 12207., 12339., 12473., 12606., 12739., 12872.,
+       13004., 13137., 13271., 13404., 13536., 13670., 13802., 13935.,
+       14069., 14202., 14335., 14468., 14601., 14733., 14867., 15000.,
+       15133., 15266., 15399., 15532., 15665., 15798., 15931., 16065.,
+       16198., 16331., 16464., 16597., 16730., 16863., 16996., 17129.,
+       17263., 17396., 17529., 17662., 17795., 17929., 18062., 18195.,
+       18328., 18462., 18595., 18728., 18861., 18994., 19128., 19261.,
+       19394., 19528., 19661., 19794., 19927., 20061., 20194., 20327.,
+       20460., 20593., 20727., 20860., 20993., 21127., 21260., 21393.,
+       21527., 21660., 21793., 21927., 22060., 22193., 22327., 22460.,
+       22593., 22727., 22860., 22993., 23127., 23260., 23393., 23527.,
+       23660., 23794., 23927., 24061., 24194., 24327., 24461., 24595.,
+       24728., 24861., 24995., 25128., 25262., 25396., 25529., 25662.,
+       25796., 25929., 26063., 26196., 26330., 26463., 26597., 26730.],
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9a08a104-1a46-4f7d-801a-15c3ef54871d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9a08a104-1a46-4f7d-801a-15c3ef54871d' class='xr-section-summary' >Data variables: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>DBZH</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1ed447f0-fcd7-4a5b-a214-1086e26906e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1ed447f0-fcd7-4a5b-a214-1086e26906e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2eefbc55-b90e-410e-8c7e-782424d9f92b' class='xr-var-data-in' type='checkbox'><label for='data-2eefbc55-b90e-410e-8c7e-782424d9f92b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_equivalent_reflectivity_factor_h</dd><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>long_name :</span></dt><dd>Equivalent reflectivity factor H</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>VRADH</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c83a34b7-dcae-4a7e-a9a3-8794093e7e4c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c83a34b7-dcae-4a7e-a9a3-8794093e7e4c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5e2672ed-0566-43d5-bbfc-6ae9b845894e' class='xr-var-data-in' type='checkbox'><label for='data-5e2672ed-0566-43d5-bbfc-6ae9b845894e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radial_velocity_of_scatterers_away_from_instrument_h</dd><dt><span>units :</span></dt><dd>meters per seconds</dd><dt><span>long_name :</span></dt><dd>Radial velocity of scatterers away from instrument H</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>WRADH</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-128ec1d2-4b15-4d81-aead-02c59454fad0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-128ec1d2-4b15-4d81-aead-02c59454fad0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f3cf1c9b-02c9-4f4e-9b5b-752877ef8906' class='xr-var-data-in' type='checkbox'><label for='data-f3cf1c9b-02c9-4f4e-9b5b-752877ef8906' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_doppler_spectrum_width_h</dd><dt><span>units :</span></dt><dd>meters per seconds</dd><dt><span>long_name :</span></dt><dd>Doppler spectrum width H</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>TH</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c458bb0a-5dc3-4294-ad98-ee2bf10e58b9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c458bb0a-5dc3-4294-ad98-ee2bf10e58b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2dabfa11-9ee3-4cfc-9871-1a5cf1c8006a' class='xr-var-data-in' type='checkbox'><label for='data-2dabfa11-9ee3-4cfc-9871-1a5cf1c8006a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_linear_equivalent_reflectivity_factor_h</dd><dt><span>units :</span></dt><dd>unitless</dd><dt><span>long_name :</span></dt><dd>Linear total power H (uncorrected reflectivity)</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ZDR</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5786e343-7f50-4201-8925-5cef88eca8be' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5786e343-7f50-4201-8925-5cef88eca8be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb81b808-0ed6-4ed4-99f4-c490a30bd99e' class='xr-var-data-in' type='checkbox'><label for='data-bb81b808-0ed6-4ed4-99f4-c490a30bd99e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_differential_reflectivity_hv</dd><dt><span>units :</span></dt><dd>dB</dd><dt><span>long_name :</span></dt><dd>Log differential reflectivity H/V</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RHOHV</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-342045bb-ed1a-4515-926b-f78a3c3f9f1d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-342045bb-ed1a-4515-926b-f78a3c3f9f1d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e04f2bc-23b9-4c96-9c3e-458dbd2285e7' class='xr-var-data-in' type='checkbox'><label for='data-9e04f2bc-23b9-4c96-9c3e-458dbd2285e7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_correlation_coefficient_hv</dd><dt><span>units :</span></dt><dd>unitless</dd><dt><span>long_name :</span></dt><dd>Correlation coefficient HV</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>PHIDP</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-52519304-7ec9-48fd-a271-da8cdddf56c8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-52519304-7ec9-48fd-a271-da8cdddf56c8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8a57dfc7-fb74-425c-9107-4a2f3785ff5c' class='xr-var-data-in' type='checkbox'><label for='data-8a57dfc7-fb74-425c-9107-4a2f3785ff5c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>radar_differential_phase_hv</dd><dt><span>units :</span></dt><dd>degrees</dd><dt><span>long_name :</span></dt><dd>Differential phase HV</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>SNRH</span></div><div class='xr-var-dims'>(azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-08813b59-af04-4403-ad00-bce77a2c7019' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-08813b59-af04-4403-ad00-bce77a2c7019' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b34398df-0896-4606-b873-3d8f3d441e20' class='xr-var-data-in' type='checkbox'><label for='data-b34398df-0896-4606-b873-3d8f3d441e20' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_Undetect :</span></dt><dd>0.0</dd><dt><span>standard_name :</span></dt><dd>signal_noise_ratio_h</dd><dt><span>units :</span></dt><dd>unitless</dd><dt><span>long_name :</span></dt><dd>Signal Noise Ratio H</dd></dl></div><div class='xr-var-data'><pre>[72000 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_number</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-494bc960-6d43-4073-8559-fd7a80f6247f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-494bc960-6d43-4073-8559-fd7a80f6247f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-24200f72-0f56-4bdd-b0b4-196932c44349' class='xr-var-data-in' type='checkbox'><label for='data-24200f72-0f56-4bdd-b0b4-196932c44349' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[1 values with dtype=int64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prt_mode</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>&lt;U7</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ac946975-93d6-49ee-9f21-7a58455d1b0f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ac946975-93d6-49ee-9f21-7a58455d1b0f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d365a0da-4c55-40a0-a94d-47e113d05aa9' class='xr-var-data-in' type='checkbox'><label for='data-d365a0da-4c55-40a0-a94d-47e113d05aa9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[1 values with dtype=&lt;U7]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>follow_mode</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>&lt;U7</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-964d1e87-5607-4466-8f94-3d0927254aaa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-964d1e87-5607-4466-8f94-3d0927254aaa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b86f101d-d75c-4f1b-908a-7e293661eeac' class='xr-var-data-in' type='checkbox'><label for='data-b86f101d-d75c-4f1b-908a-7e293661eeac' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[1 values with dtype=&lt;U7]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_fixed_angle</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>32.0</div><input id='attrs-c974f068-ec8e-408c-ab52-75de0264bd96' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c974f068-ec8e-408c-ab52-75de0264bd96' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ae822fbc-d62c-4579-bf7d-39d6c24605be' class='xr-var-data-in' type='checkbox'><label for='data-ae822fbc-d62c-4579-bf7d-39d6c24605be' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(32.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8e66d5f2-013b-47f0-9515-b1735b9d0254' class='xr-section-summary-in' type='checkbox'  ><label for='section-8e66d5f2-013b-47f0-9515-b1735b9d0254' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>azimuth</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3dd89f42-e66b-4704-9030-7a0c2ba643c5' class='xr-index-data-in' type='checkbox'/><label for='index-3dd89f42-e66b-4704-9030-7a0c2ba643c5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+       ...
+       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;azimuth&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>range</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0fd3a211-0c7a-4e2f-924e-07d32e512edc' class='xr-index-data-in' type='checkbox'/><label for='index-0fd3a211-0c7a-4e2f-924e-07d32e512edc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  125.0,   375.0,   625.0,   875.0,  1125.0,  1375.0,  1625.0,  1875.0,
+        2125.0,  2375.0,
+       ...
+       47625.0, 47875.0, 48125.0, 48375.0, 48625.0, 48875.0, 49125.0, 49375.0,
+       49625.0, 49875.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;range&#x27;, length=200))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1427cead-0bb3-4102-8943-029fc2784046' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1427cead-0bb3-4102-8943-029fc2784046' class='xr-section-summary' >Attributes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>fixed_angle :</span></dt><dd>32.0</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Here we add the height coordinate and calculate the <code class="docutils literal notranslate"><span class="pre">mean</span></code> over the azimuth using the sweep with the highest available elevation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qvp</span> <span class="o">=</span> <span class="n">swp</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">)</span>
+<span class="n">qvp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UFuncTypeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">qvp</span> <span class="o">=</span> <span class="n">swp</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">qvp</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/core/_aggregations.py:1021,</span> in <span class="ni">DatasetAggregations.median</span><span class="nt">(self, dim, skipna, keep_attrs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">939</span> <span class="k">def</span> <span class="nf">median</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">940</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="n">dim</span><span class="p">:</span> <span class="n">Dims</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span><span class="sd">     Reduce this Dataset&#39;s data by applying ``median`` along some dimension(s).</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span><span class="sd">         da       float64 nan</span>
+<span class="g g-Whitespace">   </span><span class="mi">1020</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1021</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>         <span class="n">duck_array_ops</span><span class="o">.</span><span class="n">median</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span>         <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span>         <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1026</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1028</span>     <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/core/dataset.py:6372,</span> in <span class="ni">Dataset.reduce</span><span class="nt">(self, func, dim, keep_attrs, keepdims, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6355</span>         <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6356</span>             <span class="c1"># Some reduction functions (e.g. std, var) need to run on variables</span>
+<span class="g g-Whitespace">   </span><span class="mi">6357</span>             <span class="c1"># that don&#39;t have the reduce dims: PR5393</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6365</span>             <span class="c1"># the former is often more efficient</span>
+<span class="g g-Whitespace">   </span><span class="mi">6366</span>             <span class="c1"># keep single-element dims as list, to support Hashables</span>
+<span class="g g-Whitespace">   </span><span class="mi">6367</span>             <span class="n">reduce_maybe_single</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6368</span>                 <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">6369</span>                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reduce_dims</span><span class="p">)</span> <span class="o">==</span> <span class="n">var</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">and</span> <span class="n">var</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">6370</span>                 <span class="k">else</span> <span class="n">reduce_dims</span>
+<span class="g g-Whitespace">   </span><span class="mi">6371</span>             <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">6372</span>             <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6373</span>                 <span class="n">func</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6374</span>                 <span class="n">dim</span><span class="o">=</span><span class="n">reduce_maybe_single</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6375</span>                 <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6376</span>                 <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6377</span>                 <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">6378</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6380</span> <span class="n">coord_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">}</span>
+<span class="g g-Whitespace">   </span><span class="mi">6381</span> <span class="n">indexes</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indexes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">}</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/core/variable.py:2014,</span> in <span class="ni">Variable.reduce</span><span class="nt">(self, func, dim, axis, keep_attrs, keepdims, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2012</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2013</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2014</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2016</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="p">())</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2017</span>     <span class="n">dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/core/duck_array_ops.py:382,</span> in <span class="ni">_create_nan_agg_method.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>     <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;All-NaN slice encountered&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">382</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">is_duck_dask_array</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/numpy/lib/function_base.py:3927,</span> in <span class="ni">median</span><span class="nt">(a, axis, out, overwrite_input, keepdims)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3845</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_median_dispatcher</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3846</span> <span class="k">def</span> <span class="nf">median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overwrite_input</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3847</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3848</span><span class="sd">     Compute the median along the specified axis.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3849</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3925</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3926</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3927</span>     <span class="k">return</span> <span class="n">_ureduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">_median</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3928</span>                     <span class="n">overwrite_input</span><span class="o">=</span><span class="n">overwrite_input</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/numpy/lib/function_base.py:3823,</span> in <span class="ni">_ureduce</span><span class="nt">(a, func, keepdims, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3820</span>             <span class="n">index_out</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">)</span> <span class="o">*</span> <span class="n">nd</span>
+<span class="g g-Whitespace">   </span><span class="mi">3821</span>             <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;out&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[(</span><span class="bp">Ellipsis</span><span class="p">,</span> <span class="p">)</span> <span class="o">+</span> <span class="n">index_out</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">3823</span> <span class="n">r</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3825</span> <span class="k">if</span> <span class="n">out</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3826</span>     <span class="k">return</span> <span class="n">out</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/numpy/lib/function_base.py:3979,</span> in <span class="ni">_median</span><span class="nt">(a, axis, out, overwrite_input)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3975</span> <span class="n">indexer</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3977</span> <span class="c1"># Use mean in both odd and even case to coerce data type,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3978</span> <span class="c1"># using out array if needed.</span>
+<span class="ne">-&gt; </span><span class="mi">3979</span> <span class="n">rout</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">part</span><span class="p">[</span><span class="n">indexer</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3980</span> <span class="k">if</span> <span class="n">supports_nans</span> <span class="ow">and</span> <span class="n">sz</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3981</span>     <span class="c1"># If nans are possible, warn and replace by nans like mean would.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3982</span>     <span class="n">rout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">_median_nancheck</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="n">rout</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3504,</span> in <span class="ni">mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3501</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3502</span>         <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3504</span> <span class="k">return</span> <span class="n">_methods</span><span class="o">.</span><span class="n">_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3505</span>                       <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/numpy/core/_methods.py:118,</span> in <span class="ni">_mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;f4&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>         <span class="n">is_float16_result</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">118</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">mu</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="k">with</span> <span class="n">_no_nep50_warning</span><span class="p">():</span>
+
+<span class="ne">UFuncTypeError</span>: ufunc &#39;add&#39; did not contain a loop with signature matching types (dtype(&#39;&lt;U7&#39;), dtype(&#39;&lt;U7&#39;)) -&gt; None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qvp</span><span class="o">.</span><span class="n">DBZH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">qvp</span><span class="o">.</span><span class="n">DBZH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;qvp&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="timeseries-qvp">
+<h2>TimeSeries QVP<a class="headerlink" href="#timeseries-qvp" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>All wradlib xarray backends have the capability to read multiple sweeps/volumes in one go. We have to prepare the list of files a bit, though.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="n">idr71</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;odim&quot;</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s2">&quot;dataset1&quot;</span><span class="p">,</span>
+    <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">idr71</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;odim&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">group</span><span class="o">=</span><span class="s2">&quot;dataset1&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;nested&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">concat_dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/backends/api.py:1012,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1009</span>     <span class="n">open_</span> <span class="o">=</span> <span class="n">open_dataset</span>
+<span class="g g-Whitespace">   </span><span class="mi">1010</span>     <span class="n">getattr_</span> <span class="o">=</span> <span class="nb">getattr</span>
+<span class="ne">-&gt; </span><span class="mi">1012</span> <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">open_</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">**</span><span class="n">open_kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">closers</span> <span class="o">=</span> <span class="p">[</span><span class="n">getattr_</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="s2">&quot;_close&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">if</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/backends/api.py:1012,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1009</span>     <span class="n">open_</span> <span class="o">=</span> <span class="n">open_dataset</span>
+<span class="g g-Whitespace">   </span><span class="mi">1010</span>     <span class="n">getattr_</span> <span class="o">=</span> <span class="nb">getattr</span>
+<span class="ne">-&gt; </span><span class="mi">1012</span> <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">open_</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">**</span><span class="n">open_kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">closers</span> <span class="o">=</span> <span class="p">[</span><span class="n">getattr_</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="s2">&quot;_close&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">if</span> <span class="n">preprocess</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xarray/backends/api.py:570,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">570</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span> <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xradar/io/backends/odim.py:718,</span> in <span class="ni">OdimBackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, format, group, invalid_netcdf, phony_dims, decode_vlen_strings, first_dim, reindex_angle, fix_second_angle, site_coords)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">IOBase</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>     <span class="n">filename_or_obj</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">718</span> <span class="n">store</span> <span class="o">=</span> <span class="n">OdimStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">719</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">723</span>     <span class="n">phony_dims</span><span class="o">=</span><span class="n">phony_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">decode_vlen_strings</span><span class="o">=</span><span class="n">decode_vlen_strings</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">store_entrypoint</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">store</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">731</span>     <span class="n">mask_and_scale</span><span class="o">=</span><span class="n">mask_and_scale</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="n">decode_timedelta</span><span class="o">=</span><span class="n">decode_timedelta</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xradar/io/backends/odim.py:616,</span> in <span class="ni">OdimStore.open</span><span class="nt">(cls, filename, mode, format, group, lock, invalid_netcdf, phony_dims, decode_vlen_strings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span>         <span class="n">lock</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">615</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span><span class="n">h5netcdf</span><span class="o">.</span><span class="n">File</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">616</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda3/envs/cookbook-dev/lib/python3.11/site-packages/xradar/io/backends/odim.py:567,</span> in <span class="ni">OdimStore.__init__</span><span class="nt">(self, manager, group, lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="n">manager</span> <span class="o">=</span> <span class="n">DummyFileManager</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span> <span class="o">=</span> <span class="n">manager</span>
+<span class="ne">--&gt; </span><span class="mi">567</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/dataset</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;t1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ts&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="georeference-and-add-height-coordinate">
+<h3>Georeference and add height coordinate<a class="headerlink" href="#georeference-and-add-height-coordinate" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_height</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_height</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ts&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-statistics">
+<h3>Calculate Statistics<a class="headerlink" href="#calculate-statistics" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]</span>
+<span class="n">stat</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">getattr</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">RHOHV</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">st</span><span class="p">)(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">stats</span>
+<span class="p">]</span>
+<span class="n">ts_stats</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;stats&quot;</span><span class="p">)</span>
+<span class="n">ts_stats</span> <span class="o">=</span> <span class="n">ts_stats</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="n">stats</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">stats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stat</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">getattr</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">RHOHV</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">st</span><span class="p">)(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ts_stats</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;stats&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ts_stats</span> <span class="o">=</span> <span class="n">ts_stats</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="n">stats</span><span class="p">})</span>
+
+<span class="nn">Cell In[12], line 3,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">stats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">stat</span> <span class="o">=</span> <span class="p">[</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="nb">getattr</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">RHOHV</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">st</span><span class="p">)(</span><span class="s2">&quot;azimuth&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ts_stats</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;stats&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ts_stats</span> <span class="o">=</span> <span class="n">ts_stats</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="s2">&quot;stats&quot;</span><span class="p">:</span> <span class="n">stats</span><span class="p">})</span>
+
+<span class="ne">NameError</span>: name &#39;ts&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">ts_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="p">(</span><span class="n">ts_stats</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ts_stats&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-qvps">
+<h3>Plot QVP’s<a class="headerlink" href="#plot-qvps" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">facet</span> <span class="o">=</span> <span class="n">ts_stats</span><span class="o">.</span><span class="n">TH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;stats&quot;</span><span class="p">,</span>
+    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;turbo&quot;</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">facet</span> <span class="o">=</span> <span class="n">ts_stats</span><span class="o">.</span><span class="n">TH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">col</span><span class="o">=</span><span class="s2">&quot;stats&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;turbo&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ts_stats&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Easy creation of Quasi Vertical Profiles was shown.</p>
+</div>
+<div class="section" id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.xarray.dev">xarray</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/">dask</a></p></li>
+<li><p><a class="reference external" href="https://docs.wradlib.org/en/stable/notebooks/fileio/wradlib_xarray_backends.html">wradlib xarray backends</a></p></li>
+<li><p><a class="reference external" href="https://www.eumetnet.eu/activities/observations-programme/current-activities/opera/">OPERA ODIM_H5</a></p></li>
+<li><p><a class="reference external" href="https://community.wmo.int/governance/commission-membership/commission-observation-infrastructure-and-information-systems-infcom/commission-infrastructure-officers/infcom-management-group/standing-committee-measurements-instrumentation-and-traceability-sc-mint/joint-expert-team">WMO JET-OWR</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/wradlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2023.
+        
+          By the <a href="https://openradarscience.org/">Open Radar</a> Community.
+        
+          Last updated on 8 August 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
