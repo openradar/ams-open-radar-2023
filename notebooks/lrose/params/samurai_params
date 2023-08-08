@@ -299,7 +299,7 @@ save_mish = FALSE;
 // Type: float
 //
 
-i_min = -50.0;
+i_min = -120.0;
 
 ///////////// i_max ///////////////////////////////////
 //
@@ -307,7 +307,7 @@ i_min = -50.0;
 // Type: float
 //
 
-i_max = 50.0;
+i_max = 70.0;
 
 ///////////// i_incr //////////////////////////////////
 //
@@ -315,7 +315,7 @@ i_max = 50.0;
 // Type: float
 //
 
-i_incr = 0.5;
+i_incr = 1;
 
 ///////////// j_min ///////////////////////////////////
 //
@@ -323,7 +323,7 @@ i_incr = 0.5;
 // Type: float
 //
 
-j_min = -50.0;
+j_min = -70.0;
 
 ///////////// j_max ///////////////////////////////////
 //
@@ -331,7 +331,7 @@ j_min = -50.0;
 // Type: float
 //
 
-j_max = 50.0;
+j_max = 100.0;
 
 ///////////// j_incr //////////////////////////////////
 //
@@ -339,7 +339,7 @@ j_max = 50.0;
 // Type: float
 //
 
-j_incr = 0.5;
+j_incr = 1;
 
 ///////////// k_min ///////////////////////////////////
 //
@@ -489,7 +489,7 @@ radar_sw = "DBZ";
 // Type: float
 //
 
-i_reflectivity_roi = 0.4;
+i_reflectivity_roi = 1;
 
 ///////////// j_reflectivity_roi //////////////////////
 //
@@ -497,7 +497,7 @@ i_reflectivity_roi = 0.4;
 // Type: float
 //
 
-j_reflectivity_roi = 0.4;
+j_reflectivity_roi = 1;
 
 ///////////// k_reflectivity_roi //////////////////////
 //
@@ -505,7 +505,7 @@ j_reflectivity_roi = 0.4;
 // Type: float
 //
 
-k_reflectivity_roi = 0.4;
+k_reflectivity_roi = 0.5;
 
 ///////////// dbz_pseudow_weight //////////////////////
 //
