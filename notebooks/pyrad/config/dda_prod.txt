@@ -1,0 +1,124 @@
+
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 3
+   l0:GATEFILTER
+   l0:DEALIAS_REGION
+   l1:dda
+
+# ==========================================================================================
+#                 Filtering ARMOR data
+# ==========================================================================================
+GATEFILTER STRUCT 5
+    type STRING GATEFILTER
+    datatype STRARR 2
+        RADAR001:NEXRADII:RhoHV,D{}-F{%Y%m%d%H%M%S}
+        RADAR001:NEXRADII:W,D{}-F{%Y%m%d%H%M%S}
+    upper_bounds FLTARR 2
+        7
+        9999
+    lower_bounds FLTARR 2
+        -9999
+        0.7
+    MAKE_GLOBAL INT 1
+
+# ==========================================================================================
+#                 Dealias KHTX data
+# ==========================================================================================
+DEALIAS_REGION STRUCT 3
+    type STRING DEALIAS_REGION
+    datatype STRARR 1
+        RADAR002:NEXRADII:V,D{}-F{%Y%m%d_%H%M%S}
+    MAKE_GLOBAL INT 1
+
+
+dda STRUCT 7
+   type     STRING DDA
+   datatype STRARR 4
+        RADAR001:PROC:dBZc
+        RADAR002:NEXRADII:dBZ,D{}-F{%Y%m%d_%H%M%S}
+        RADAR001:PROC:Vc
+        RADAR002:PROC:dealV
+   sounding STRING 72230
+   wfunc STRING NEAREST
+   C0 FLOAT 0.1
+   Cm FLOAT 1024
+   gridConfig STRUCT 11
+       xmin FLOAT -100.
+       xmax FLOAT 100.
+       ymin FLOAT -100.
+       ymax FLOAT 100.
+       zmin FLOAT 0000.
+       zmax FLOAT 15000.
+       hres FLOAT 5000.
+       vres FLOAT 200.
+       altorig FLOAT 0.
+       latorig FLOAT 34.646
+       lonorig FLOAT -86.77
+    products STRUCT 6
+        U_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_u
+            coord1 STRUCT 2
+                lat FLOAT 47.476
+                lon FLOAT 8.543
+            coord2 STRUCT 2
+                lat FLOAT 47.541
+                lon FLOAT 8.451
+            vmin FLOAT -50
+            vmax FLOAT 50
+        V_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_v
+            coord1 STRUCT 2
+                lat FLOAT 34.25
+                lon FLOAT -87.75
+            coord2 STRUCT 2
+                lat FLOAT 32.25
+                lon FLOAT -87
+            vmin FLOAT -30
+            vmax FLOAT 30
+        W_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_v
+            coord1 STRUCT 2
+                lat FLOAT 34.25
+                lon FLOAT -87.75
+            coord2 STRUCT 2
+                lat FLOAT 32.25
+                lon FLOAT -87
+            vmin FLOAT -5
+            vmax FLOAT 5
+        wind_map_1000 STRUCT 10
+            type STRING DDA_MAP
+            voltype STRING dBZ
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            barbs_len FLOAT 10
+            vector_spacing_km FLOAT 2
+            vmin FLOAT 0
+            vmax FLOAT 40
+            alpha FLOAT 0.6
+            level INT 0
+        wind_map_2000 STRUCT 10
+            type STRING DDA_MAP
+            voltype STRING dBZ
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            barbs_len FLOAT 10
+            vector_spacing_km FLOAT 2
+            vmin FLOAT 0
+            vmax FLOAT 60
+            alpha FLOAT 0.6
+            level INT 5
+        wind_map_3000 STRUCT 10
+            type STRING DDA_MAP
+            voltype STRING dBZ
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            barbs_len FLOAT 10
+            vector_spacing_km FLOAT 2
+            vmin FLOAT 0
+            vmax FLOAT 60
+            alpha FLOAT 0.6
+            level INT 10

@@ -1,15 +1,15 @@
 # MAIN CONFIG FILE
-# Example of plotting NEXRAD level II data
+# Example of plotting UAH-ARMOR level II data
 
 # IMPORTANT: Adapt the paths to the actual location of your data and config files
 
 # call example:
-# main_process_data.py nexrad2.txt --starttime 20080411181000 --endtime 20080411184000 --cfgpath /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/
+# main_process_data.py armor.txt --starttime 20080411181000 --endtime 20080411184000 --cfgpath /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/
 
 
 # Name of this configuration:
 # Will be used in product generation save path
-name STRING NEXRAD2
+name STRING DDA_ARMOR_NEXRAD
 
 # ---------------------------------------------------------
 #  Raw data pathes
@@ -17,13 +17,9 @@ name STRING NEXRAD2
 
 # Base path of the raw data.
 # Note: Must have a trailing '/'
-datapath STRING ../../../data/nexrad/
-path_convention STRING ODIM
-
-# Loading of saved datasets
-loadbasepath STRING ../../../data/pyrad_products/
-loadname STRING NEXRAD2
-
+datapath STRARR 2
+    ../../../data/uah-armor/
+    ../../../data/nexrad/
 
 # --------------------------------------------
 # Output data
@@ -43,7 +39,7 @@ imgformat STRARR 1
 configpath STRING ./
 
 # Configuration of the radar location and approach direction
-locationConfigFile STRING ./nexrad2_loc.txt
+locationConfigFile STRING ./dda_loc.txt
 
 # Configuration of the product generation
-productConfigFile STRING ./nexrad2_prod.txt
+productConfigFile STRING ./dda_prod.txt

@@ -1,0 +1,53 @@
+# LOCATION CONFIG FILE 
+# Example of plotting UAH-ARMOR data
+
+# Number of radars to process
+NumRadars INT 2
+
+# Radar Name
+RadarName STRARR 2
+    ARMOR
+    KHTX
+
+# only for internal use
+RadarRes STRARR 2
+    L
+    L
+
+path_convention STRARR 2
+    ODIM
+    ODIM
+
+
+# Names of the radar scans
+ScanList STRARR 2
+      RADAR001:RAW_NA_000_125_  # masterscan: first scan of a volume
+      RADAR002:gz  
+
+
+xsecImageConfig STRUCT 6
+   xsize      FLOAT  10.    # image size [inches]
+   ysize      FLOAT   6.     # image size [inches]
+   xmin       FLOAT -100.0   # Min distance on horizontal axis [km]
+   xmax       FLOAT 100.0   # Max distance on horizontal axis [km]
+   ymin       FLOAT   0.0   # Min distance on vertical axis [km]
+   ymax       FLOAT  14.0   # Max distance on vertical axis [km]
+
+gridMapImageConfig STRUCT 12
+   exact_limits INT 1
+   xsize      FLOAT  15.   # image size [inches] (default dots per inch (dpi):72)
+   ysize      FLOAT  15.   # image size [inches] (default dots per inch (dpi):72)
+   lonmin     FLOAT  -87.75 # Min longitude [deg]
+   lonmax     FLOAT  -85.75 # Max longitude [deg]
+   lonstep    FLOAT 0.25
+   latmin     FLOAT 33.75 # Min latitude [deg]
+   latmax     FLOAT 35.50 # Max latitude [deg]
+   latstep    FLOAT 0.25
+   mapres     STRING h  # map resolution (10m, 50m, 110m)
+   dpi        INT    72     # dots per inch (72 web quality, 300 print quality)
+   maps STRARR 5        # maps to overplot (cartopy)
+       countries
+       lakes_europe
+       coastlines
+       rivers
+       rivers_europe
