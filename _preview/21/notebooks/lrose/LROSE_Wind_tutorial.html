@@ -347,8 +347,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-desired-input-data-a-parameter-file-and-a-center-file">
-       Download desired input data, a parameter file, and a center file:
+      <a class="reference internal nav-link" href="#required-input-data-fractl-and-samurai-parameter-files-and-a-samurai-center-file">
+       Required input data, FRACTL and SAMURAI parameter files, and a SAMURAI center file:
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -455,8 +455,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   <div class="tex2jax_ignore mathjax_ignore section" id="lrose-wind-tutorial">
 <h1>LROSE Wind Tutorial<a class="headerlink" href="#lrose-wind-tutorial" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
 <hr class="docutils" />
-<p>This interactive tutorial takes you through the steps of how to run FRACTL and SAMURAI. FRACTL is a fast traditional solver with integrated interpolation using LROSE infrastructure, and it is able to perform both gridding and multi-Doppler synthesis for airborne radars and multiple ground-based radars. This is different than Radx2Grid which is only capable of gridding data for a single ground-based radar. FRACTL adopts techniques from older REORDER and CEDRIC software, but with some new improvements. In contrast to the older tools, in which interpolation is followed by synthesis, FRACTL does both steps together. FRACTL doesn’t require the CfRadial file with an aggregation of the sweeps, which is different than Radx2Grid. FRACTL performs a nearest neighbor interpolation of the reflectivity instead of bilinear interpolation in Radx2Grid. It combines the Doppler velocities together using the traditional ‘normal’ equations but with singular value decomposition of raw velocities in spherical space rather than Cramer’s rule in gridded space like CEDRIC.</p>
-<p>SAMURAI is a variational analysis technique that is described in Bell et al. (2012), Foerster et al. (2014), Foerster and Bell (2017), Cha and Bell (2021), and other publications. The SAMURAI analysis yields a maximum likelihood estimate of the atmospheric state for a given set of observations and error estimates by minimizing a variational cost function. It has more features and more development than FRACTL, and is generally recommended over the former for publication-quality analysis. The two programs together provide a powerful combination to produce high quality multi-Doppler wind fields from ground-based, airborne, or mixed configurations.</p>
+<p>This interactive tutorial takes you through the steps of how to run <a class="reference external" href="http://wiki.lrose.net/index.php/FRACTL">FRACTL</a> and <a class="reference external" href="http://wiki.lrose.net/index.php/SAMURAI">SAMURAI</a>. FRACTL is a fast traditional solver with integrated interpolation using LROSE infrastructure, and it is able to perform both gridding and multi-Doppler synthesis for airborne radars and multiple ground-based radars. This is different than Radx2Grid which is only capable of gridding data for a single ground-based radar. FRACTL adopts techniques from older REORDER and CEDRIC software, but with some new improvements. In contrast to the older tools, in which interpolation is followed by synthesis, FRACTL does both steps together. FRACTL doesn’t require the CfRadial file with an aggregation of the sweeps, which is different than Radx2Grid. FRACTL performs a nearest neighbor interpolation of the reflectivity instead of bilinear interpolation in Radx2Grid. It combines the Doppler velocities together using the traditional ‘normal’ equations but with singular value decomposition of raw velocities in spherical space rather than Cramer’s rule in gridded space like CEDRIC.</p>
+<p>SAMURAI is a variational analysis technique that is described in <a class="reference external" href="https://doi.org/10.1175/JAS-D-11-0276.1">Bell et al. (2012)</a>, <a class="reference external" href="https://doi.org/10.1175/MWR-D-13-00313.1">Foerster et al. (2014)</a>, <a class="reference external" href="https://doi.org/10.1175/JTECH-D-17-0073.1">Foerster and Bell (2017)</a>, <a class="reference external" href="https://doi.org/10.5194/amt-14-3523-2021">Cha and Bell (2021)</a>, and other publications. The SAMURAI analysis yields a maximum likelihood estimate of the atmospheric state for a given set of observations and error estimates by minimizing a variational cost function. It has more features and more development than FRACTL, and is generally recommended over the former for publication-quality analysis. The two programs together provide a powerful combination to produce high quality multi-Doppler wind fields from ground-based, airborne, or mixed configurations.</p>
 <div>
 <img src="../images/samurai.png" width="700"/>
 </div>
@@ -468,29 +468,29 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <div class="section" id="directory-organization">
 <h4>Directory organization<a class="headerlink" href="#directory-organization" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
 <div>
-<img src="../images/LROSE_wind_structure.png" width="500"/>
+<img src="../images/LROSE_wind_structure_2.png" width="800"/>
 </div>
 </div>
-<div class="section" id="download-desired-input-data-a-parameter-file-and-a-center-file">
-<h4>Download desired input data, a parameter file, and a center file:<a class="headerlink" href="#download-desired-input-data-a-parameter-file-and-a-center-file" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
-<p><strong>a. QC-ed radar data files will be downloaded in this example:</strong></p>
+<div class="section" id="required-input-data-fractl-and-samurai-parameter-files-and-a-samurai-center-file">
+<h4>Required input data, FRACTL and SAMURAI parameter files, and a SAMURAI center file:<a class="headerlink" href="#required-input-data-fractl-and-samurai-parameter-files-and-a-samurai-center-file" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
+<p><strong>a. QC-ed radar data files will be used in this example:</strong></p>
 <ul class="simple">
 <li><p>cfrad.20080411_182140.206_to_20080411_182632.190_KHTX_SUR.nc</p></li>
 <li><p>cfrad.20080411_182230.747_to_20080411_182629.530_ARMOR_SUR.nc</p></li>
 </ul>
 <p>*The QC process is not included in this tutorial.</p>
-<p><strong>b. Center file:</strong></p>
-<p>*Note: The .cen file was generated by the provided Perl script. The center file is used in SAMURAI to define a static or moving Cartesian frame of reference for the analysis. It can be used to time-space correct the position of radar data in a moving storm system. It also sets the temporal limits for data to be included in the analysis.</p>
-<ul class="simple">
-<li><p>Generate_center.pl</p></li>
-<li><p>20080411.cen</p></li>
-</ul>
-<p><strong>c. Parameter files:</strong></p>
+<p><strong>b. Parameter files:</strong></p>
 <ul class="simple">
 <li><p>fractl_params</p></li>
 <li><p>samurai_params</p></li>
 </ul>
 <p><em>Note: The parameter file have already been modified to run straight out of the box.</em></p>
+<p><strong>c. Center file:</strong></p>
+<p><em>Note: The .cen file was generated by the provided Perl script.</em> The center file is used in SAMURAI to define a static or moving Cartesian frame of reference for the analysis. It can be used to time-space correct the position of radar data in a moving storm system. It also sets the temporal limits for data to be included in the analysis.</p>
+<ul class="simple">
+<li><p>Generate_center.pl</p></li>
+<li><p>20080411.cen</p></li>
+</ul>
 </div>
 <div class="section" id="environment-and-packages">
 <h4>Environment and packages¶<a class="headerlink" href="#environment-and-packages" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
@@ -538,7 +538,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <ul class="simple">
 <li><p>Convert radar data from level 2 or other native format to CfRadial using RadxConvert</p>
 <ul>
-<li><p>SAMURAI can also incorporate non-radar data, and can read many commonly used formats. All data files in the <code lang="bash">input</code> directory will be included in the analysis. The read subroutine for each datatype is determined by the file suffix.</p></li>
+<li><p>SAMURAI can also incorporate non-radar data, and can read many commonly used formats. All data files in the <code lang="bash">data</code> directory will be included in the analysis. The read subroutine for each datatype is determined by the file suffix.</p></li>
 </ul>
 </li>
 <li><p>Quality-controlled raw data by desired QC-tools. See the QC tutorial for an example of how QC can be done; HawkEdit and Solo can also be used to QC data.</p></li>
@@ -648,7 +648,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;a336f9af-4261-4645-945a-375fc19767f4&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;ff1a3e9c-6470-4a32-a8ff-4096f1ad5807&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1033,7 +1033,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_sam/samurai_XYZ_analysis.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;838d0be1-6e4e-447c-8078-677a019d93d5&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_sam/samurai_XYZ_analysis.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;02edbcd2-2d74-4b96-81a0-f51f47bddfab&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1268,7 +1268,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;fa23abd3-691c-4236-b7a4-e38a90ad6639&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;dc43ce1b-2ed2-48bd-b6ab-fc70426ee297&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1635,7 +1635,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 10 August 2023.
+          Last updated on 11 August 2023.
         </p>
       </div>
     </div>
