@@ -4,8 +4,9 @@ on:
 
 jobs:
   build:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    uses: ./.github/workflows/build-book-pullrequest.yaml
     with:
-      environment_name: cookbook-dev
-      artifact_name: book-zip-${{ github.event.number }}
-      # Other input options are possible, see ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml
+      environment_name: ams-open-radar-2023-dev
+      environment_file: environment.yml
+      path_to_notebooks: ./
+      use_cached_environment: 'false'  # This is default, not strickly needed. Set to 'false' to always build a new environment
