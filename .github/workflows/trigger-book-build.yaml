@@ -3,10 +3,7 @@ on:
   pull_request:
 
 jobs:
-  build:
-    uses: ./.github/workflows/build-book-pullrequest.yaml
+  get-code:
+    uses: ProjectPythia/cookbook-actions/.github/workflows/get-code.yaml@main
     with:
-      environment_name: ams-open-radar-2023-dev
-      environment_file: environment.yml
-      path_to_notebooks: ./
-      use_cached_environment: 'false'  # This is default, not strickly needed. Set to 'false' to always build a new environment
+      code_artifact_name: code-zip-${{ github.event.number }}
