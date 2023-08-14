@@ -4,8 +4,8 @@ on:
 
 jobs:
   build:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    uses: ./.github/workflows/build-book-pullrequest.yaml
     with:
-      environment_name: cookbook-dev
+      environment_name: ams-open-radar-2023-dev
       artifact_name: book-zip-${{ github.event.number }}
       # Other input options are possible, see ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml
