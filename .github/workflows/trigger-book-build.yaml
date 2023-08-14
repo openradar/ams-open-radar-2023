@@ -3,7 +3,8 @@ on:
   pull_request:
 
 jobs:
-  get-code:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/get-code.yaml@main
+  build:
+    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
     with:
-      code_artifact_name: code-zip-${{ github.event.number }}
+      environment_name: cookbook-dev
+      artifact_name: book-zip-${{ github.event.number }}
