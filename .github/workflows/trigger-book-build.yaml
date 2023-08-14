@@ -8,4 +8,3 @@ jobs:
     with:
       environment_name: ams-open-radar-2023-dev
       use_cached_environment: 'false'
-      artifact_name: book-zip-${{ github.event.number }}
