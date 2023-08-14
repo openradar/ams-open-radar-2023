@@ -15,8 +15,6 @@ dependencies:
   - xradar
   - cartopy
   - metpy
-  - hvplot
-  - holoviews
   - pydda
   - s3fs
   - geoviews
