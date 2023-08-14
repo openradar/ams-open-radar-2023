@@ -9,9 +9,12 @@ on:
 
 jobs:
   build:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    uses: ./.github/workflows/build-book-pullrequest.yaml
     with:
       environment_name: ams-open-radar-2023-dev
+      environment_file: environment.yml
+      path_to_notebooks: ./
+      use_cached_environment: 'false'
 
   deploy:
     needs: build
