@@ -16,3 +16,10 @@ parts:
       - file: notebooks/pydda/README
         sections:
           - file: notebooks/pydda/Retrieving_winds_with_pydda
+      - file: notebooks/baltrad/README.md
+        sections:
+          - file: notebooks/baltrad_short_course/BALTRAD Compositing
+          - file: notebooks/baltrad_short_course/BALTRAD DRQC
+          - file: notebooks/baltrad_short_course/BALTRAD IO
+          - file: notebooks/baltrad_short_course/BALTRAD parallel processing
+          - file: notebooks/baltrad_short_course/BALTRAD QC
