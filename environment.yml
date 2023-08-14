@@ -19,6 +19,7 @@ dependencies:
   - holoviews
   - geoviews
   - tensorflow-probability
+  - tobac
   - pip
   - pip:
       - sphinx-pythia-theme
