@@ -600,13 +600,12 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <p>After modifying the parameter file, directing to the parameter file by typing the <em>-params</em> flags</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!${LROSE_DIR}/fractl -params ${BASE_DIR}/params/fractl_params </span>
-<span class="o">!</span>fractl<span class="w"> </span>-params<span class="w"> </span><span class="si">${</span><span class="nv">BASE_DIR</span><span class="si">}</span>/params/fractl_params
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="si">${</span><span class="nv">LROSE_DIR</span><span class="si">}</span>/fractl<span class="w"> </span>-params<span class="w"> </span><span class="si">${</span><span class="nv">BASE_DIR</span><span class="si">}</span>/params/fractl_params<span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: fractl: not found
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: /usr/local/lrose/bin/fractl: not found
 </pre></div>
 </div>
 </div>
@@ -660,7 +659,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;1b4345e2-9361-41f4-bed1-6488f65201b5&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;39032e67-e1ac-418e-b4ef-0c5aa305c87a&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1045,7 +1044,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_sam/samurai_XYZ_analysis.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;41fead41-987a-477d-a6bc-e40d0cb773c2&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_sam/samurai_XYZ_analysis.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;3c3ccf4d-2775-4adc-abea-99f6245aebef&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1280,7 +1279,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;a9cd9025-da52-403b-ab1e-46204f41509e&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/ams-open-radar-2023/ams-open-radar-2023/notebooks/lrose/output_frac/20080411/ncf_20080411_182632.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;9d757a50-1bf7-4f90-bf9c-d52a989d37c5&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1647,7 +1646,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 14 August 2023.
+          Last updated on 15 August 2023.
         </p>
       </div>
     </div>
