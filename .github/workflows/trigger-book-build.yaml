@@ -4,7 +4,16 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build-book.yaml
+    uses: ./.github/workflows/build-book-pullrequest.yaml
     with:
       environment_name: ams-open-radar-2023-dev
-      use_cached_environment: 'false'
+      environment_file: environment.yml
+      path_to_notebooks: notebooks/
+      use_cached_environment: 'false'  # This is default, not strickly needed. Set to 'false' to always build a new environment
+  link-check:
+    uses: ./.github/workflows/link-checker.yaml
+    with:
+      environment_name: ams-open-radar-2023-dev
+      environment_file: environment.yml
+      path_to_notebooks: notebooks/
+      use_cached_environment: 'true'
