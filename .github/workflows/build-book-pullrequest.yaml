@@ -16,7 +16,7 @@ on:
       path_to_notebooks:
         description: 'Location of the JupyterBook source relative to repo root'
         required: false
-        default: './'
+        default: 'notebooks'
         type: string
       use_cached_environment:
         description: 'Flag for whether we should attempt to retrieve a previously cached environment.'
@@ -58,7 +58,6 @@ jobs:
             # copy baltrad notebooks to book dir
             cp -rp /home/jovyan/notebooks/baltrad* /work/notebooks/.
             cp -rp /home/jovyan/notebooks/pyart2baltrad* /work/notebooks/.
-            /work/install/nbstripout_notebooks.sh
             source /srv/conda/etc/profile.d/conda.sh
             conda activate notebook
             jupyter-book build /work/${{ inputs.path_to_notebooks }}

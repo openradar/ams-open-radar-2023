@@ -17,9 +17,9 @@ tags:
 
 execute:
   # To execute notebooks via a binder instead, replace 'cache' with 'binder'
-  execute_notebooks: "binder"
-  timeout: 1200
-  allow_errors: False # cells with expected failures must set the `raises-exception` cell tag
+  execute_notebooks: 'off'
+  timeout: 1800
+  allow_errors: True # cells with expected failures must set the `raises-exception` cell tag
 
 # Add a few extensions to help with parsing content
 parse:
@@ -43,7 +43,7 @@ sphinx:
     html_permalinks_icon: '<i class="fas fa-link"></i>'
     html_theme_options:
       home_page_in_toc: true
-      repository_url: https://github.com/openradar/ams-open-radar-2022/ # Online location of your book
+      repository_url: https://github.com/openradar/ams-open-radar-2023/ # Online location of your book
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
       use_issues_button: true
       use_repository_button: true

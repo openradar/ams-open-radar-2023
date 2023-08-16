@@ -26,6 +26,7 @@ dependencies:
   - make
   - gnuconfig
   - bash
+  - s3fs
   - libaec
   - coreutils
   - autoconf
@@ -37,6 +38,9 @@ dependencies:
   - pip
   - pyviz_comms>=2.0
   - nbstripout
+  - metpy
+  - pydda
+  - tensorflow
   - zip
   - pip:
       - sphinx-pythia-theme
