@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>An Overview of wradlib &#8212; AMS Open Radar Short Course 2023</title>
+    <title>baltrad_short_course &#8212; AMS Open Radar Short Course 2023</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -185,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
+  <a class="reference internal" href="../wradlib/README.html">
    Wradlib Tutorial
   </a>
  </li>
@@ -239,27 +237,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+    <a class="reference internal" href="BALTRAD%20Compositing.html">
      Compositing with BALTRAD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+    <a class="reference internal" href="BALTRAD%20DRQC.html">
      In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+    <a class="reference internal" href="BALTRAD%20IO.html">
      BALTRAD I/O model - making sense out of data and metadata
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+    <a class="reference internal" href="BALTRAD%20parallel%20processing.html">
      BALTRAD parallel processing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+    <a class="reference internal" href="BALTRAD%20QC.html">
      BALTRAD Quality Control
     </a>
    </li>
@@ -303,9 +301,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/wradlib/wradlib_intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/baltrad_short_course/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -323,10 +321,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/wradlib/wradlib_intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/baltrad_short_course/README.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/wradlib/wradlib_intro.ipynb"><button
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/baltrad_short_course/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -346,19 +344,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> On this page
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wradlib-introduction">
-   wradlib Introduction
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -367,25 +352,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="notebooks/images/logos/wradlib_logo.svg.png"><img alt="wradlib logo png" src="notebooks/images/logos/wradlib_logo.svg.png" style="width: 250px;" /></a></img></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="an-overview-of-wradlib">
-<h1>An Overview of wradlib<a class="headerlink" href="#an-overview-of-wradlib" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<hr class="docutils" />
-<div class="section" id="wradlib-introduction">
-<h2>wradlib Introduction<a class="headerlink" href="#wradlib-introduction" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span> was one of the first available free and open source Python packages which was targeting the whole processing chain of weather radar data.</p>
-<p>From the beginning in 2011 it is available for collaboration in the cloud, first at bitbucket and from 2016 at it’s current location at <a class="reference external" href="https://github.com/wradlib/wradlib">github</a>.</p>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span> evolved constantly over time also adapting to new and emerging features of the Scientific Python stack. Many Features have been added ever since and <span class="math notranslate nohighlight">\(\omega radlib\)</span> is used in almost all parts of the world.</p>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span>’s development paradigm <strong>Keep the magic to a minimum</strong> with a transparent, but lower level code is still a main goal of all development activities. Also the <strong>flat (or no) data model</strong> with passing data as numpy arrays and metadata as dictionaries is up to this time base for many functions in <span class="math notranslate nohighlight">\(\omega radlib\)</span>. With the adoption of the emerging Xarray package this changed to some extent, combining data and metadata in a convenient way.</p>
-<p>In this short course we will concentrate on:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="wradlib_radar_data_io_vis.html"><span class="doc std std-doc">reading, exploring and exporting radar data, gridding and gis export</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_data_quality.html"><span class="doc std std-doc">data quality and beam blockage</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_differential_phase.html"><span class="doc std std-doc">processing of differential phase</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_quasi_vertical_profiles.html"><span class="doc std std-doc">quasi vertical profiles</span></a></p></li>
-</ol>
-<p>For a more comprehensive set of examples and tutorials please refer to the <a class="reference external" href="https://docs.wradlib.org/en/stable/index.html"><span class="math notranslate nohighlight">\(\omega radlib\)</span> documentation</a>.</p>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="baltrad-short-course">
+<h1>baltrad_short_course<a class="headerlink" href="#baltrad-short-course" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<p>IPy Notebook exercises and data for the BALTRAD Toolbox</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -401,7 +370,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/wradlib"
+            path: "./notebooks/baltrad_short_course"
         },
         predefinedOutput: true
     }

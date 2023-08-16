@@ -239,7 +239,32 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+     Compositing with BALTRAD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+     In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+     BALTRAD I/O model - making sense out of data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+     BALTRAD parallel processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+     BALTRAD Quality Control
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -317,23 +342,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?urlpath=lab/tree/notebooks/pyart/pyart-corrections.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
@@ -532,19 +540,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## You are using the Python ARM Radar Toolkit (Py-ART), an open source
-## library for working with weather radar data. Py-ART is partly
-## supported by the U.S. Department of Energy as part of the Atmospheric
-## Radiation Measurement (ARM) Climate Research Facility, an Office of
-## Science user facility.
-##
-## If you use this software to prepare a publication, please cite:
-##
-##     JJ Helmus and SM Collis, JORS 2016, doi: 10.5334/jors.119
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="read-in-the-data-and-plot-the-data">
@@ -592,9 +587,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/cee8849a0fb0455be7e4294aefbed5b207719338496b9a2d81481e113eecc077.png" src="../../_images/cee8849a0fb0455be7e4294aefbed5b207719338496b9a2d81481e113eecc077.png" />
-</div>
 </div>
 </div>
 </div>
@@ -634,21 +626,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16.08, 16.08, 16.08, ..., 16.08, 16.08, 16.08], dtype=float32)
-</pre></div>
-</div>
-</div>
 </div>
 <p>While the nyquist velocity is stored as an array, we see that these are all the same value…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">nyquist_velocity</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16.08], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -671,27 +653,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                                                         <span class="n">vel_field</span><span class="o">=</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span>
                                                         <span class="n">nyq</span><span class="o">=</span><span class="n">nyquist_value</span><span class="p">)</span>
 <span class="n">vel_texture</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;units&#39;: &#39;meters_per_second&#39;,
- &#39;standard_name&#39;: &#39;texture_of_radial_velocity_of_scatters_away_from_instrument&#39;,
- &#39;long_name&#39;: &#39;Doppler velocity texture&#39;,
- &#39;coordinates&#39;: &#39;elevation azimuth range&#39;,
- &#39;data&#39;: array([[3.72598136e-04, 3.72598136e-04, 3.72598136e-04, ...,
-         3.72598136e-04, 3.72598136e-04, 3.72598136e-04],
-        [3.72598136e-04, 3.72598136e-04, 3.72598136e-04, ...,
-         3.72598136e-04, 3.72598136e-04, 3.72598136e-04],
-        [3.72598136e-04, 3.72598136e-04, 3.72598136e-04, ...,
-         3.72598136e-04, 3.72598136e-04, 3.72598136e-04],
-        ...,
-        [2.44136177e+00, 2.44136177e+00, 4.67393358e+00, ...,
-         3.93561081e-03, 3.93561081e-03, 3.93561081e-03],
-        [3.60749114e+00, 3.60749114e+00, 5.14538748e+00, ...,
-         3.93561081e-03, 3.93561081e-03, 3.93561081e-03],
-        [3.60749114e+00, 3.60749114e+00, 5.14538748e+00, ...,
-         3.93561081e-03, 3.93561081e-03, 3.93561081e-03]])}
 </pre></div>
 </div>
 </div>
@@ -722,9 +683,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/12e107a166c9c6e31a2abe7627bb338c28b9c2159a89b0c905b961cd54ff43f3.png" src="../../_images/12e107a166c9c6e31a2abe7627bb338c28b9c2159a89b0c905b961cd54ff43f3.png" />
-</div>
 </div>
 </div>
 <div class="section" id="determine-a-suitable-velocity-texture-threshold">
@@ -750,12 +708,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f700dbfcd50&gt;
-</pre></div>
-</div>
-<img alt="../../_images/3733737ff86a792b51138ee0411242b571dc414a8b2254dd47607e0cb78e88f1.png" src="../../_images/3733737ff86a792b51138ee0411242b571dc414a8b2254dd47607e0cb78e88f1.png" />
-</div>
 </div>
 </div>
 <div class="section" id="setup-a-gatefilter-object-and-apply-our-threshold">
@@ -765,11 +717,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gatefilter</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">GateFilter</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
 <span class="n">gatefilter</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyart.filters.gatefilter.GateFilter at 0x7f700dbe8e50&gt;
 </pre></div>
 </div>
 </div>
@@ -823,9 +770,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/369118434195fd26786d7eb694bf4f25f426a74fac03ea1a0594578ede0ab0e5.png" src="../../_images/369118434195fd26786d7eb694bf4f25f426a74fac03ea1a0594578ede0ab0e5.png" />
-</div>
 </div>
 </div>
 </div>
@@ -865,9 +809,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/e9ea864297fc2bb46559124b0402d1cf9048cabee51a65da2644a88506cbc7ca.png" src="../../_images/e9ea864297fc2bb46559124b0402d1cf9048cabee51a65da2644a88506cbc7ca.png" />
 </div>
 </div>
 </div>
@@ -911,9 +852,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/5495174e084f41bf1414558a7066135c10e5be4ef8a4cc7afd4039bb40ea3058.png" src="../../_images/5495174e084f41bf1414558a7066135c10e5be4ef8a4cc7afd4039bb40ea3058.png" />
 </div>
 </div>
 </div>
@@ -1020,7 +958,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 15 August 2023.
+          Last updated on 16 August 2023.
         </p>
       </div>
     </div>

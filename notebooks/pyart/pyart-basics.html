@@ -237,7 +237,32 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+     Compositing with BALTRAD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+     In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+     BALTRAD I/O model - making sense out of data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+     BALTRAD parallel processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+     BALTRAD Quality Control
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -315,23 +340,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?urlpath=lab/tree/notebooks/pyart/pyart-basics.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
@@ -509,19 +517,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## You are using the Python ARM Radar Toolkit (Py-ART), an open source
-## library for working with weather radar data. Py-ART is partly
-## supported by the U.S. Department of Energy as part of the Atmospheric
-## Radiation Measurement (ARM) Climate Research Facility, an Office of
-## Science user facility.
-##
-## If you use this software to prepare a publication, please cite:
-##
-##     JJ Helmus and SM Collis, JORS 2016, doi: 10.5334/jors.119
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="an-overview-of-py-art">
@@ -586,11 +581,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyart.core.radar.Radar at 0x7f8d5478a6d0&gt;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="investigate-the-pyart-radar-object">
@@ -604,11 +594,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;total_power&#39;, &#39;reflectivity&#39;, &#39;velocity&#39;, &#39;spectrum_width&#39;, &#39;differential_reflectivity&#39;, &#39;specific_differential_phase&#39;, &#39;differential_phase&#39;, &#39;cross_correlation_ratio&#39;])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,27 +602,11 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ma.core.MaskedArray&#39;&gt; [[-- -- -- ... -- -- --]
- [-- -- -- ... -- -- --]
- [-- -- -- ... -- -- --]
- ...
- [-- -- -12.5 ... -- -- --]
- [-- -- -- ... -- -- --]
- [-- -- -6.0 ... -- -- --]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lets’ check the size of this array…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reflectivity</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4319, 992)
 </pre></div>
 </div>
 </div>
@@ -653,21 +622,11 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4319 992
-</pre></div>
-</div>
-</div>
 </div>
 <p>If we wanted to look the 300th ray, at the second gate, we would use something like the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">reflectivity</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.5
 </pre></div>
 </div>
 </div>
@@ -700,22 +659,12 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x1000 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Once we have a figure, let’s add our <code class="docutils literal notranslate"><span class="pre">RadarMapDisplay</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarMapDisplay</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x1000 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -726,9 +675,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">plot_ppi_map</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/2ac3a40157a18827ee1821929d8654cc78db4c572cd7c3bb71bb14a9eef7fbd0.png" src="../../_images/2ac3a40157a18827ee1821929d8654cc78db4c572cd7c3bb71bb14a9eef7fbd0.png" />
 </div>
 </div>
 <p>By default, it will plot the elevation scan, the the default colormap from <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>… let’s customize!</p>
@@ -754,9 +700,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/e98a93f3e6355366a35769d9397d56ca7a89ce1c0d63ae043d59a0f9e806394f.png" src="../../_images/e98a93f3e6355366a35769d9397d56ca7a89ce1c0d63ae043d59a0f9e806394f.png" />
-</div>
 </div>
 <p>You can change many parameters in the graph by changing the arguments to plot_ppi_map. As you can recall from earlier. simply view these arguments in a Jupyter notebook by typing:</p>
 <div class="cell docutils container">
@@ -781,9 +724,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/53c7b1506ed7287cc162372e3e78a08d1b0fc83ac99fe884604591ecab7efb02.png" src="../../_images/53c7b1506ed7287cc162372e3e78a08d1b0fc83ac99fe884604591ecab7efb02.png" />
-</div>
 </div>
 <p>Or, let’s view a different elevation scan! To do this, change the sweep parameter in the plot_ppi_map function.</p>
 <div class="cell docutils container">
@@ -800,9 +740,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/ce541d2b2e0bb443f7615c290e1e35951599c541d1685697ffa6392aad95eefe.png" src="../../_images/ce541d2b2e0bb443f7615c290e1e35951599c541d1685697ffa6392aad95eefe.png" />
-</div>
 </div>
 <p>Let’s take a look at a different field - for example, correlation coefficient (<code class="docutils literal notranslate"><span class="pre">corr_coeff</span></code>)</p>
 <div class="cell docutils container">
@@ -818,9 +755,6 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/901f348f1bf71fe13d6d6760b0493179a3bc3ff97092140073afe4cbd3c5e769.png" src="../../_images/901f348f1bf71fe13d6d6760b0493179a3bc3ff97092140073afe4cbd3c5e769.png" />
 </div>
 </div>
 </div>
@@ -934,7 +868,7 @@ The documentation on what formats can be read by Py-ART can be found here:</p>
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 15 August 2023.
+          Last updated on 16 August 2023.
         </p>
       </div>
     </div>

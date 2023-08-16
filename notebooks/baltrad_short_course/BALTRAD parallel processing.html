@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>An Overview of wradlib &#8212; AMS Open Radar Short Course 2023</title>
+    <title>BALTRAD parallel processing &#8212; AMS Open Radar Short Course 2023</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,11 +51,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BALTRAD Quality Control" href="BALTRAD%20QC.html" />
+    <link rel="prev" title="BALTRAD I/O model - making sense out of data and metadata" href="BALTRAD%20IO.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
   Notebooks
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pyart/README.html">
    Py-ART Tutorial
@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
+  <a class="reference internal" href="../wradlib/README.html">
    Wradlib Tutorial
   </a>
  </li>
@@ -228,38 +228,38 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../baltrad/README.html">
    BALTRAD Tutorial
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+    <a class="reference internal" href="BALTRAD%20Compositing.html">
      Compositing with BALTRAD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+    <a class="reference internal" href="BALTRAD%20DRQC.html">
      In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+    <a class="reference internal" href="BALTRAD%20IO.html">
      BALTRAD I/O model - making sense out of data and metadata
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      BALTRAD parallel processing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+    <a class="reference internal" href="BALTRAD%20QC.html">
      BALTRAD Quality Control
     </a>
    </li>
@@ -303,7 +303,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/wradlib/wradlib_intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/baltrad_short_course/BALTRAD parallel processing.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -323,10 +323,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/wradlib/wradlib_intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/baltrad_short_course/BALTRAD parallel processing.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/wradlib/wradlib_intro.ipynb"><button
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/baltrad_short_course/BALTRAD parallel processing.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -352,8 +352,28 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wradlib-introduction">
-   wradlib Introduction
+  <a class="reference internal nav-link" href="#verify-from-python-the-number-of-cpu-cores-at-our-disposal">
+   Verify from Python the number of CPU cores at our disposal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-a-generator">
+   Define a generator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feed-the-generator-sequentially">
+   Feed the generator, sequentially
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiprocess-the-generator">
+   Multiprocess the generator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feed-the-monster-asynchronously">
+   Feed the monster, asynchronously!
   </a>
  </li>
 </ul>
@@ -367,24 +387,115 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="notebooks/images/logos/wradlib_logo.svg.png"><img alt="wradlib logo png" src="notebooks/images/logos/wradlib_logo.svg.png" style="width: 250px;" /></a></img></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="an-overview-of-wradlib">
-<h1>An Overview of wradlib<a class="headerlink" href="#an-overview-of-wradlib" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<hr class="docutils" />
-<div class="section" id="wradlib-introduction">
-<h2>wradlib Introduction<a class="headerlink" href="#wradlib-introduction" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span> was one of the first available free and open source Python packages which was targeting the whole processing chain of weather radar data.</p>
-<p>From the beginning in 2011 it is available for collaboration in the cloud, first at bitbucket and from 2016 at it’s current location at <a class="reference external" href="https://github.com/wradlib/wradlib">github</a>.</p>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span> evolved constantly over time also adapting to new and emerging features of the Scientific Python stack. Many Features have been added ever since and <span class="math notranslate nohighlight">\(\omega radlib\)</span> is used in almost all parts of the world.</p>
-<p><span class="math notranslate nohighlight">\(\omega radlib\)</span>’s development paradigm <strong>Keep the magic to a minimum</strong> with a transparent, but lower level code is still a main goal of all development activities. Also the <strong>flat (or no) data model</strong> with passing data as numpy arrays and metadata as dictionaries is up to this time base for many functions in <span class="math notranslate nohighlight">\(\omega radlib\)</span>. With the adoption of the emerging Xarray package this changed to some extent, combining data and metadata in a convenient way.</p>
-<p>In this short course we will concentrate on:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="baltrad-parallel-processing">
+<h1>BALTRAD parallel processing<a class="headerlink" href="#baltrad-parallel-processing" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<p>The default VM setup is to use a single CPU core. In order to demonstrate the power of parallel processing, you must first determine whether your physical hardware has more than a single core.</p>
+<p>On Linux this is done in the terminal with the ‘nproc’ command.</p>
+<p>On Mac this is done in the terminal with the ‘sysctl -n hw.ncpu’ command.</p>
+<p>On Windows this is done graphically using the Task Manager’s Performance tab.</p>
+<p>We want tune our VM to harness the power of several CPUs. Follow the following steps:</p>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="wradlib_radar_data_io_vis.html"><span class="doc std std-doc">reading, exploring and exporting radar data, gridding and gis export</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_data_quality.html"><span class="doc std std-doc">data quality and beam blockage</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_differential_phase.html"><span class="doc std std-doc">processing of differential phase</span></a></p></li>
-<li><p><a class="reference internal" href="wradlib_quasi_vertical_profiles.html"><span class="doc std std-doc">quasi vertical profiles</span></a></p></li>
+<li><p>Shut down the IPython notebook Server (Ctrl-C, answer yes)</p></li>
+<li><p>Shutdown the VM (click the X button in the VM window, choose power down the machine)</p></li>
+<li><p>Select the VM in the VirtualBox Manager Window, from the menu choose Machine-&gt;Setting</p></li>
+<li><p>Choose the System Tab, then Processor, use the slider to set the number of Processor to 2, 4, or 8 depending on your system resources.</p></li>
+<li><p>Click Ok, and then start the machine</p></li>
+<li><p>Login, use the start_notebook.sh script to start the IPython server, start the notebook and you should have multiple processors!</p></li>
 </ol>
-<p>For a more comprehensive set of examples and tutorials please refer to the <a class="reference external" href="https://docs.wradlib.org/en/stable/index.html"><span class="math notranslate nohighlight">\(\omega radlib\)</span> documentation</a>.</p>
+<p>RELOAD THIS PAGE!</p>
+<div class="section" id="verify-from-python-the-number-of-cpu-cores-at-our-disposal">
+<h2>Verify from Python the number of CPU cores at our disposal<a class="headerlink" href="#verify-from-python-the-number-of-cpu-cores-at-our-disposal" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have </span><span class="si">%i</span><span class="s2"> cores to play with!&quot;</span> <span class="o">%</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yay! Now we’re going to set up some rudimentary functionality that will allow us to distribute a processing load among our cores.</p>
+</div>
+<div class="section" id="define-a-generator">
+<h2>Define a generator<a class="headerlink" href="#define-a-generator" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">_raveio</span><span class="o">,</span> <span class="nn">odc_polarQC</span>
+
+<span class="c1"># Specify the processing chain</span>
+<span class="n">odc_polarQC</span><span class="o">.</span><span class="n">algorithm_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ropo&quot;</span><span class="p">,</span> <span class="s2">&quot;beamb&quot;</span><span class="p">,</span> <span class="s2">&quot;radvol-att&quot;</span><span class="p">,</span> <span class="s2">&quot;radvol-broad&quot;</span><span class="p">,</span> <span class="s2">&quot;rave-overshooting&quot;</span><span class="p">,</span> <span class="s2">&quot;qi-total&quot;</span><span class="p">]</span>
+
+<span class="c1"># Run processing chain on a single file. Return an output file string.</span>
+<span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">file_string</span><span class="p">):</span>
+    <span class="n">rio</span> <span class="o">=</span> <span class="n">_raveio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_string</span><span class="p">)</span>
+
+    <span class="n">pvol</span> <span class="o">=</span> <span class="n">rio</span><span class="o">.</span><span class="n">object</span>
+    <span class="n">pvol</span> <span class="o">=</span> <span class="n">odc_polarQC</span><span class="o">.</span><span class="n">QC</span><span class="p">(</span><span class="n">pvol</span><span class="p">)</span>
+    <span class="n">rio</span><span class="o">.</span><span class="n">object</span> <span class="o">=</span> <span class="n">pvol</span>
+    
+    <span class="c1"># Derive an output file name</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">fstr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file_string</span><span class="p">)</span>
+    <span class="n">ofstr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;qc_&#39;</span><span class="o">+</span><span class="n">fstr</span><span class="p">)</span>
+    
+    <span class="n">rio</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ofstr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ofstr</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feed-the-generator-sequentially">
+<h2>Feed the generator, sequentially<a class="headerlink" href="#feed-the-generator-sequentially" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span><span class="o">,</span> <span class="nn">time</span>
+
+<span class="n">ifstrs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/se*.h5&quot;</span><span class="p">)</span>
+<span class="n">before</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">fstr</span> <span class="ow">in</span> <span class="n">ifstrs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fstr</span><span class="p">,</span> <span class="n">generate</span><span class="p">(</span><span class="n">fstr</span><span class="p">))</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing time: </span><span class="si">%3.2f</span><span class="s2"> seconds&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">after</span><span class="o">-</span><span class="n">before</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mental note: repeat once!</p>
+</div>
+<div class="section" id="multiprocess-the-generator">
+<h2>Multiprocess the generator<a class="headerlink" href="#multiprocess-the-generator" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Both input and output are a list of file strings</span>
+<span class="k">def</span> <span class="nf">multi_generate</span><span class="p">(</span><span class="n">fstrs</span><span class="p">,</span> <span class="n">procs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">procs</span><span class="p">)</span>  <span class="c1"># Pool of processors. Defaults to all available logical cores</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># chunksize=1 means feed a process a new job as soon as the process is idle.</span>
+    <span class="c1"># In our case, this restricts the queue to one &quot;dispatcher&quot; which is faster.</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">generate</span><span class="p">,</span> <span class="n">fstrs</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feed-the-monster-asynchronously">
+<h2>Feed the monster, asynchronously!<a class="headerlink" href="#feed-the-monster-asynchronously" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">ofstrs</span> <span class="o">=</span> <span class="n">multi_generate</span><span class="p">(</span><span class="n">ifstrs</span><span class="p">)</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing time: </span><span class="si">%3.2f</span><span class="s2"> seconds&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">after</span><span class="o">-</span><span class="n">before</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -401,7 +512,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/wradlib"
+            path: "./notebooks/baltrad_short_course"
         },
         predefinedOutput: true
     }
@@ -410,7 +521,21 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 
               </div>
               <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="BALTRAD%20IO.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">BALTRAD I/O model - making sense out of data and metadata</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="BALTRAD%20QC.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">BALTRAD Quality Control</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </div>
           </div>
