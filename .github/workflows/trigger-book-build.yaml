@@ -15,5 +15,5 @@ jobs:
     with:
       environment_name: ams-open-radar-2023-dev
       environment_file: environment.yml
-      path_to_notebooks: notebooks/
+      path_to_notebooks: ./
       use_cached_environment: 'true'
