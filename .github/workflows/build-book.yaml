@@ -16,7 +16,7 @@ on:
       path_to_notebooks:
         description: 'Location of the JupyterBook source relative to repo root'
         required: false
-        default: './notebooks'
+        default: 'notebooks'
         type: string
       use_cached_environment:
         description: 'Flag for whether we should attempt to retrieve a previously cached environment.'
@@ -27,9 +27,6 @@ on:
 jobs:
   build-container:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: checkout files in repo
         uses: actions/checkout@main
