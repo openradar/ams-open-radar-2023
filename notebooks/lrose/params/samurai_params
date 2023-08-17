@@ -194,7 +194,7 @@ projection = PROJ_TRANSVERSE_MERCATOR_EXACT;
 // Type: string
 //
 
-data_directory = "../data/";
+data_directory = "./data/";
 
 ///////////// output_directory ////////////////////////
 //
@@ -206,7 +206,7 @@ data_directory = "../data/";
 // Type: string
 //
 
-output_directory = "../output_sam/";
+output_directory = "./output_sam/";
 
 ///////////// preprocess_obs //////////////////////////
 //
