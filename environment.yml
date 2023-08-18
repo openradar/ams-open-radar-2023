@@ -17,6 +17,7 @@ dependencies:
   - metpy
   - pydda
   - s3fs
+  - tobac
   - geoviews
   - tensorflow-probability
   - certifi>=2023.07.22
