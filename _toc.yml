@@ -13,6 +13,8 @@ parts:
         sections:
           - file: notebooks/lrose/LROSE_Wind_tutorial
       - file: notebooks/tobac/README
+        sections:
+          - file: notebooks/tobac/tobac_examples
       - file: notebooks/pydda/README
         sections:
           - file: notebooks/pydda/Retrieving_winds_with_pydda
