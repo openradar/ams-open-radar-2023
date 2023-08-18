@@ -1,0 +1,1 @@
+FROM ghcr.io/openradar/ams-open-radar-2023:latest
