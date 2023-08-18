@@ -54,6 +54,8 @@ sphinx:
           url: https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw
           icon: fab fa-youtube-square
           type: fontawesome
+      repository:
+        path_to_book: /home/jovyan/notebooks
       launch_buttons:
         binderhub_url: http://binder.projectpythia.org
         jupyterhub_url: https://jupyterhub-workshop.svcs.arm.gov/
