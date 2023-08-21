@@ -62,7 +62,6 @@ sphinx:
         notebook_interface: jupyterlab
       extra_navbar: |
         Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
-        All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
       logo_link: https://openradarscience.org
       navbar_links:
         - name: Home
@@ -78,3 +77,4 @@ sphinx:
         Unidata: notebooks/images/logos/Unidata_logo_horizontal_1200x300.svg
         CSU: notebooks/images/logos/csu-logo.png
         UAH: notebooks/images/logos/uah-logo.png
+        TT: notebooks/images/logos/texas-tech-logo.png
