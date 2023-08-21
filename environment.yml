@@ -20,6 +20,7 @@ dependencies:
   - tobac
   - geoviews
   - tensorflow-probability
+  - tobac
   - certifi>=2023.07.22
   - cryptography>=41.0.3
   - semver>=3.0.1
