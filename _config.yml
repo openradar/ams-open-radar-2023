@@ -70,6 +70,11 @@ sphinx:
         - name: Radar Cookbook
           url: https://projectpythia.org/radar-cookbook
       footer_logos:
+        Argonne: notebooks/images/logos/argonne_logo.png
+        Environment_Canda: notebooks/images/logos/environment_canada_logo.svg
+        Meteoswiss: notebooks/images/logos/meteoswiss_logo.svg
+        Bonne: notebooks/images/logos/university_bonn.png
         NCAR: notebooks/images/logos/NCAR-contemp-logo-blue.svg
         Unidata: notebooks/images/logos/Unidata_logo_horizontal_1200x300.svg
-        UAlbany: notebooks/images/logos/UAlbany-A2-logo-purple-gold.svg
+        CSU: notebooks/images/logos/csu-logo.png
+        UAH: notebooks/images/logos/uah-logo.png
