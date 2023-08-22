@@ -18,6 +18,7 @@ dependencies:
   - pydda
   - s3fs
   - tobac
+  - pyrad_mch
   - geoviews
   - tensorflow-probability
   - tobac

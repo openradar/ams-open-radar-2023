@@ -17,18 +17,18 @@ name STRING NEXRAD2
 
 # Base path of the raw data.
 # Note: Must have a trailing '/'
-datapath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/nexrad/
+datapath STRING ../../../data/nexrad/
 path_convention STRING ODIM
 
 # Loading of saved datasets
-loadbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+loadbasepath STRING ../../../data/pyrad_products/
 loadname STRING NEXRAD2
 
 
 # --------------------------------------------
 # Output data
 # -----------------------------------------------
-saveimgbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+saveimgbasepath STRING ../../../data/pyrad_products/
 
 # Output image format can be any accepted by Matplotlib
 # More than one output formats can be set
@@ -40,10 +40,10 @@ imgformat STRARR 1
 # --------------------------------------------------------
 
 # Base path of configuration files
-configpath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad
+configpath STRING ./
 
 # Configuration of the radar location and approach direction
-locationConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/nexrad2_loc.txt
+locationConfigFile STRING ./nexrad2_loc.txt
 
 # Configuration of the product generation
-productConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/nexrad2_prod.txt
+productConfigFile STRING ./nexrad2_prod.txt
