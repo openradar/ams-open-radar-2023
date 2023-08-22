@@ -577,7 +577,7 @@ TensorFlow-probability detected. TensorFlow engine enabled!
 <div class="section" id="case-study">
 <h2>Case study<a class="headerlink" href="#case-study" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>We will examine the same case study over Northern Alabama that has been used for this entire short course. For this case in April 2008, we had an MCS with supercells out ahead of the main line approach the Huntsville, AL region. 3D variational retrievals of thunderstorm updrafts can have uncertainties on the order of 5 m/s. In addition these retrievals require precipitation coverage throughout the domain. Therefore, 3DVAR retrievals are best suited for deep convection like this where the updrafts are strong and precipitation coverage is wide.</p>
-<p>For this case, we had coverage of the storm from two radars, the ARMOR and the Huntsville NEXRAD radar</p>
+<p>For this case, we had coverage of the storm from two radars, the ARMOR and the Huntsville NEXRAD radar.</p>
 <div class="section" id="uah-armor-radar">
 <h3>UAH ARMOR Radar<a class="headerlink" href="#uah-armor-radar" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>We need to load and preprocess the UAH armor data first. In order to do so, we first need to load the ARMOR radar file.</p>
@@ -661,7 +661,7 @@ TensorFlow-probability detected. TensorFlow engine enabled!
 </div>
 <div class="section" id="gridding">
 <h2>Gridding<a class="headerlink" href="#gridding" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>PyDDA requires data to be gridded to Cartesian coordinates in order to retrieve the 3D wind fields. Therefore, we will use Py-ART’s <em>grid_from_radars</em> function in order to do the gridding. You usually want to have a grid resolution such that your features of interest are covered by four grid points. In this case, we’re at 1 km horizontal and 0.5 km vertical resolution. (Ask if we are covering gridding in Py-ART and wait for link here)</p>
+<p>PyDDA requires data to be gridded to Cartesian coordinates in order to retrieve the 3D wind fields. Therefore, we will use Py-ART’s <em>grid_from_radars</em> function in order to do the gridding. You usually want to have a grid resolution such that your features of interest are covered by four grid points. In this case, we’re at 1 km horizontal and 0.5 km vertical resolution. For more information on gridding with Py-ART, see the Radar Cookbook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_limits</span> <span class="o">=</span> <span class="p">((</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">15000.</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">100_000.</span><span class="p">,</span> <span class="mf">100_000.</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">100_000.</span><span class="p">,</span> <span class="mf">100_000.</span><span class="p">))</span>
@@ -1812,8 +1812,8 @@ Data variables:
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p>engine</p></td>
-<td><p>PyDDA supports three backends for optimization: SciPy, JAX, and TensorFlow. We highly recommend the TensorFlow backend to take advantage of parallelism and GPUs for retrieval.</p></td>
-<td><p>“tensorflow”</p></td>
+<td><p>PyDDA supports three backends for optimization: SciPy, JAX, and TensorFlow.</p></td>
+<td><p>“scipy”</p></td>
 </tr>
 </tbody>
 </table>
