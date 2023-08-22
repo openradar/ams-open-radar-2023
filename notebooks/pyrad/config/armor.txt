@@ -17,18 +17,18 @@ name STRING ARMOR
 
 # Base path of the raw data.
 # Note: Must have a trailing '/'
-datapath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/uah-armor/
+datapath STRING ../../../data/uah-armor/
 path_convention STRING ODIM
 
 # Loading of saved datasets
-loadbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+loadbasepath STRING ../../../data/pyrad_products/
 loadname STRING ARMOR
 
 
 # --------------------------------------------
 # Output data
 # -----------------------------------------------
-saveimgbasepath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/data/pyrad_products/
+saveimgbasepath STRING ../../../data/pyrad_products/
 
 # Output image format can be any accepted by Matplotlib
 # More than one output formats can be set
@@ -40,10 +40,10 @@ imgformat STRARR 1
 # --------------------------------------------------------
 
 # Base path of configuration files
-configpath STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad
+configpath STRING ./
 
 # Configuration of the radar location and approach direction
-locationConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/armor_loc.txt
+locationConfigFile STRING ./armor_loc.txt
 
 # Configuration of the product generation
-productConfigFile STRING /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/armor_prod.txt
+productConfigFile STRING ./armor_prod.txt

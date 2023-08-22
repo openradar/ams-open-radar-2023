@@ -24,6 +24,17 @@ ScanList STRARR 2
       RADAR001:RAW_NA_000_125_  # masterscan: first scan of a volume
       RADAR002:gz  
 
+RadarPosition STRUCT 3
+    latitude  FLTARR 2
+        34.64619996   # WGS84 latitude [deg]
+        34.930556
+    longitude FLTARR 2
+        -86.77149994    # WGS84 longitude [deg]
+        -86.083611
+    altitude FLTARR 2
+        180      # altitude [m] (NOT WGS84!!)
+        566
+
 
 xsecImageConfig STRUCT 6
    xsize      FLOAT  10.    # image size [inches]
@@ -45,9 +56,17 @@ gridMapImageConfig STRUCT 12
    latstep    FLOAT 0.25
    mapres     STRING h  # map resolution (10m, 50m, 110m)
    dpi        INT    72     # dots per inch (72 web quality, 300 print quality)
-   maps STRARR 5        # maps to overplot (cartopy)
+   maps STRARR 4        # maps to overplot (cartopy)
        countries
-       lakes_europe
        coastlines
        rivers
-       rivers_europe
+       lakes
+
+# Image config
+ppiImageConfig STRUCT 6
+   xsize      FLOAT  10.      # image size [inches] (default dots per inch (dpi):72)
+   ysize      FLOAT   8.      # image size [inches] (default dots per inch (dpi):72)
+   xmin       FLOAT -200.0   # Min distance on horizontal axis [km]
+   xmax       FLOAT  200.0   # Max distance on horizontal axis [km]
+   ymin       FLOAT -200.0   # Min distance on vertical axis [km]
+   ymax       FLOAT  200.0   # Max distance on vertical axis [km]
