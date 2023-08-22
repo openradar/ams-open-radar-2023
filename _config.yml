@@ -17,8 +17,8 @@ tags:
 
 execute:
   # To execute notebooks via a binder instead, replace 'cache' with 'binder'
-  execute_notebooks: 'auto'
-  timeout: 1200
+  execute_notebooks: 'off'
+  timeout: 1800
   allow_errors: True # cells with expected failures must set the `raises-exception` cell tag
 
 # Add a few extensions to help with parsing content
@@ -43,7 +43,7 @@ sphinx:
     html_permalinks_icon: '<i class="fas fa-link"></i>'
     html_theme_options:
       home_page_in_toc: true
-      repository_url: https://github.com/openradar/ams-open-radar-2022/ # Online location of your book
+      repository_url: https://github.com/openradar/ams-open-radar-2023/ # Online location of your book
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
       use_issues_button: true
       use_repository_button: true
@@ -54,12 +54,14 @@ sphinx:
           url: https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw
           icon: fab fa-youtube-square
           type: fontawesome
+      repository:
+        path_to_book: /home/jovyan/notebooks
       launch_buttons:
         binderhub_url: http://binder.projectpythia.org
+        jupyterhub_url: https://jupyterhub-workshop.svcs.arm.gov/
         notebook_interface: jupyterlab
       extra_navbar: |
         Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
-        All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
       logo_link: https://openradarscience.org
       navbar_links:
         - name: Home
@@ -67,6 +69,12 @@ sphinx:
         - name: Radar Cookbook
           url: https://projectpythia.org/radar-cookbook
       footer_logos:
+        Argonne: notebooks/images/logos/argonne_logo.png
+        Environment_Canda: notebooks/images/logos/environment_canada_logo.svg
+        Meteoswiss: notebooks/images/logos/meteoswiss_logo.svg
+        Bonne: notebooks/images/logos/university_bonn.png
         NCAR: notebooks/images/logos/NCAR-contemp-logo-blue.svg
         Unidata: notebooks/images/logos/Unidata_logo_horizontal_1200x300.svg
-        UAlbany: notebooks/images/logos/UAlbany-A2-logo-purple-gold.svg
+        CSU: notebooks/images/logos/csu-logo.png
+        UAH: notebooks/images/logos/uah-logo.png
+        TT: notebooks/images/logos/texas-tech-logo.png

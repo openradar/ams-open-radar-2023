@@ -38,6 +38,16 @@ dependencies:
   - pip
   - pyviz_comms>=2.0
   - nbstripout
+  - metpy
+  - pydda
+  - tobac
+  - tensorflow
   - zip
+  - certifi>=2023.07.22
+  - cryptography>=41.0.3
+  - semver>=3.0.1
+  - nbgitpuller
+  - pip
   - pip:
       - sphinx-pythia-theme
+      - tornado>=6.3.3

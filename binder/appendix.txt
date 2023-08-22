@@ -4,7 +4,8 @@ RUN apt update && \
     wget -q -O /tmp/lrose.deb https://github.com/NCAR/lrose-core/releases/download/lrose-core-20220222/lrose-core-20220222.ubuntu_18.04.amd64.deb && \
     apt-get -y install /tmp/lrose.deb && \
     apt-get clean && \
-    rm -rf /tmp/lrose.deb
+    rm -rf /tmp/lrose.deb && \
+    chmod -R 777 /home/jovyan
 
 USER ${NB_USER}
 RUN CONDA_DIR=/srv/conda && \
