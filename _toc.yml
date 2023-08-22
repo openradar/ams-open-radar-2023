@@ -3,6 +3,9 @@ root: README
 parts:
   - caption: Notebooks
     chapters:
+      - file: notebooks/xradar/README
+        sections:
+          - file: notebooks/xradar/xradar-basics
       - file: notebooks/pyart/README
         sections:
           - file: notebooks/pyart/pyart-basics
