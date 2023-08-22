@@ -41,7 +41,6 @@ dependencies:
   - metpy
   - pydda
   - tobac
-  - tensorflow
   - zip
   - certifi>=2023.07.22
   - cryptography>=41.0.3
