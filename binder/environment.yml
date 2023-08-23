@@ -49,4 +49,5 @@ dependencies:
   - pip
   - pip:
       - tornado>=6.3.3
+      - sphinx-pythia-theme
       - cmweather
