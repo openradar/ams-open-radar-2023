@@ -1,0 +1,6 @@
+0 blue
+50 yellow
+100 yellow
+150 orange
+200 red
+250 white
