@@ -41,6 +41,7 @@ jobs:
           DOCKER_REGISTRY: "ghcr.io"
           PUBLIC_REGISTRY_CHECK: true
           APPENDIX_FILE: "binder/appendix.txt"
+          BINDER_CACHE: true
 
   build-book:
     runs-on: ubuntu-latest
