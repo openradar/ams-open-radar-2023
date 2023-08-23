@@ -4,6 +4,7 @@
 
 [![nightly-build](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/openradar/ams-open-radar-2023/actions/workflows/nightly-build.yaml)
 [![Binder](http://binder.projectpythia.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?labpath=notebooks)
+[![ARM Jupyterhub Badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=ARM+JupyterHub&message=Workshop&color=blue)](https://jupyterhub-workshop.svcs.arm.gov/)
 
 
 ## Motivation
