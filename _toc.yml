@@ -11,6 +11,7 @@ parts:
           - file: notebooks/pyart/pyart-basics
           - file: notebooks/pyart/pyart-corrections
           - file: notebooks/pyart/pyart-gridding
+      - file: notebooks/pyrad/README
       - file: notebooks/wradlib/README
         sections:
           - file: notebooks/wradlib/wradlib_intro
