@@ -1,6 +1,9 @@
 format: jb-book
 root: README
 parts:
+  - caption: Setup Instructions
+    chapters:
+      - file: getting-started.md
   - caption: Notebooks
     chapters:
       - file: notebooks/xradar/README
