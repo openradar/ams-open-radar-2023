@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TOBAC &#8212; AMS Open Radar Short Course 2023</title>
+    <title>TOBAC Tutorial &#8212; AMS Open Radar Short Course 2023</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="PyDDA" href="../pydda/README.html" />
+    <link rel="next" title="3D tobac Tutorial: Gridded Radar Data" href="tobac_examples.html" />
     <link rel="prev" title="LROSE Wind Tutorial" href="../lrose/LROSE_Wind_tutorial.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -238,17 +238,33 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   TOBAC
+   TOBAC Tutorial
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tobac_examples.html">
+     3D
+     <em>
+      tobac
+     </em>
+     Tutorial: Gridded Radar Data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pydda/README.html">
    PyDDA
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -264,8 +280,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../baltrad/README.html">
    BALTRAD Tutorial
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -304,7 +320,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <div class="navbar_extra_footer">
   Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
-All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
 
 </div>
 
@@ -378,6 +393,39 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tobac-reading-in-data">
+   Tobac: Reading in data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-detection">
+   Feature detection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#segmentation">
+   Segmentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tracking">
+   Tracking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-and-splitting">
+   Merging and Splitting
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -386,9 +434,47 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tobac">
-<h1>TOBAC<a class="headerlink" href="#tobac" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p>An overview of TOBAC, which can be used for tracking features.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="tobac-tutorial">
+<h1>TOBAC Tutorial<a class="headerlink" href="#tobac-tutorial" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<p>This is a quick overview of how to use Tobac for tracking gridded radar data.</p>
+<div class="section" id="tobac-reading-in-data">
+<h2>Tobac: Reading in data<a class="headerlink" href="#tobac-reading-in-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p>Read in gridded data using xarray or Py-ART</p></li>
+</ul>
+</div>
+<div class="section" id="feature-detection">
+<h2>Feature detection<a class="headerlink" href="#feature-detection" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p>Useful parameters and saving your data</p></li>
+<li><p>2D single threshold</p></li>
+<li><p>Multiple Threshold</p></li>
+</ul>
+</div>
+<div class="section" id="segmentation">
+<h2>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p>Useful parameters for creating your mask</p></li>
+</ul>
+</div>
+<div class="section" id="tracking">
+<h2>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p>Useful parameters for linking features</p></li>
+<li><p>2D tracking</p></li>
+<li><p>3D tracking</p></li>
+</ul>
+</div>
+<div class="section" id="merging-and-splitting">
+<h2>Merging and Splitting<a class="headerlink" href="#merging-and-splitting" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li><p>How to handle postprocessing your tracks for cells which merge and split</p></li>
+<li><p>Parameter relationships relating parents (cells) and children (features).</p></li>
+</ul>
+<p>This notebook is intended to be a quick reference for you to use in the future for your tracking needs.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -421,10 +507,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             <p class="prev-next-title">LROSE Wind Tutorial</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../pydda/README.html" title="next page">
+    <a class='right-next' id="next-link" href="tobac_examples.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">PyDDA</p>
+        <p class="prev-next-title">3D <em>tobac</em> Tutorial: Gridded Radar Data</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -447,13 +533,31 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     <div class="container-xl">
       <div class="row d-flex flex-wrap align-items-center">
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Argonne" src="../../_images/argonne_logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Environment_Canda" src="../../_images/environment_canada_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Meteoswiss" src="../../_images/meteoswiss_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Bonne" src="../../_images/university_bonn.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
         </div>
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
         </div>
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
-          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+          <img alt="CSU" src="../../_images/csu-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAH" src="../../_images/uah-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="TT" src="../../_images/texas-tech-logo.png" style="width: 100%">
         </div>
       </div>
     </div>
@@ -473,7 +577,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 18 August 2023.
+          Last updated on 23 August 2023.
         </p>
       </div>
     </div>

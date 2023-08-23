@@ -240,17 +240,33 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../tobac/README.html">
-   TOBAC
+   TOBAC Tutorial
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tobac/tobac_examples.html">
+     3D
+     <em>
+      tobac
+     </em>
+     Tutorial: Gridded Radar Data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pydda/README.html">
    PyDDA
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -266,8 +282,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../baltrad/README.html">
    BALTRAD Tutorial
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -306,7 +322,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <div class="navbar_extra_footer">
   Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
-All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
 
 </div>
 
@@ -386,6 +401,12 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-workshop.svcs.arm.gov//hub/user-redirect/git-pull?repo=https://github.com/openradar/ams-open-radar-2023/&urlpath=lab/tree/ams-open-radar-2023/notebooks/wradlib/wradlib_radar_data_io_vis.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
         
@@ -600,13 +621,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   <a class="reference internal nav-link" href="#summary">
    Summary
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#whats-next">
-     What’s next?
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resources-and-references">
@@ -11154,606 +11168,12 @@ Data variables: (12/47)
 <img alt="../../_images/50c782c0a65d842c43e0dd9eba4c8441597b2a1719a00c4608f456974937a86c.png" src="../../_images/50c782c0a65d842c43e0dd9eba4c8441597b2a1719a00c4608f456974937a86c.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad</span> <span class="o">=</span> <span class="s2">&quot;../../data/qc/nexrad/cfrad.20080411_181143.771_to_20080411_181635.745_KHTX_SUR.nc&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_swp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">nexrad</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s2">&quot;sweep_1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfradial1&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">nexrad_swp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">nexrad</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s2">&quot;sweep_1&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfradial1&quot;</span><span class="p">)</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xarray/backends/api.py:570,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">558</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">570</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xradar/io/backends/cfradial1.py:429,</span> in <span class="ni">CfRadial1BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, format, group, first_dim, reindex_angle, fix_second_angle, site_coords, optional)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="n">ds0</span> <span class="o">=</span> <span class="n">store_entrypoint</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">store</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span>     <span class="n">mask_and_scale</span><span class="o">=</span><span class="n">mask_and_scale</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="n">decode_timedelta</span><span class="o">=</span><span class="n">decode_timedelta</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">429</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_get_cfradial2_group</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="n">ds0</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="n">sweep</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">first_dim</span><span class="o">=</span><span class="n">first_dim</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">433</span>     <span class="n">optional</span><span class="o">=</span><span class="n">optional</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">434</span>     <span class="n">site_coords</span><span class="o">=</span><span class="n">site_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">435</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="k">if</span> <span class="n">ds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Group `</span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">` missing from file `</span><span class="si">{</span><span class="n">filename_or_obj</span><span class="si">}</span><span class="s2">`.&quot;</span><span class="p">)</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xradar/io/backends/cfradial1.py:240,</span> in <span class="ni">_get_cfradial2_group</span><span class="nt">(ds, sweep, first_dim, optional, site_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="k">return</span> <span class="n">_get_subgroup</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">georeferencing_correction_subgroup</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span> <span class="k">elif</span> <span class="s2">&quot;sweep&quot;</span> <span class="ow">in</span> <span class="n">sweep</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">240</span>         <span class="n">_get_sweep_groups</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span>             <span class="n">ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>             <span class="n">sweep</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>             <span class="n">first_dim</span><span class="o">=</span><span class="n">first_dim</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>             <span class="n">optional</span><span class="o">=</span><span class="n">optional</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>             <span class="n">site_coords</span><span class="o">=</span><span class="n">site_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>         <span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">return</span> <span class="kc">None</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xradar/io/backends/cfradial1.py:174,</span> in <span class="ni">_get_sweep_groups</span><span class="nt">(obj, sweep, first_dim, optional, site_coords)</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="n">rslice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">current_ray_n_gates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">rslice</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">174</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">n_points</span><span class="o">=</span><span class="n">nslice</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">n_points</span><span class="o">=</span><span class="p">[</span><span class="n">dim0</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s2">&quot;n_points&quot;</span><span class="p">)</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xarray/core/dataset.py:2652,</span> in <span class="ni">Dataset.isel</span><span class="nt">(self, indexers, drop, missing_dims, **indexers_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2648</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isel_fancy</span><span class="p">(</span><span class="n">indexers</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="n">drop</span><span class="p">,</span> <span class="n">missing_dims</span><span class="o">=</span><span class="n">missing_dims</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2650</span> <span class="c1"># Much faster algorithm for when all indexers are ints, slices, one-dimensional</span>
-<span class="g g-Whitespace">   </span><span class="mi">2651</span> <span class="c1"># lists, or zero or one-dimensional np.ndarray&#39;s</span>
-<span class="ne">-&gt; </span><span class="mi">2652</span> <span class="n">indexers</span> <span class="o">=</span> <span class="n">drop_dims_from_indexers</span><span class="p">(</span><span class="n">indexers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">missing_dims</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2654</span> <span class="n">variables</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2655</span> <span class="n">dims</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Hashable</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">File /home/jgiles/mambaforge/envs/wradlib4/lib/python3.11/site-packages/xarray/core/utils.py:858,</span> in <span class="ni">drop_dims_from_indexers</span><span class="nt">(indexers, dims, missing_dims)</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="n">invalid</span> <span class="o">=</span> <span class="n">indexers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">invalid</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">858</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="sa">f</span><span class="s2">&quot;Dimensions </span><span class="si">{</span><span class="n">invalid</span><span class="si">}</span><span class="s2"> do not exist. Expected one or more of </span><span class="si">{</span><span class="n">dims</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="k">return</span> <span class="n">indexers</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span> <span class="k">elif</span> <span class="n">missing_dims</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>     <span class="c1"># don&#39;t modify input</span>
-
-<span class="ne">ValueError</span>: Dimensions {&#39;n_points&#39;} do not exist. Expected one or more of Frozen({&#39;azimuth&#39;: 360, &#39;range&#39;: 1840})
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_swp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">nexrad</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfradial1&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nexrad_swp</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-html[theme=dark],
-body[data-theme=dark],
-body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
-}
-
-.xr-wrap {
-  display: block !important;
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
-  display: none;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-index-preview {
-  grid-column: 2 / 5;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data,
-.xr-index-data-in:checked ~ .xr-index-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-index-name div,
-.xr-index-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt,
-.xr-attrs dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2,
-.xr-no-icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:              (frequency: 1, sweep: 14, time: 5040)
-Coordinates:
-  * frequency            (frequency) float32 2.755e+09
-Dimensions without coordinates: sweep, time
-Data variables: (12/13)
-    volume_number        float64 ...
-    platform_type        |S32 ...
-    primary_axis         |S32 ...
-    status_str           |S1 ...
-    instrument_type      |S32 ...
-    time_coverage_start  |S32 ...
-    ...                   ...
-    sweep_group_name     (sweep) &lt;U10 ...
-    sweep_fixed_angle    (sweep) float32 ...
-    latitude             (time) float64 ...
-    longitude            (time) float64 ...
-    altitude             (time) float64 ...
-    altitude_agl         (time) float64 ...
-Attributes: (12/14)
-    Conventions:         CF-1.7
-    version:             CF-Radial-1.4
-    title:               
-    institution:         
-    references:          
-    source:              ARCHIVE
-    ...                  ...
-    instrument_name:     KHTX
-    site_name:           
-    scan_name:           
-    scan_id:             0
-    platform_is_mobile:  false
-    ray_times_increase:  true</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-3a3b2b6a-692c-4771-996a-3c2ef3807286' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3a3b2b6a-692c-4771-996a-3c2ef3807286' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>frequency</span>: 1</li><li><span>sweep</span>: 14</li><li><span>time</span>: 5040</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a8fa5afa-b87c-4ea3-8753-de83586852e1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a8fa5afa-b87c-4ea3-8753-de83586852e1' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>frequency</span></div><div class='xr-var-dims'>(frequency)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.755e+09</div><input id='attrs-4463467f-2c9b-4a75-a7ae-65436abe6360' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4463467f-2c9b-4a75-a7ae-65436abe6360' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-80e9e827-53bb-41fb-bc32-c78d1375ab66' class='xr-var-data-in' type='checkbox'><label for='data-80e9e827-53bb-41fb-bc32-c78d1375ab66' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>transmission_frequency</dd><dt><span>units :</span></dt><dd>s-1</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd></dl></div><div class='xr-var-data'><pre>array([2.755e+09], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2744a8b0-16c6-43d2-97c4-d77aa3e1d999' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2744a8b0-16c6-43d2-97c4-d77aa3e1d999' class='xr-section-summary' >Data variables: <span>(13)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>volume_number</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-12a065a6-fb25-4a9c-9755-4e80d44d08ea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-12a065a6-fb25-4a9c-9755-4e80d44d08ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-44320965-5374-45a7-a517-eb22e20c16c0' class='xr-var-data-in' type='checkbox'><label for='data-44320965-5374-45a7-a517-eb22e20c16c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>data_volume_index_number</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>platform_type</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-59528b9c-192a-4179-82ab-63ef13151226' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-59528b9c-192a-4179-82ab-63ef13151226' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a4bc52ac-e73c-4ef0-a154-58923d3e9ce0' class='xr-var-data-in' type='checkbox'><label for='data-a4bc52ac-e73c-4ef0-a154-58923d3e9ce0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>platform_type</dd><dt><span>options :</span></dt><dd>fixed, vehicle, ship, aircraft_fore, aircraft_aft, aircraft_tail, aircraft_belly, aircraft_roof, aircraft_nose, satellite_orbit, satellite_geostat</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>primary_axis</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-deff1609-5ce7-4f6b-ba0d-488aa3504dee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-deff1609-5ce7-4f6b-ba0d-488aa3504dee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ee0bfe87-f45b-4379-ae5d-048cebd7cfa5' class='xr-var-data-in' type='checkbox'><label for='data-ee0bfe87-f45b-4379-ae5d-048cebd7cfa5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>primary_axis_of_rotation</dd><dt><span>options :</span></dt><dd>axis_z, axis_y, axis_x, axis_z_prime, axis_y_prime, axis_x_prime</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>status_str</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S1</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2d7a5858-6844-4925-aac8-401c2f194314' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2d7a5858-6844-4925-aac8-401c2f194314' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3f1329b7-4395-42fc-9fbf-8e1f06825306' class='xr-var-data-in' type='checkbox'><label for='data-3f1329b7-4395-42fc-9fbf-8e1f06825306' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>status_of_instrument</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S1]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>instrument_type</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2cfafba7-3bde-496e-8f5e-61342cf62a11' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2cfafba7-3bde-496e-8f5e-61342cf62a11' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87cdf962-f107-4497-92b9-605b96702cc6' class='xr-var-data-in' type='checkbox'><label for='data-87cdf962-f107-4497-92b9-605b96702cc6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>type_of_instrument</dd><dt><span>options :</span></dt><dd>radar, lidar</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_coverage_start</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a547835a-0eda-4ab8-afaa-3595792295c9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a547835a-0eda-4ab8-afaa-3595792295c9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bef15ce8-dd12-4a8c-8ad7-dd8c5faffc6c' class='xr-var-data-in' type='checkbox'><label for='data-bef15ce8-dd12-4a8c-8ad7-dd8c5faffc6c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>data_volume_start_time_utc</dd><dt><span>comment :</span></dt><dd>ray times are relative to start time in secs</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_coverage_end</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ddfb6322-5c73-44d2-80b5-30efe839ea8d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ddfb6322-5c73-44d2-80b5-30efe839ea8d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f776ffbd-8acc-4157-bb76-4d3f140fb70c' class='xr-var-data-in' type='checkbox'><label for='data-f776ffbd-8acc-4157-bb76-4d3f140fb70c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>data_volume_end_time_utc</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=|S32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_group_name</span></div><div class='xr-var-dims'>(sweep)</div><div class='xr-var-dtype'>&lt;U10</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5c116320-bacc-435f-852e-04e00d85cef1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5c116320-bacc-435f-852e-04e00d85cef1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f27829b7-9679-4ea6-a2d6-106b58838d73' class='xr-var-data-in' type='checkbox'><label for='data-f27829b7-9679-4ea6-a2d6-106b58838d73' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[14 values with dtype=&lt;U10]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_fixed_angle</span></div><div class='xr-var-dims'>(sweep)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-67416858-9d61-416e-ad0e-3ffc1193df69' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-67416858-9d61-416e-ad0e-3ffc1193df69' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2b850e29-98bf-40ac-aebb-d478580a6dc9' class='xr-var-data-in' type='checkbox'><label for='data-2b850e29-98bf-40ac-aebb-d478580a6dc9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ray_target_fixed_angle</dd><dt><span>units :</span></dt><dd>degrees</dd></dl></div><div class='xr-var-data'><pre>[14 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-7c799605-73a7-4562-85a2-4a6dab98f871' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7c799605-73a7-4562-85a2-4a6dab98f871' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0105457a-5511-4059-ac15-7425ca67acb3' class='xr-var-data-in' type='checkbox'><label for='data-0105457a-5511-4059-ac15-7425ca67acb3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>[5040 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8ba63ed6-b1a3-46a4-bee4-e297943966d3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8ba63ed6-b1a3-46a4-bee4-e297943966d3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a86fae43-ae1a-4bef-b6f7-bd142bf32d09' class='xr-var-data-in' type='checkbox'><label for='data-a86fae43-ae1a-4bef-b6f7-bd142bf32d09' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>[5040 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>altitude</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e10c0a50-e379-441e-827e-468b78227458' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e10c0a50-e379-441e-827e-468b78227458' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-534e2424-83cc-4464-a49a-3396f33028b4' class='xr-var-data-in' type='checkbox'><label for='data-534e2424-83cc-4464-a49a-3396f33028b4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>altitude</dd><dt><span>units :</span></dt><dd>meters</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>[5040 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>altitude_agl</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d9fc39d9-06b1-4728-b864-9bdef64a83c0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d9fc39d9-06b1-4728-b864-9bdef64a83c0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-49eee8dc-06e6-4efa-ba0b-9c7c169e4a33' class='xr-var-data-in' type='checkbox'><label for='data-49eee8dc-06e6-4efa-ba0b-9c7c169e4a33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>altitude_above_ground_level</dd><dt><span>units :</span></dt><dd>meters</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>[5040 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c6b6283d-ef52-42c4-8b14-dc721c8fa1ba' class='xr-section-summary-in' type='checkbox'  ><label for='section-c6b6283d-ef52-42c4-8b14-dc721c8fa1ba' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>frequency</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-246592e1-1952-459b-9155-7b93ebab7ab8' class='xr-index-data-in' type='checkbox'/><label for='index-246592e1-1952-459b-9155-7b93ebab7ab8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([2755000064.0], dtype=&#x27;float64&#x27;, name=&#x27;frequency&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-84f9a046-9b80-46b3-aef0-8146040ff343' class='xr-section-summary-in' type='checkbox'  ><label for='section-84f9a046-9b80-46b3-aef0-8146040ff343' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>version :</span></dt><dd>CF-Radial-1.4</dd><dt><span>title :</span></dt><dd></dd><dt><span>institution :</span></dt><dd></dd><dt><span>references :</span></dt><dd></dd><dt><span>source :</span></dt><dd>ARCHIVE</dd><dt><span>history :</span></dt><dd>!   time-now 07/12/2023 14:45:46.000 GMT
-    sweep-directory &quot;./&quot;
-    radar-names KHTX
-    first-sweep first
-    last-sweep last
-    version last
-no-new-version
-BB-max-neg-folds is 1
-BB-max-pos-folds is 1
-BB-use-local-wind
-ew-wind is 5.6
-ns-wind is 4
-a-speckle is 1 gates
-BB-gates-averaged is 20 gates
-! for-each-ray
-copy VEL to VR
-copy REF to DBZ
-threshold VR on DBZ below 0
-threshold DBZ on DBZ below 0
-threshold VR on SW above 8
-despeckle VR
-BB-unfolding of VR
-!   time-now 07/12/2023 14:45:57.000 GMT
-    sweep-directory &quot;./&quot;
-    radar-names KHTX
-    first-sweep first
-    last-sweep last
-    version last
-no-new-version
-BB-max-neg-folds is 1
-BB-max-pos-folds is 1
-BB-use-local-wind
-ew-wind is 5.6
-ns-wind is 4
-a-speckle is 1 gates
-BB-gates-averaged is 20 gates
-! for-each-ray
-copy VEL to VR
-copy REF to DBZ
-threshold VR on DBZ below 0
-threshold DBZ on DBZ below 0
-threshold VR on SW above 8
-despeckle VR
-BB-unfolding of VR
-!   time-now 07/12/2023 16:36:25.000 GMT
-    sweep-directory &quot;./&quot;
-    radar-names KHTX
-    first-sweep 04/11/108:18:11:43.771
-    last-sweep 04/11/108:18:11:43.771
-    version last
-no-new-version
-! for-each-ray
-use-boundary
-unconditional-delete in DBZ
-!   time-now 07/12/2023 16:36:35.000 GMT
-    sweep-directory &quot;./&quot;
-    radar-names KHTX
-    first-sweep 04/11/108:18:11:43.771
-    last-sweep 04/11/108:18:11:43.771
-    version last
-no-new-version
-! for-each-ray
-use-boundary
-unconditional-delete in VR
-
-!   time-now 07/12/2023 16:37:13.000 GMT
-    sweep-directory &quot;./&quot;
-    radar-names KHTX
-    first-sweep 04/11/108:18:11:43.771
-    last-sweep 04/11/108:18:11:43.771
-    version last
-no-new-version
-! for-each-ray
-use-boundary
-unconditional-delete in VR
-unconditional-delete in DBZ</dd><dt><span>comment :</span></dt><dd>Written by DoradeRadxFile object</dd><dt><span>instrument_name :</span></dt><dd>KHTX</dd><dt><span>site_name :</span></dt><dd></dd><dt><span>scan_name :</span></dt><dd></dd><dt><span>scan_id :</span></dt><dd>0</dd><dt><span>platform_is_mobile :</span></dt><dd>false</dd><dt><span>ray_times_increase :</span></dt><dd>true</dd></dl></div></li></ul></div></div></div></div>
-</div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>We’ve just learned how to use <span class="math notranslate nohighlight">\(\omega radlib\)</span>’s xarray backends to make radar volume data available as xarray Datasets and DataArrays. Accessing, plotting and exporting data has been shown.</p>
-<div class="section" id="whats-next">
-<h3>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
-<p>In the next notebook we dive into data quality processing.</p>
-</div>
 </div>
 <div class="section" id="resources-and-references">
 <h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
@@ -11830,13 +11250,31 @@ unconditional-delete in DBZ</dd><dt><span>comment :</span></dt><dd>Written by Do
     <div class="container-xl">
       <div class="row d-flex flex-wrap align-items-center">
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Argonne" src="../../_images/argonne_logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Environment_Canda" src="../../_images/environment_canada_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Meteoswiss" src="../../_images/meteoswiss_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Bonne" src="../../_images/university_bonn.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
         </div>
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
         </div>
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
-          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+          <img alt="CSU" src="../../_images/csu-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAH" src="../../_images/uah-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="TT" src="../../_images/texas-tech-logo.png" style="width: 100%">
         </div>
       </div>
     </div>
@@ -11856,7 +11294,7 @@ unconditional-delete in DBZ</dd><dt><span>comment :</span></dt><dd>Written by Do
         
           By the <a href="https://openradarscience.org/">Open Radar</a> Community.
         
-          Last updated on 18 August 2023.
+          Last updated on 23 August 2023.
         </p>
       </div>
     </div>
