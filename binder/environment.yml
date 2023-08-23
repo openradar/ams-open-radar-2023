@@ -35,6 +35,7 @@ dependencies:
   - liblapacke=*=*netlib
   # this is needed for notebooks
   - pip
+  - jupyter-book
   - pyviz_comms>=2.0
   - nbstripout
   - metpy
