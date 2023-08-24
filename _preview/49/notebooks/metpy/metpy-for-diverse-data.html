@@ -1,0 +1,2724 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetPy for analysis and visualization of diverse data &#8212; AMS Open Radar Short Course 2023</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://openradarscience.org">
+  <img src="../../_static/ams-logo.jpeg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://openradarscience.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/radar-cookbook">Radar Cookbook</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/openradar" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   AMS Open Radar Short Course 2023
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Setup Instructions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started.html">
+   Getting Started
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../xradar/README.html">
+   Xradar Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xradar/xradar-basics.html">
+     Xradar Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pyart/README.html">
+   Py-ART Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-basics.html">
+     Py-ART Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-corrections.html">
+     Py-ART Corrections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pyart/pyart-gridding.html">
+     Py-ART Gridding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pyrad/README.html">
+   Pyrad Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../wradlib/README.html">
+   Wradlib Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_intro.html">
+     An Overview of wradlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_radar_data_io_vis.html">
+     wradlib radar data io, visualisation, gridding and gis export
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_data_quality.html">
+     wradlib data quality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_differential_phase.html">
+     wradlib Phase Processing - System PhiDP - ZPHI-Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_quasi_vertical_profiles.html">
+     wradlib time series data and quasi vertical profiles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lrose/README.html">
+   LROSE Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lrose/LROSE_Wind_tutorial.html">
+     LROSE Wind Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tobac/README.html">
+   TOBAC Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tobac/tobac_examples.html">
+     3D
+     <em>
+      tobac
+     </em>
+     Tutorial: Gridded Radar Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pydda/README.html">
+   PyDDA
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pydda/Retrieving_winds_with_pydda.html">
+     PyDDA tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../baltrad/README.html">
+   BALTRAD Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+     Compositing with BALTRAD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+     In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+     BALTRAD I/O model - making sense out of data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+     BALTRAD parallel processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+     BALTRAD Quality Control
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/metpy/metpy-for-diverse-data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/openradar/ams-open-radar-2023/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/metpy/metpy-for-diverse-data.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/metpy/metpy-for-diverse-data.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?urlpath=lab/tree/notebooks/metpy/metpy-for-diverse-data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-workshop.svcs.arm.gov//hub/user-redirect/git-pull?repo=https://github.com/openradar/ams-open-radar-2023/&urlpath=lab/tree/ams-open-radar-2023/notebooks/metpy/metpy-for-diverse-data.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-requirements">
+   <strong>
+    System requirements
+   </strong>
+   :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crash-course-to-metpy">
+   Crash Course to MetPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#units-and-calculations">
+     Units and calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metpy-for-plots-you-love">
+     MetPy for plots you love
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metpy-for-annoying-data-you-love">
+     MetPy for annoying data you love
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xarray-cf-conventions-and-metpy">
+     xarray, CF conventions, and MetPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whats-next">
+     What’s next?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-and-references">
+   Resources and references
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <div class="row">
+    <div class="column">
+        <img src="logos/metpy_400x400.png" width=125 alt="MetPy Logo"></img>
+    </div>
+    <div class="column">
+        <img src="logos/unidata_logo_horizontal.png" width=250 alt="Unidata Logo"></img>
+    </div>
+</div><div class="tex2jax_ignore mathjax_ignore section" id="metpy-for-analysis-and-visualization-of-diverse-data">
+<h1>MetPy for analysis and visualization of diverse data<a class="headerlink" href="#metpy-for-analysis-and-visualization-of-diverse-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<hr class="docutils" />
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ol class="arabic simple">
+<li></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/cartopy/cartopy.html">Intro to Cartopy</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/data-formats/netcdf-cf.html">Understanding of NetCDF</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Familiarity with metadata structure</p></td>
+</tr>
+<tr class="row-even"><td><p>Project management</p></td>
+<td><p>Helpful</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>:</p></li>
+<li></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="system-requirements">
+<h2><strong>System requirements</strong>:<a class="headerlink" href="#system-requirements" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">from</span> <span class="nn">metpy.plots</span> <span class="kn">import</span> <span class="n">StationPlot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crash-course-to-metpy">
+<h2>Crash Course to MetPy<a class="headerlink" href="#crash-course-to-metpy" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="units-and-calculations">
+<h3>Units and calculations<a class="headerlink" href="#units-and-calculations" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metpy.units</span> <span class="kn">import</span> <span class="n">units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">miles</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">mi</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;hour&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">miles</span><span class="p">,</span> <span class="n">hour</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5 mile 0.5 hour
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="n">miles</span> <span class="o">/</span> <span class="n">hour</span>
+<span class="n">speed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">7.0 mile/hour</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3.1292800000000005 meter/second</div></div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_outside</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">degC</span>
+<span class="n">temp_increase</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">degC</span>
+
+<span class="n">temp_outside</span> <span class="o">+</span> <span class="n">temp_increase</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OffsetUnitCalculusError</span><span class="g g-Whitespace">                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">temp_outside</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">degC</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">temp_increase</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">degC</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">temp_outside</span> <span class="o">+</span> <span class="n">temp_increase</span>
+
+<span class="nn">File ~/mambaforge/envs/ams-open-radar-2023-dev/lib/python3.11/site-packages/pint/facets/plain/quantity.py:829,</span> in <span class="ni">PlainQuantity.__add__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">826</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">827</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">()</span> <span class="o">+</span> <span class="n">other</span>
+<span class="ne">--&gt; </span><span class="mi">829</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_sub</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/ams-open-radar-2023-dev/lib/python3.11/site-packages/pint/facets/plain/quantity.py:100,</span> in <span class="ni">check_implemented.&lt;locals&gt;.wrapped</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="ne">--&gt; </span><span class="mi">100</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/ams-open-radar-2023-dev/lib/python3.11/site-packages/pint/facets/plain/quantity.py:805,</span> in <span class="ni">PlainQuantity._add_sub</span><span class="nt">(self, other, op)</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span>     <span class="n">units</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_units</span>
+<span class="g g-Whitespace">    </span><span class="mi">804</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">805</span>     <span class="k">raise</span> <span class="n">OffsetUnitCalculusError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_units</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_units</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">807</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+
+<span class="ne">OffsetUnitCalculusError</span>: Ambiguous operation with offset unit (degree_Celsius, degree_Celsius). See https://pint.readthedocs.io/en/stable/user/nonmult.html for guidance.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_outside</span> <span class="o">-</span> <span class="n">temp_increase</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">22.5 delta_degree_Celsius</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_outside</span> <span class="o">+</span> <span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">delta_degC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">27.5 degree_Celsius</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">metpy.calc</span> <span class="k">as</span> <span class="nn">mpcalc</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">knots</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">units</span><span class="p">(</span><span class="s2">&quot;m/s&quot;</span><span class="p">)</span>
+
+<span class="n">mpcalc</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">252.04901961040915 degree</div></div>
+</div>
+</div>
+<div class="section" id="metpy-for-plots-you-love">
+<h3>MetPy for plots you love<a class="headerlink" href="#metpy-for-plots-you-love" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metpy.plots</span> <span class="kn">import</span> <span class="n">SkewT</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;../../data/sounding_data/bmx_sounding_20080411_12Z.txt&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>-----------------------------------------------------------------------------</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>hPa     m      C      C      %    g/kg    deg ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>----------------------------------------------...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1000.0    110</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>993.0    178   19.0   17.0     88  12.42    16...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>10.5  30480  -47.4  -82.4      1   0.04    310...</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>10.0  30780  -47.5  -82.5      1   0.04    280...</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>8.7  31716  -39.5  -76.5      1   0.13        ...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>8.7  31699  -39.6  -76.6      1   0.13    275 ...</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>8.4  31956  -39.1  -76.1      1   0.15        ...</td>
+    </tr>
+  </tbody>
+</table>
+<p>141 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names_header</span> <span class="o">=</span> <span class="s2">&quot;   PRES   HGHT   TEMP   DWPT   RELH   MIXR   DRCT   SKNT   THTA   THTE   THTV&quot;</span>
+
+<span class="c1"># slight tweak</span>
+<span class="n">units_header</span> <span class="o">=</span> <span class="s2">&quot;    hPa     m      degC      degC      </span><span class="si">%    g</span><span class="s2">/kg    deg   knot     K      K      K &quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;../../data/sounding_data/bmx_sounding_20080411_12Z.txt&quot;</span><span class="p">,</span>
+                <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names_header</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRES</th>
+      <th>HGHT</th>
+      <th>TEMP</th>
+      <th>DWPT</th>
+      <th>RELH</th>
+      <th>MIXR</th>
+      <th>DRCT</th>
+      <th>SKNT</th>
+      <th>THTA</th>
+      <th>THTE</th>
+      <th>THTV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000.0</td>
+      <td>110</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>993.0</td>
+      <td>178</td>
+      <td>19.0</td>
+      <td>17.0</td>
+      <td>88.0</td>
+      <td>12.42</td>
+      <td>160.0</td>
+      <td>9.0</td>
+      <td>292.7</td>
+      <td>328.2</td>
+      <td>294.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>988.0</td>
+      <td>221</td>
+      <td>18.8</td>
+      <td>16.6</td>
+      <td>87.0</td>
+      <td>12.17</td>
+      <td>164.0</td>
+      <td>11.0</td>
+      <td>293.0</td>
+      <td>327.8</td>
+      <td>295.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>959.0</td>
+      <td>474</td>
+      <td>17.0</td>
+      <td>16.6</td>
+      <td>97.0</td>
+      <td>12.54</td>
+      <td>187.0</td>
+      <td>23.0</td>
+      <td>293.6</td>
+      <td>329.6</td>
+      <td>295.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>943.7</td>
+      <td>610</td>
+      <td>17.1</td>
+      <td>16.8</td>
+      <td>98.0</td>
+      <td>12.94</td>
+      <td>200.0</td>
+      <td>29.0</td>
+      <td>295.1</td>
+      <td>332.4</td>
+      <td>297.4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>10.5</td>
+      <td>30480</td>
+      <td>-47.4</td>
+      <td>-82.4</td>
+      <td>1.0</td>
+      <td>0.04</td>
+      <td>310.0</td>
+      <td>12.0</td>
+      <td>830.5</td>
+      <td>831.1</td>
+      <td>830.6</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>10.0</td>
+      <td>30780</td>
+      <td>-47.5</td>
+      <td>-82.5</td>
+      <td>1.0</td>
+      <td>0.04</td>
+      <td>280.0</td>
+      <td>7.0</td>
+      <td>841.1</td>
+      <td>841.7</td>
+      <td>841.1</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>8.7</td>
+      <td>31716</td>
+      <td>-39.5</td>
+      <td>-76.5</td>
+      <td>1.0</td>
+      <td>0.13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>906.3</td>
+      <td>908.1</td>
+      <td>906.4</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>8.7</td>
+      <td>31699</td>
+      <td>-39.6</td>
+      <td>-76.6</td>
+      <td>1.0</td>
+      <td>0.13</td>
+      <td>275.0</td>
+      <td>14.0</td>
+      <td>905.1</td>
+      <td>906.8</td>
+      <td>905.1</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>8.4</td>
+      <td>31956</td>
+      <td>-39.1</td>
+      <td>-76.1</td>
+      <td>1.0</td>
+      <td>0.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>917.0</td>
+      <td>919.0</td>
+      <td>917.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>138 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;TEMP&#39;</span><span class="p">,</span> <span class="s1">&#39;DWPT&#39;</span><span class="p">,</span> <span class="s1">&#39;DRCT&#39;</span><span class="p">,</span> <span class="s1">&#39;SKNT&#39;</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRES</th>
+      <th>HGHT</th>
+      <th>TEMP</th>
+      <th>DWPT</th>
+      <th>RELH</th>
+      <th>MIXR</th>
+      <th>DRCT</th>
+      <th>SKNT</th>
+      <th>THTA</th>
+      <th>THTE</th>
+      <th>THTV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>993.0</td>
+      <td>178</td>
+      <td>19.0</td>
+      <td>17.0</td>
+      <td>88.0</td>
+      <td>12.42</td>
+      <td>160.0</td>
+      <td>9.0</td>
+      <td>292.7</td>
+      <td>328.2</td>
+      <td>294.9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>988.0</td>
+      <td>221</td>
+      <td>18.8</td>
+      <td>16.6</td>
+      <td>87.0</td>
+      <td>12.17</td>
+      <td>164.0</td>
+      <td>11.0</td>
+      <td>293.0</td>
+      <td>327.8</td>
+      <td>295.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>959.0</td>
+      <td>474</td>
+      <td>17.0</td>
+      <td>16.6</td>
+      <td>97.0</td>
+      <td>12.54</td>
+      <td>187.0</td>
+      <td>23.0</td>
+      <td>293.6</td>
+      <td>329.6</td>
+      <td>295.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>943.7</td>
+      <td>610</td>
+      <td>17.1</td>
+      <td>16.8</td>
+      <td>98.0</td>
+      <td>12.94</td>
+      <td>200.0</td>
+      <td>29.0</td>
+      <td>295.1</td>
+      <td>332.4</td>
+      <td>297.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>926.0</td>
+      <td>770</td>
+      <td>17.2</td>
+      <td>17.1</td>
+      <td>99.0</td>
+      <td>13.43</td>
+      <td>205.0</td>
+      <td>35.0</td>
+      <td>296.8</td>
+      <td>335.8</td>
+      <td>299.2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>10.5</td>
+      <td>30480</td>
+      <td>-47.4</td>
+      <td>-82.4</td>
+      <td>1.0</td>
+      <td>0.04</td>
+      <td>310.0</td>
+      <td>12.0</td>
+      <td>830.5</td>
+      <td>831.1</td>
+      <td>830.6</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>10.0</td>
+      <td>30780</td>
+      <td>-47.5</td>
+      <td>-82.5</td>
+      <td>1.0</td>
+      <td>0.04</td>
+      <td>280.0</td>
+      <td>7.0</td>
+      <td>841.1</td>
+      <td>841.7</td>
+      <td>841.1</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>8.7</td>
+      <td>31716</td>
+      <td>-39.5</td>
+      <td>-76.5</td>
+      <td>1.0</td>
+      <td>0.13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>906.3</td>
+      <td>908.1</td>
+      <td>906.4</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>8.7</td>
+      <td>31699</td>
+      <td>-39.6</td>
+      <td>-76.6</td>
+      <td>1.0</td>
+      <td>0.13</td>
+      <td>275.0</td>
+      <td>14.0</td>
+      <td>905.1</td>
+      <td>906.8</td>
+      <td>905.1</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>8.4</td>
+      <td>31956</td>
+      <td>-39.1</td>
+      <td>-76.1</td>
+      <td>1.0</td>
+      <td>0.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>917.0</td>
+      <td>919.0</td>
+      <td>917.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>137 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metpy.units</span> <span class="kn">import</span> <span class="n">pandas_dataframe_to_unit_arrays</span>
+
+<span class="n">units_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="n">unit</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">unit</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names_header</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">units_header</span><span class="o">.</span><span class="n">split</span><span class="p">())}</span>
+<span class="n">units_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;PRES&#39;: &#39;hPa&#39;,
+ &#39;HGHT&#39;: &#39;m&#39;,
+ &#39;TEMP&#39;: &#39;degC&#39;,
+ &#39;DWPT&#39;: &#39;degC&#39;,
+ &#39;RELH&#39;: &#39;%&#39;,
+ &#39;MIXR&#39;: &#39;g/kg&#39;,
+ &#39;DRCT&#39;: &#39;deg&#39;,
+ &#39;SKNT&#39;: &#39;knot&#39;,
+ &#39;THTA&#39;: &#39;K&#39;,
+ &#39;THTE&#39;: &#39;K&#39;,
+ &#39;THTV&#39;: &#39;K&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pandas_dataframe_to_unit_arrays</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">units_dict</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;PRES&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[993.0 988.0 959.0 943.7 926.0 925.0 916.0 910.5 906.0 878.4 850.0 845.0<br> 817.2 788.0 787.0 781.0 778.0 773.0 765.0 762.0 759.7 744.0 742.0 737.0<br> 734.0 732.2 719.0 705.6 705.0 700.0 680.0 679.0 677.0 675.0 674.0 672.0<br> 657.0 654.8 654.0 652.0 645.0 640.0 628.0 626.0 619.0 616.0 607.0 594.0<br> 579.0 570.0 562.0 500.0 499.9 480.2 443.1 430.0 414.0 408.0 400.0 391.8<br> 360.0 350.0 316.2 304.0 300.0 278.0 256.0 250.0 226.0 215.0 211.0 210.0<br> 209.4 202.0 200.0 187.0 181.1 181.0 167.0 164.2 163.0 152.0 150.0 148.8<br> 141.6 140.0 136.0 129.0 128.1 124.0 121.8 121.0 115.0 113.0 110.0 108.0<br> 100.0 85.2 83.6 82.1 81.0 80.6 77.0 73.1 70.0 68.4 66.0 65.2 64.5 59.7<br> 56.1 52.6 50.0 48.2 44.3 44.0 42.6 39.1 37.7 36.2 34.5 32.0 30.2 30.0<br> 26.9 26.3 20.0 17.2 16.7 16.0 13.2 11.4 10.5 10.0 8.7 8.7 8.4]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>hectopascal</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;PRES&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">hPa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[993.0 988.0 959.0 943.7 926.0 925.0 916.0 910.5 906.0 878.4 850.0 845.0<br> 817.2 788.0 787.0 781.0 778.0 773.0 765.0 762.0 759.7 744.0 742.0 737.0<br> 734.0 732.2 719.0 705.6 705.0 700.0 680.0 679.0 677.0 675.0 674.0 672.0<br> 657.0 654.8 654.0 652.0 645.0 640.0 628.0 626.0 619.0 616.0 607.0 594.0<br> 579.0 570.0 562.0 500.0 499.9 480.2 443.1 430.0 414.0 408.0 400.0 391.8<br> 360.0 350.0 316.2 304.0 300.0 278.0 256.0 250.0 226.0 215.0 211.0 210.0<br> 209.4 202.0 200.0 187.0 181.1 181.0 167.0 164.2 163.0 152.0 150.0 148.8<br> 141.6 140.0 136.0 129.0 128.1 124.0 121.8 121.0 115.0 113.0 110.0 108.0<br> 100.0 85.2 83.6 82.1 81.0 80.6 77.0 73.1 70.0 68.4 66.0 65.2 64.5 59.7<br> 56.1 52.6 50.0 48.2 44.3 44.0 42.6 39.1 37.7 36.2 34.5 32.0 30.2 30.0<br> 26.9 26.3 20.0 17.2 16.7 16.0 13.2 11.4 10.5 10.0 8.7 8.7 8.4]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>hectopascal</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;PRES&quot;</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;TEMP&quot;</span><span class="p">]</span>
+<span class="n">td</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;DWPT&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">mpcalc</span><span class="o">.</span><span class="n">wind_components</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;SKNT&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;DRCT&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#d95f02&quot;</span><span class="p">)</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b9e77&quot;</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">plot_barbs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Barbs at 0x179fca790&gt;
+</pre></div>
+</div>
+<img alt="../../_images/241cad131547d2a235a56b665bb45cbd60b8eb315ea5e046a5a1582e292e2725.png" src="../../_images/241cad131547d2a235a56b665bb45cbd60b8eb315ea5e046a5a1582e292e2725.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="n">skew</span> <span class="o">=</span> <span class="n">SkewT</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#d95f02&quot;</span><span class="p">)</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b9e77&quot;</span><span class="p">)</span>
+
+<span class="n">skew</span><span class="o">.</span><span class="n">plot_barbs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">u</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="n">lcl_pressure</span><span class="p">,</span> <span class="n">lcl_temperature</span> <span class="o">=</span> <span class="n">mpcalc</span><span class="o">.</span><span class="n">lcl</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">td</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lcl_pressure</span><span class="p">,</span> <span class="n">lcl_temperature</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Calculate full parcel profile and add to plot as black line</span>
+<span class="n">prof</span> <span class="o">=</span> <span class="n">mpcalc</span><span class="o">.</span><span class="n">parcel_profile</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">td</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;degC&#39;</span><span class="p">)</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># An example of a slanted line at constant T -- in this case the 0</span>
+<span class="c1"># isotherm</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Add the relevant special lines</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot_dry_adiabats</span><span class="p">()</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot_moist_adiabats</span><span class="p">()</span>
+<span class="n">skew</span><span class="o">.</span><span class="n">plot_mixing_lines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/3f/3w3flt9x5rd9y8zbsc7cvvzw0000gp/T/ipykernel_41171/583312609.py:14: UserWarning: Duplicate pressure(s) [8.7] hPa provided. Output profile includes duplicate temperatures as a result.
+  prof = mpcalc.parcel_profile(p, t[0], td[0]).to(&#39;degC&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x17a517ad0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/b583e8481fa3031bf16ed96a8b6e22c1af4ff28f7fefe40fb47a955a2dffe42f.png" src="../../_images/b583e8481fa3031bf16ed96a8b6e22c1af4ff28f7fefe40fb47a955a2dffe42f.png" />
+</div>
+</div>
+</div>
+<div class="section" id="metpy-for-annoying-data-you-love">
+<h3>MetPy for annoying data you love<a class="headerlink" href="#metpy-for-annoying-data-you-love" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p><img alt="image.png" src="notebooks/metpy/attachment:a0a06fe9-ba47-4c05-97b5-2db26f06e41d.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metpy.io</span> <span class="kn">import</span> <span class="n">parse_metar_file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/metpy/asos.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>KMDQ 110000Z AUTO 16013G19KT 10SM SCT047 OVC050 25/15 A2985 RMK AO2 LTG DSNT NW</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>KMDQ 110020Z AUTO 17009G17KT 10SM SCT048 BKN06...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KMDQ 110040Z AUTO 16010G16KT 10SM BKN044 BKN05...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>METAR KHSV 110053Z 17014KT 10SM BKN040 BKN055 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KDCU 110053Z AUTO 17013G20KT 10SM FEW060 23/17...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>KMDQ 110100Z AUTO 17010G17KT 10SM SCT044 SCT04...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>KMDQ 112300Z AUTO 20008KT 10SM BKN070 BKN090 2...</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>KMDQ 112320Z AUTO 19007KT 10SM BKN060 OVC095 2...</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>KMDQ 112340Z AUTO 18006KT 10SM BKN070 OVC095 2...</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>METAR KHSV 112353Z 19004KT 10SM OVC070 21/16 A...</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>111 10250 20189 53001</td>
+    </tr>
+  </tbody>
+</table>
+<p>155 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metars</span> <span class="o">=</span> <span class="n">parse_metar_file</span><span class="p">(</span><span class="s2">&quot;../../data/metpy/asos.csv&quot;</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2008</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date_time&quot;</span><span class="p">)</span>
+<span class="n">metars</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>station_id</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>elevation</th>
+      <th>wind_direction</th>
+      <th>wind_speed</th>
+      <th>wind_gust</th>
+      <th>visibility</th>
+      <th>current_wx1</th>
+      <th>current_wx2</th>
+      <th>...</th>
+      <th>air_temperature</th>
+      <th>dew_point_temperature</th>
+      <th>altimeter</th>
+      <th>current_wx1_symbol</th>
+      <th>current_wx2_symbol</th>
+      <th>current_wx3_symbol</th>
+      <th>remarks</th>
+      <th>air_pressure_at_sea_level</th>
+      <th>eastward_wind</th>
+      <th>northward_wind</th>
+    </tr>
+    <tr>
+      <th>date_time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2008-04-11 00:00:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>160</td>
+      <td>13.0</td>
+      <td>19.0</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>15.0</td>
+      <td>29.85</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT NW</td>
+      <td>1010.12</td>
+      <td>-4.446262e+00</td>
+      <td>12.216004</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 00:20:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>170</td>
+      <td>9.0</td>
+      <td>17.0</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>15.0</td>
+      <td>29.85</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2</td>
+      <td>1010.12</td>
+      <td>-1.562834e+00</td>
+      <td>8.863270</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 00:40:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>160</td>
+      <td>10.0</td>
+      <td>16.0</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>15.0</td>
+      <td>29.85</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2</td>
+      <td>1010.12</td>
+      <td>-3.420201e+00</td>
+      <td>9.396926</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 00:53:00</th>
+      <td>KHSV</td>
+      <td>34.65</td>
+      <td>-86.78</td>
+      <td>191</td>
+      <td>170</td>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>17.0</td>
+      <td>29.86</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 SLP106 T02440167</td>
+      <td>1010.72</td>
+      <td>-2.431074e+00</td>
+      <td>13.787309</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 00:53:00</th>
+      <td>KDCU</td>
+      <td>34.65</td>
+      <td>-86.95</td>
+      <td>176</td>
+      <td>170</td>
+      <td>13.0</td>
+      <td>20.0</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>23.0</td>
+      <td>17.0</td>
+      <td>29.84</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 SLP100 T02330172</td>
+      <td>1010.17</td>
+      <td>-2.257426e+00</td>
+      <td>12.802501</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 22:53:00</th>
+      <td>KHSV</td>
+      <td>34.65</td>
+      <td>-86.78</td>
+      <td>191</td>
+      <td>230</td>
+      <td>9.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>21.0</td>
+      <td>12.0</td>
+      <td>29.79</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 SLP082 T02110122</td>
+      <td>1008.57</td>
+      <td>6.894400e+00</td>
+      <td>5.785088</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 23:00:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>200</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>21.0</td>
+      <td>16.0</td>
+      <td>29.78</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2</td>
+      <td>1008.10</td>
+      <td>2.736161e+00</td>
+      <td>7.517541</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 23:20:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>190</td>
+      <td>7.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>20.0</td>
+      <td>13.0</td>
+      <td>29.77</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT E AND S</td>
+      <td>1007.85</td>
+      <td>1.215537e+00</td>
+      <td>6.893654</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 23:40:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>180</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>20.0</td>
+      <td>15.0</td>
+      <td>29.77</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT E</td>
+      <td>1007.85</td>
+      <td>-7.347881e-16</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 23:53:00</th>
+      <td>KHSV</td>
+      <td>34.65</td>
+      <td>-86.78</td>
+      <td>191</td>
+      <td>190</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>16093.44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>21.0</td>
+      <td>16.0</td>
+      <td>29.79</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 SLP082 8/07/ BINOVC 60085 T02060156 10272 ...</td>
+      <td>1008.57</td>
+      <td>6.945927e-01</td>
+      <td>3.939231</td>
+    </tr>
+  </tbody>
+</table>
+<p>155 rows × 30 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">metars</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2008-04-11 18:00:00&quot;</span><span class="p">:</span> <span class="s2">&quot;2008-04-11 19:00:00&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>station_id</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>elevation</th>
+      <th>wind_direction</th>
+      <th>wind_speed</th>
+      <th>wind_gust</th>
+      <th>visibility</th>
+      <th>current_wx1</th>
+      <th>current_wx2</th>
+      <th>...</th>
+      <th>air_temperature</th>
+      <th>dew_point_temperature</th>
+      <th>altimeter</th>
+      <th>current_wx1_symbol</th>
+      <th>current_wx2_symbol</th>
+      <th>current_wx3_symbol</th>
+      <th>remarks</th>
+      <th>air_pressure_at_sea_level</th>
+      <th>eastward_wind</th>
+      <th>northward_wind</th>
+    </tr>
+    <tr>
+      <th>date_time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2008-04-11 18:00:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>190</td>
+      <td>18.0</td>
+      <td>25.0</td>
+      <td>16093.440</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>26.0</td>
+      <td>17.0</td>
+      <td>29.76</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT N</td>
+      <td>1006.97</td>
+      <td>3.125667</td>
+      <td>17.726540</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:10:00</th>
+      <td>KDCU</td>
+      <td>34.65</td>
+      <td>-86.95</td>
+      <td>176</td>
+      <td>200</td>
+      <td>12.0</td>
+      <td>25.0</td>
+      <td>4023.360</td>
+      <td>+RA</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>23.0</td>
+      <td>19.0</td>
+      <td>29.74</td>
+      <td>65</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT NW RAB01 P0007</td>
+      <td>1006.77</td>
+      <td>4.104242</td>
+      <td>11.276311</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:20:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>190</td>
+      <td>18.0</td>
+      <td>25.0</td>
+      <td>16093.440</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>26.0</td>
+      <td>17.0</td>
+      <td>29.74</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT W THRU NE</td>
+      <td>1006.29</td>
+      <td>3.125667</td>
+      <td>17.726540</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:22:00</th>
+      <td>KDCU</td>
+      <td>34.65</td>
+      <td>-86.95</td>
+      <td>176</td>
+      <td>210</td>
+      <td>19.0</td>
+      <td>30.0</td>
+      <td>11265.408</td>
+      <td>-RA</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>19.0</td>
+      <td>29.75</td>
+      <td>61</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 PK WND 20030/1820 LTG DSNT W-N RAB01 P0009</td>
+      <td>1007.04</td>
+      <td>9.500000</td>
+      <td>16.454483</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:30:00</th>
+      <td>KDCU</td>
+      <td>34.65</td>
+      <td>-86.95</td>
+      <td>176</td>
+      <td>220</td>
+      <td>10.0</td>
+      <td>28.0</td>
+      <td>11265.408</td>
+      <td>-TSRA</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>23.0</td>
+      <td>19.0</td>
+      <td>29.75</td>
+      <td>1095</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 PK WND 20030/1820 LTG DSNT ALQDS TSB24RAB0...</td>
+      <td>1007.11</td>
+      <td>6.427876</td>
+      <td>7.660444</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:40:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>190</td>
+      <td>21.0</td>
+      <td>26.0</td>
+      <td>11265.408</td>
+      <td>-VCTSRA</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>18.0</td>
+      <td>29.74</td>
+      <td>1095</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT ALQS</td>
+      <td>1006.47</td>
+      <td>3.646612</td>
+      <td>20.680963</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:53:00</th>
+      <td>KDCU</td>
+      <td>34.65</td>
+      <td>-86.95</td>
+      <td>176</td>
+      <td>250</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>14484.096</td>
+      <td>VCTS</td>
+      <td>-RA</td>
+      <td>...</td>
+      <td>22.0</td>
+      <td>19.0</td>
+      <td>29.76</td>
+      <td>13</td>
+      <td>61</td>
+      <td>0</td>
+      <td>AO2 PK WND 20030/1820 LTG DSNT ALQDS TSB24E51B...</td>
+      <td>1007.52</td>
+      <td>7.517541</td>
+      <td>2.736161</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:53:00</th>
+      <td>KHSV</td>
+      <td>34.65</td>
+      <td>-86.78</td>
+      <td>191</td>
+      <td>210</td>
+      <td>16.0</td>
+      <td>28.0</td>
+      <td>16093.440</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>26.0</td>
+      <td>17.0</td>
+      <td>29.77</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 PK WND 19030/1804 SLP075 CB NW MOV NE T026...</td>
+      <td>1007.51</td>
+      <td>8.000000</td>
+      <td>13.856406</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:55:00</th>
+      <td>KHUA</td>
+      <td>34.68</td>
+      <td>-86.68</td>
+      <td>209</td>
+      <td>200</td>
+      <td>14.0</td>
+      <td>20.0</td>
+      <td>11265.408</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>26.0</td>
+      <td>18.0</td>
+      <td>29.77</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td></td>
+      <td>1007.42</td>
+      <td>4.788282</td>
+      <td>13.155697</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 18:57:00</th>
+      <td>KHSV</td>
+      <td>34.65</td>
+      <td>-86.78</td>
+      <td>191</td>
+      <td>220</td>
+      <td>15.0</td>
+      <td>26.0</td>
+      <td>16093.440</td>
+      <td>TS</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>26.0</td>
+      <td>17.0</td>
+      <td>29.77</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 TSB56 OCNL LTGICCCCACG NW-N TS NW-N MOV NE</td>
+      <td>1007.51</td>
+      <td>9.641814</td>
+      <td>11.490667</td>
+    </tr>
+    <tr>
+      <th>2008-04-11 19:00:00</th>
+      <td>KMDQ</td>
+      <td>34.86</td>
+      <td>-86.55</td>
+      <td>230</td>
+      <td>200</td>
+      <td>19.0</td>
+      <td>24.0</td>
+      <td>16093.440</td>
+      <td>VCTS</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>18.0</td>
+      <td>29.75</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AO2 LTG DSNT ALQS</td>
+      <td>1006.81</td>
+      <td>6.498383</td>
+      <td>17.854160</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 30 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="xarray-cf-conventions-and-metpy">
+<h3>xarray, CF conventions, and MetPy<a class="headerlink" href="#xarray-cf-conventions-and-metpy" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">armor_file</span> <span class="o">=</span> <span class="s2">&quot;../pydda/output_grid_ARMOR.nc&quot;</span>
+<span class="n">khtx_file</span> <span class="o">=</span> <span class="s2">&quot;../pydda/output_grid_KHTX.nc&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">khtx_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;meters per second&quot;</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;meters per second&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">direction</span> <span class="o">=</span> <span class="n">mpcalc</span><span class="o">.</span><span class="n">wind_direction</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+<span class="n">direction</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (time: 1, z: 31, y: 201, x: 201)&gt;
+&lt;Quantity([[[[nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   ...
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]]
+
+  [[nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   ...
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]]
+
+  [[nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   ...
+...
+   ...
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]]
+
+  [[nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   ...
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]]
+
+  [[nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   ...
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]
+   [nan nan nan ... nan nan nan]]]], &#x27;degree&#x27;)&gt;
+Coordinates:
+  * time     (time) datetime64[ns] 2008-04-11T18:33:08
+  * x        (x) float64 -1e+05 -9.9e+04 -9.8e+04 ... 9.8e+04 9.9e+04 1e+05
+  * y        (y) float64 -1e+05 -9.9e+04 -9.8e+04 ... 9.8e+04 9.9e+04 1e+05
+  * z        (z) float64 0.0 500.0 1e+03 1.5e+03 ... 1.4e+04 1.45e+04 1.5e+04</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 31</li><li><span class='xr-has-index'>y</span>: 201</li><li><span class='xr-has-index'>x</span>: 201</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-99ccd349-2e12-4a6f-abf3-d23bb4f8886f' class='xr-array-in' type='checkbox' checked><label for='section-99ccd349-2e12-4a6f-abf3-d23bb4f8886f' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>&lt;Quantity([[[[nan nan nan ... nan nan nan]    [nan nan nan ... nan ...</span></div><div class='xr-array-data'><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[[[[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]<br><br>  [[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]<br><br>  [[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]<br><br>  ...<br><br>  [[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]<br><br>  [[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]<br><br>  [[nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   ...<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]<br>   [nan nan nan ... nan nan nan]]]]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>degree</td></tr></tbody></table></div></div></li><li class='xr-section-item'><input id='section-7b2e4078-f433-44c2-adbe-448cacde5abe' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7b2e4078-f433-44c2-adbe-448cacde5abe' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2008-04-11T18:33:08</div><input id='attrs-24436e0c-84f4-4b5f-9601-ead836ff41ab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-24436e0c-84f4-4b5f-9601-ead836ff41ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4aa38d28-69b3-40c5-b52e-dcef09f55492' class='xr-var-data-in' type='checkbox'><label for='data-4aa38d28-69b3-40c5-b52e-dcef09f55492' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time of grid</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2008-04-11T18:33:08.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-09f32f1d-dff4-40ad-b37a-e60ca15ae8de' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-09f32f1d-dff4-40ad-b37a-e60ca15ae8de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8ce36263-c6af-4c10-809f-dd17bc81ac79' class='xr-var-data-in' type='checkbox'><label for='data-8ce36263-c6af-4c10-809f-dd17bc81ac79' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1e+05 -9.9e+04 ... 9.9e+04 1e+05</div><input id='attrs-d483defa-4e39-41b3-9b7c-5e5fc4fb442b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d483defa-4e39-41b3-9b7c-5e5fc4fb442b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61c4281d-c55e-4ca6-b811-666706fbda6f' class='xr-var-data-in' type='checkbox'><label for='data-61c4281d-c55e-4ca6-b811-666706fbda6f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([-100000.,  -99000.,  -98000., ...,   98000.,   99000.,  100000.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 500.0 ... 1.45e+04 1.5e+04</div><input id='attrs-9137d9f7-829f-4617-8673-5fee3d82f7a8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9137d9f7-829f-4617-8673-5fee3d82f7a8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e69411b9-6583-4f71-b666-49cdd29dc008' class='xr-var-data-in' type='checkbox'><label for='data-e69411b9-6583-4f71-b666-49cdd29dc008' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.,   500.,  1000.,  1500.,  2000.,  2500.,  3000.,  3500.,  4000.,
+        4500.,  5000.,  5500.,  6000.,  6500.,  7000.,  7500.,  8000.,  8500.,
+        9000.,  9500., 10000., 10500., 11000., 11500., 12000., 12500., 13000.,
+       13500., 14000., 14500., 15000.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1dc3df57-2914-43d9-83fb-64f0ce8a8131' class='xr-section-summary-in' type='checkbox'  ><label for='section-1dc3df57-2914-43d9-83fb-64f0ce8a8131' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f24e9a8f-16ae-4d82-9220-da838d492efb' class='xr-index-data-in' type='checkbox'/><label for='index-f24e9a8f-16ae-4d82-9220-da838d492efb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2008-04-11 18:33:08&#x27;], dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b2c0220e-2f0f-4a59-9efa-898ec403d148' class='xr-index-data-in' type='checkbox'/><label for='index-b2c0220e-2f0f-4a59-9efa-898ec403d148' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+        -94000.0,  -93000.0,  -92000.0,  -91000.0,
+       ...
+         91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
+         97000.0,   98000.0,   99000.0,  100000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-32eb53f9-cc56-4827-bb6e-9c2cea067f61' class='xr-index-data-in' type='checkbox'/><label for='index-32eb53f9-cc56-4827-bb6e-9c2cea067f61' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-100000.0,  -99000.0,  -98000.0,  -97000.0,  -96000.0,  -95000.0,
+        -94000.0,  -93000.0,  -92000.0,  -91000.0,
+       ...
+         91000.0,   92000.0,   93000.0,   94000.0,   95000.0,   96000.0,
+         97000.0,   98000.0,   99000.0,  100000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-75d094ce-2e07-4b91-ad63-7b5f80a6494f' class='xr-index-data-in' type='checkbox'/><label for='index-75d094ce-2e07-4b91-ad63-7b5f80a6494f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([    0.0,   500.0,  1000.0,  1500.0,  2000.0,  2500.0,  3000.0,  3500.0,
+        4000.0,  4500.0,  5000.0,  5500.0,  6000.0,  6500.0,  7000.0,  7500.0,
+        8000.0,  8500.0,  9000.0,  9500.0, 10000.0, 10500.0, 11000.0, 11500.0,
+       12000.0, 12500.0, 13000.0, 13500.0, 14000.0, 14500.0, 15000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-807c56cd-fda5-4613-805b-dc3841fcaba0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-807c56cd-fda5-4613-805b-dc3841fcaba0' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">direction</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([   933.,   2549.,   1002.,    357.,    238.,  12617., 194423.,
+          6874.,   1781.,    610.]),
+ array([1.51441755e-01, 3.61284696e+01, 7.21054974e+01, 1.08082525e+02,
+        1.44059553e+02, 1.80036581e+02, 2.16013609e+02, 2.51990636e+02,
+        2.87967664e+02, 3.23944692e+02, 3.59921720e+02]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../../_images/a86a0b60054100682f07bd0cee6405b244209866405f21bc8a9b1fb0e2d5c05f.png" src="../../_images/a86a0b60054100682f07bd0cee6405b244209866405f21bc8a9b1fb0e2d5c05f.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition alert alert-info">
+<p class="admonition-title">Info</p>
+<p>Your relevant information here!</p>
+</div>
+<div class="admonition alert alert-success">
+<p class="admonition-title">Success</p>
+<p>We got this done after all!</p>
+</div>
+<div class="admonition alert alert-warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful!</p>
+</div>
+<div class="admonition alert alert-danger">
+<p class="admonition-title">Danger</p>
+<p>Scary stuff be here.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="whats-next">
+<h3>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+</div>
+</div>
+<div class="section" id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/metpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Argonne" src="../../_images/argonne_logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Environment_Canda" src="../../_images/environment_canada_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Meteoswiss" src="../../_images/meteoswiss_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Bonne" src="../../_images/university_bonn.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="CSU" src="../../_images/csu-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAH" src="../../_images/uah-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="TT" src="../../_images/texas-tech-logo.png" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2023.
+        
+          By the <a href="https://openradarscience.org/">Open Radar</a> Community.
+        
+          Last updated on 24 August 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
