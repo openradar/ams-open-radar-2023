@@ -15,6 +15,7 @@ dependencies:
   - xradar
   - cartopy
   - metpy
+  - siphon
   - pydda
   - s3fs
   - tobac
