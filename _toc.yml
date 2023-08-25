@@ -31,6 +31,8 @@ parts:
       - file: notebooks/pydda/README
         sections:
           - file: notebooks/pydda/Retrieving_winds_with_pydda
+      - file: notebooks/metpy/README.md
+          - file: notebooks/metpy/metpy-for-diverse-data
       - file: notebooks/baltrad/README.md
         sections:
           - file: notebooks/baltrad_short_course/BALTRAD Compositing
