@@ -3,6 +3,8 @@
 ## Register for an Atmospheric Radiation Measurement (ARM) User Facility Account
 Participants who do not already have one should first register for an ARM account. When filling out the form, indicate that you are affiliated with the particular workshop or course (AMS Open Radar Short Course):
 
+- Link to [ARM New User Registration](https://adc.arm.gov/armuserreg/#/new)
+
 ![ARM user registration screenshot](notebooks/images/arm-registration-instructions.png)
 
 ## Apply for Additional Access
