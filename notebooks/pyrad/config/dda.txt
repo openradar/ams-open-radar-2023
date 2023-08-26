@@ -1,0 +1,45 @@
+# MAIN CONFIG FILE
+# Example of plotting UAH-ARMOR level II data
+
+# IMPORTANT: Adapt the paths to the actual location of your data and config files
+
+# call example:
+# main_process_data.py armor.txt --starttime 20080411181000 --endtime 20080411184000 --cfgpath /home/mdso/figuerasiventuraj/ams-open-radar-2023/notebooks/pyrad/
+
+
+# Name of this configuration:
+# Will be used in product generation save path
+name STRING DDA_ARMOR_NEXRAD
+
+# ---------------------------------------------------------
+#  Raw data pathes
+# ---------------------------------------------------------
+
+# Base path of the raw data.
+# Note: Must have a trailing '/'
+datapath STRARR 2
+    ../../../data/uah-armor/
+    ../../../data/nexrad/
+
+# --------------------------------------------
+# Output data
+# -----------------------------------------------
+saveimgbasepath STRING ../../../data/pyrad_products/
+
+# Output image format can be any accepted by Matplotlib
+# More than one output formats can be set
+imgformat STRARR 1
+    png
+
+# --------------------------------------------------------
+# configuration files pathes
+# --------------------------------------------------------
+
+# Base path of configuration files
+configpath STRING ./
+
+# Configuration of the radar location and approach direction
+locationConfigFile STRING ./dda_loc.txt
+
+# Configuration of the product generation
+productConfigFile STRING ./dda_prod.txt

@@ -33,9 +33,6 @@ jobs:
     steps:
       - name: checkout files in repo
         uses: actions/checkout@main
-      - name: remove Dockerfile
-        run: |
-          rm binder/Dockerfile
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
