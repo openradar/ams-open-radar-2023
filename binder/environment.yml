@@ -3,7 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - jupyter-book
   - numpy
   - scipy
   - matplotlib
@@ -36,16 +35,19 @@ dependencies:
   - liblapacke=*=*netlib
   # this is needed for notebooks
   - pip
+  - jupyter-book
   - pyviz_comms>=2.0
   - nbstripout
   - metpy
   - pydda
-  - tensorflow
+  - tobac
   - zip
   - certifi>=2023.07.22
   - cryptography>=41.0.3
   - semver>=3.0.1
+  - nbgitpuller
   - pip
   - pip:
-      - sphinx-pythia-theme
       - tornado>=6.3.3
+      - sphinx-pythia-theme
+      - cmweather

@@ -1,0 +1,143 @@
+
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 4
+   l0:GATEFILTER
+   l1:DEALIAS_REGION_1
+   l1:DEALIAS_REGION_2
+   l2:dda
+
+# ==========================================================================================
+#        Filtering ARMOR data with Py-ART gatefilter + PPI plot of ZH
+# ==========================================================================================
+GATEFILTER STRUCT 6
+    type STRING GATEFILTER
+    datatype STRARR 2
+        RADAR001:NEXRADII:RhoHV,D{}-F{%Y%m%d%H%M%S}
+        RADAR001:NEXRADII:W,D{}-F{%Y%m%d%H%M%S}
+    upper_bounds FLTARR 2
+        9999
+        7
+    lower_bounds FLTARR 2
+        0.8
+        -9999
+    MAKE_GLOBAL INT 1
+    products STRUCT 1
+        PPI_EL0 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dBZc
+            anglenr INT 0
+
+# ==========================================================================================
+#                 Dealias data for both radars + PPI plots of V
+# ==========================================================================================
+DEALIAS_REGION_1 STRUCT 5
+    type STRING DEALIAS_REGION
+    datatype STRARR 1
+        RADAR001:PROC:Vc
+    nyquist_vel FLOAT 16.08
+    MAKE_GLOBAL INT 1
+    products STRUCT 2
+        SAVEVOL STRUCT 2
+            type STRING SAVEVOL
+            voltype STRING dealVc
+        PPI_EL0 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dealVc
+            anglenr INT 0
+
+DEALIAS_REGION_2 STRUCT 5
+    type STRING DEALIAS_REGION
+    datatype STRARR 1
+        RADAR002:NEXRADII:V,D{}-F{%Y%m%d_%H%M%S}
+    nyquist_vel FLOAT 16.08
+    MAKE_GLOBAL INT 1
+    products STRUCT 2
+        SAVEVOL STRUCT 2
+            type STRING SAVEVOL
+            voltype STRING dealV
+        PPI_EL0 STRUCT 3
+            type STRING PPI_IMAGE
+            voltype STRING dealV
+            anglenr INT 0
+
+# ==========================================================================================
+#                 Run DDA
+# ==========================================================================================
+
+dda STRUCT 14
+   type     STRING DDA
+   datatype STRARR 4
+        RADAR001:PROC:dBZc
+        RADAR002:NEXRADII:dBZ,D{}-F{%Y%m%d_%H%M%S}
+        RADAR001:PROC:dealVc
+        RADAR002:PROC:dealV
+   sounding STRING 72230
+   wfunc STRING BARNES2
+   C0 FLOAT 0.1
+   Cm FLOAT 1024
+   Cx FLOAT 100
+   Cy FLOAT 100
+   Cz FLOAT 100
+   frz FLOAT 5000
+   wind_tol FLOAT 0.5
+   signs INTARR 2
+       -1
+       -1
+   gridConfig STRUCT 11
+       xmin FLOAT -100.
+       xmax FLOAT 100.
+       ymin FLOAT -100.
+       ymax FLOAT 100.
+       zmin FLOAT 0.
+       zmax FLOAT 15000.
+       hres FLOAT 4000.
+       vres FLOAT 500.
+       altorig FLOAT 500.
+       latorig FLOAT 34.646
+       lonorig FLOAT -86.77
+    products STRUCT 4
+        U_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_u
+            coord1 STRUCT 2
+                lat FLOAT 34.75
+                lon FLOAT -87.25
+            coord2 STRUCT 2
+                lat FLOAT 35.25
+                lon FLOAT -86.5
+            vmin FLOAT -50
+            vmax FLOAT 50
+        V_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_v
+            coord1 STRUCT 2
+                lat FLOAT 34.75
+                lon FLOAT -87.25
+            coord2 STRUCT 2
+                lat FLOAT 35.25
+                lon FLOAT -86.5
+            vmin FLOAT -30
+            vmax FLOAT 30
+        W_PROFILE STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_v
+            coord1 STRUCT 2
+                lat FLOAT 34.75
+                lon FLOAT -87.25
+            coord2 STRUCT 2
+                lat FLOAT 35.25
+                lon FLOAT -86.5
+            vmin FLOAT -5
+            vmax FLOAT 5
+        wind_map_3000 STRUCT 10
+            type STRING DDA_MAP
+            voltype STRING dBZc
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            barbs_len FLOAT 10
+            vector_spacing_km FLOAT 10
+            vmin FLOAT 0
+            vmax FLOAT 60
+            alpha FLOAT 0.6
+            level INT 9

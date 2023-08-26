@@ -1,13 +1,20 @@
 format: jb-book
 root: README
 parts:
+  - caption: Setup Instructions
+    chapters:
+      - file: getting-started.md
   - caption: Notebooks
     chapters:
+      - file: notebooks/xradar/README
+        sections:
+          - file: notebooks/xradar/xradar-basics
       - file: notebooks/pyart/README
         sections:
           - file: notebooks/pyart/pyart-basics
           - file: notebooks/pyart/pyart-corrections
           - file: notebooks/pyart/pyart-gridding
+      - file: notebooks/pyrad/README
       - file: notebooks/wradlib/README
         sections:
           - file: notebooks/wradlib/wradlib_intro
@@ -19,11 +26,16 @@ parts:
         sections:
           - file: notebooks/lrose/LROSE_Wind_tutorial
       - file: notebooks/tobac/README
+        sections:
+          - file: notebooks/tobac/tobac_examples
       - file: notebooks/pydda/README
-        sections:
+	sections:
           - file: notebooks/pydda/Retrieving_winds_with_pydda
-      - file: notebooks/baltrad/README.md
+      - file: notebooks/metpy/README.md
         sections:
+	  - file: notebooks/metpy/metpy-for-diverse-data
+      - file: notebooks/baltrad/README.md
+	sections:
           - file: notebooks/baltrad_short_course/BALTRAD Compositing
           - file: notebooks/baltrad_short_course/BALTRAD DRQC
           - file: notebooks/baltrad_short_course/BALTRAD IO
