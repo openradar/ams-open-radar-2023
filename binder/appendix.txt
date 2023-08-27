@@ -2,7 +2,6 @@ FROM ubuntu:18.04
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
-    apt-get install -y wget && \
     wget -q -O /tmp/lrose.deb https://github.com/NCAR/lrose-core/releases/download/lrose-core-20220222/lrose-core-20220222.ubuntu_18.04.amd64.deb && \
     apt-get -y install /tmp/lrose.deb && \
     apt-get clean && \
