@@ -1,5 +1,6 @@
 # MetPy Tutorial
 
-This is an overview of MetPy!
-
-Within this tutorial, we will walk through how to get started with the MetPy library, and use it to work with datasets beyond just radar data!
+Welcome to your crash course in MetPy.
+We'll highlight all the pieces you need to work with diverse meteorological datasets all in one analysis and visualization example.
+Building off wind retrievals from your PyDDA tutorial, we can add more context and information for our unique audience through MetPy tools.
+Let's dive in!
