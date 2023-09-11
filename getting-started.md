@@ -13,7 +13,7 @@ After acquiring an ARM account, you will need to follow the workshop Jupyterhub,
 
 Once you receive confirmation that your request has been accepted, click on the following link.
 
-[![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=ARM+JupyterHub&message=Workshop&color=blue)](https://jupyterhub-workshop.svcs.arm.gov/)
+[![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=ARM+JupyterHub&message=Workshop&color=blue)](https://jupyterhub.arm.gov/)
 
 Once on the Juptyerhub, you will be in the `/notebooks` directory, which contains the content to be used for the short course.
 
