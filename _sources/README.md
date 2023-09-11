@@ -48,7 +48,7 @@ There are some analysis-specific tools, such as PyDDA, MetPy, and TOBAC!
 | 01:15 PM - 02:00 PM | Multi-Doppler Analysis with PyDDA                 | Bobby Jackson | 45 minutes |
 | 02:00 PM - 02:45 PM | Tracking Cells with TOBAC                         | Sean Freeman + Kelcy Brunner | 45 minutes |
 | 02:45 PM - 03:30 PM | Visualizing other Observations and Models with Radar using MetPy | Ryan May and Drew Camron | 45 minutes |
-| 03:30 PM - 03:45 PM | Closing                                           | Max Grover   | 15 minutes |
+| 03:30 PM - 04:00 PM | Hands on with BALTRAD                             | Daniel Michelson   | 30 minutes |
 
 
 ## Running the Notebooks
