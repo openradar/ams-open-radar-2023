@@ -2,8 +2,9 @@ name: ams-open-radar-2023-dev
 channels:
   - conda-forge
 dependencies:
-  - python=3.10
-  - numpy
+  - python=3.9
+  - numpy<1.25
+  - bottleneck
   - scipy
   - matplotlib
   - cartopy
