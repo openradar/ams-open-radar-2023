@@ -1,0 +1,1912 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Py-ART Gridding &#8212; AMS Open Radar Short Course 2023</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pyrad Tutorial" href="../pyrad/README.html" />
+    <link rel="prev" title="Py-ART Corrections" href="pyart-corrections.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="https://openradarscience.org">
+  <img src="../../_static/ams-logo.jpeg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://openradarscience.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/radar-cookbook">Radar Cookbook</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/openradar" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    <div class="container-xl">
+      <div class="row">
+        
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   AMS Open Radar Short Course 2023
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Setup Instructions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started.html">
+   Getting Started
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../xradar/README.html">
+   Xradar Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xradar/xradar-basics.html">
+     Xradar Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Py-ART Tutorial
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyart-basics.html">
+     Py-ART Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyart-corrections.html">
+     Py-ART Corrections
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Py-ART Gridding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pyrad/README.html">
+   Pyrad Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../wradlib/README.html">
+   Wradlib Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_intro.html">
+     An Overview of wradlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_radar_data_io_vis.html">
+     wradlib radar data io, visualisation, gridding and gis export
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_data_quality.html">
+     wradlib data quality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_differential_phase.html">
+     wradlib Phase Processing - System PhiDP - ZPHI-Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../wradlib/wradlib_quasi_vertical_profiles.html">
+     wradlib time series data and quasi vertical profiles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../lrose/README.html">
+   LROSE Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lrose/LROSE_Wind_tutorial.html">
+     LROSE Wind Tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tobac/README.html">
+   TOBAC Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tobac/tobac_examples.html">
+     3D
+     <em>
+      tobac
+     </em>
+     Tutorial: Gridded Radar Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pydda/README.html">
+   PyDDA
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pydda/Retrieving_winds_with_pydda.html">
+     PyDDA tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../metpy/README.html">
+   MetPy Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../metpy/metpy-for-diverse-data.html">
+     MetPy for analysis and visualization of diverse data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../baltrad/README.html">
+   BALTRAD Tutorial
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20Compositing.html">
+     Compositing with BALTRAD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20DRQC.html">
+     In this notebook, we will use the depolarization ratio to quality control a volume of data from the new radar at Radisson, Saskatchewan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20IO.html">
+     BALTRAD I/O model - making sense out of data and metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20parallel%20processing.html">
+     BALTRAD parallel processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baltrad_short_course/BALTRAD%20QC.html">
+     BALTRAD Quality Control
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
+
+</div>
+
+</div>
+
+        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pyart/pyart-gridding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/openradar/ams-open-radar-2023/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/openradar/ams-open-radar-2023//issues/new?title=Issue%20on%20page%20%2Fnotebooks/pyart/pyart-gridding.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/openradar/ams-open-radar-2023/edit/main/notebooks/pyart/pyart-gridding.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/openradar/ams-open-radar-2023/main?urlpath=lab/tree/notebooks/pyart/pyart-gridding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-workshop.svcs.arm.gov//hub/user-redirect/git-pull?repo=https://github.com/openradar/ams-open-radar-2023/&urlpath=lab/tree/ams-open-radar-2023/notebooks/pyart/pyart-gridding.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-gridding-and-why-is-it-important">
+   What is gridding and why is it important?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#antenna-vs-cartesian-coordinates">
+     Antenna vs. Cartesian Coordinates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-gridding-important">
+     Why is Gridding Important?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-overview-of-gridding-with-py-art">
+   An overview of gridding with Py-ART
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-in-and-visualize-a-test-dataset">
+     Read in and Visualize a Test Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-our-gridding-routine-with-pyart-map-grid-from-radars">
+     Setup our Gridding Routine with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pyart.map.grid_from_radars()
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-our-configuration-to-grid-the-data">
+       Use our configuration to grid the data!
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-up-the-grid-object">
+     Plot up the Grid Object
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-a-horizontal-view-of-the-data">
+       Plot a horizontal view of the data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-a-latitudinal-slice">
+       Plot a Latitudinal Slice
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-with-xarray">
+       Plot with Xarray
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-a-different-gridding-technique">
+     Try a Different Gridding Technique
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-gridding-to-a-selection-of-files">
+   Apply Gridding to a Selection of Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-in-the-gridded-data-and-plot-it">
+     Read in the Gridded Data and Plot It
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whats-next">
+     What’s Next
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-and-references">
+   Resources and References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
+              <div>
+                
+  <p><a class="reference internal" href="../../_images/arm_logo.png"><img alt="ARM Logo" src="../../_images/arm_logo.png" style="width: 500px;" /></a></img></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="py-art-gridding">
+<h1>Py-ART Gridding<a class="headerlink" href="#py-art-gridding" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+<hr class="docutils" />
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Within this notebook, we will cover:</p>
+<ol class="arabic simple">
+<li><p>What is gridding and why is it important?</p></li>
+<li><p>An overview of gridding with Py-ART</p></li>
+<li><p>Test out a different gridding routine</p></li>
+<li><p>Apply Gridding to a Selection of Files</p></li>
+</ol>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart-basics.html"><span class="doc std std-doc">Py-ART Basics</span></a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic features</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/cartopy/cartopy.html">Intro to Cartopy</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic features</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/matplotlib/matplotlib-basics.html">Matplotlib Basics</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic plotting</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/numpy/numpy-basics.html">NumPy Basics</a></p></td>
+<td><p>Helpful</p></td>
+<td><p>Basic arrays</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 15 minutes</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="kn">import</span> <span class="nn">pyart</span>
+<span class="kn">from</span> <span class="nn">pyart.testing</span> <span class="kn">import</span> <span class="n">get_test_data</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-gridding-and-why-is-it-important">
+<h2>What is gridding and why is it important?<a class="headerlink" href="#what-is-gridding-and-why-is-it-important" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="antenna-vs-cartesian-coordinates">
+<h3>Antenna vs. Cartesian Coordinates<a class="headerlink" href="#antenna-vs-cartesian-coordinates" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Radar data, by default, is stored in a <strong>polar (or antenna) coordinate system</strong>, with the data coordinates stored as an angle (ranging from 0 to 360 degrees with 0 == North), and a radius from the radar, and an elevation which is the angle between the ground and the ground.</p>
+<p>This format can be challenging to plot, since it is scan/radar specific. Also, it can make comparing with model data, which is on a lat/lon grid, challenging since one would need to <strong>transform</strong> the model daa cartesian coordinates to polar/antenna coordiantes.</p>
+<p>Fortunately, PyART has a variety of gridding routines, which can be used to <strong>grid your data to a Cartesian grid</strong>. Once it is in this new grid, one can easily slice/dice the dataset, and compare to other data sources.</p>
+</div>
+<div class="section" id="why-is-gridding-important">
+<h3>Why is Gridding Important?<a class="headerlink" href="#why-is-gridding-important" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Gridding is essential to combining multiple data sources (ex. multiple radars), and comparing to other data sources (ex. model data). There are also decisions that are made during the gridding process that have a large impact on the regridded data - for example:</p>
+<ul class="simple">
+<li><p>What resolution should my grid be?</p></li>
+<li><p>Which interpolation routine should I use?</p></li>
+<li><p>How smooth should my interpolated data be?</p></li>
+</ul>
+<p>While there is not always a right or wrong answer, it is important to understand the options available, and document which routine you used with your data! Also - experiment with different options and choose the best for your use case!</p>
+</div>
+</div>
+<div class="section" id="an-overview-of-gridding-with-py-art">
+<h2>An overview of gridding with Py-ART<a class="headerlink" href="#an-overview-of-gridding-with-py-art" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Let’s dig into the regridding process with PyART!</p>
+<div class="section" id="read-in-and-visualize-a-test-dataset">
+<h3>Read in and Visualize a Test Dataset<a class="headerlink" href="#read-in-and-visualize-a-test-dataset" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Let’s start with the same file used in the previous notebook (<code class="docutils literal notranslate"><span class="pre">PyART</span> <span class="pre">Basics</span></code>), which is a radar file from Northern Oklahoma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;../../data/uah-armor/RAW_NA_000_125_20080411182229&quot;</span>
+<span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot up quick look of reflectivity, at the lowest elevation scan (closest to the ground)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarDisplay</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_ppi</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+                 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2daddf7741e6825b7e58cc46d882005f804f1e30f2a54260a972f62cded29bb5.png" src="../../_images/2daddf7741e6825b7e58cc46d882005f804f1e30f2a54260a972f62cded29bb5.png" />
+</div>
+</div>
+<p>As mentioned before, the dataset is currently in the <strong>antenna coordinate system</strong> measured as distance from the radar</p>
+</div>
+<div class="section" id="setup-our-gridding-routine-with-pyart-map-grid-from-radars">
+<h3>Setup our Gridding Routine with <code class="docutils literal notranslate"><span class="pre">pyart.map.grid_from_radars()</span></code><a class="headerlink" href="#setup-our-gridding-routine-with-pyart-map-grid-from-radars" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Py-ART has the <a class="reference external" href="https://arm-doe.github.io/pyart/API/generated/pyart.core.Grid.html#pyart.core.Grid">Grid object</a> which has characteristics similar to that of the <a class="reference external" href="https://arm-doe.github.io/pyart/API/generated/pyart.core.Radar.html">Radar object</a>, except that the data are stored in Cartesian coordinates instead of the radar’s antenna coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pyart.core.Grid<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Init signature:</span>
+pyart<span class=" -Color -Color-Blue">.</span>core<span class=" -Color -Color-Blue">.</span>Grid<span class=" -Color -Color-Blue">(</span>
+    time<span class=" -Color -Color-Blue">,</span>
+    fields<span class=" -Color -Color-Blue">,</span>
+    metadata<span class=" -Color -Color-Blue">,</span>
+    origin_latitude<span class=" -Color -Color-Blue">,</span>
+    origin_longitude<span class=" -Color -Color-Blue">,</span>
+    origin_altitude<span class=" -Color -Color-Blue">,</span>
+    x<span class=" -Color -Color-Blue">,</span>
+    y<span class=" -Color -Color-Blue">,</span>
+    z<span class=" -Color -Color-Blue">,</span>
+    projection<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    radar_latitude<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    radar_longitude<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    radar_altitude<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    radar_time<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    radar_name<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>     
+A class for storing rectilinear gridded radar data in Cartesian coordinate.
+
+Refer to the attribute section for information on the parameters.
+
+To create a Grid object using legacy parameters present in Py-ART version
+1.5 and before, use :py:func:`from_legacy_parameters`,
+grid = Grid.from_legacy_parameters(fields, axes, metadata).
+
+Attributes
+----------
+time : dict
+    Time of the grid.
+fields : dict of dicts
+    Moments from radars or other variables.
+metadata : dict
+    Metadata describing the grid.
+origin_longitude, origin_latitude, origin_altitude : dict
+    Geographic coordinate of the origin of the grid.
+x, y, z : dict, 1D
+    Distance from the grid origin for each Cartesian coordinate axis in a
+    one dimensional array. Defines the spacing along the three grid axes
+    which is repeated throughout the grid, making a rectilinear grid.
+nx, ny, nz : int
+    Number of grid points along the given Cartesian dimension.
+projection : dic or str
+    Projection parameters defining the map projection used to transform
+    from Cartesian to geographic coordinates. None will use the default
+    dictionary with the &#39;proj&#39; key set to &#39;pyart_aeqd&#39; indicating that
+    the native Py-ART azimuthal equidistant projection is used. Other
+    values should specify a valid pyproj.Proj projparams dictionary or
+    string. The special key &#39;_include_lon_0_lat_0&#39; is removed when
+    interpreting this dictionary. If this key is present and set to True,
+    which is required when proj=&#39;pyart_aeqd&#39;, then the radar longitude and
+    latitude will be added to the dictionary as &#39;lon_0&#39; and &#39;lat_0&#39;.
+    Use the :py:func:`get_projparams` method to retrieve a copy of this
+    attribute dictionary with this special key evaluated.
+radar_longitude, radar_latitude, radar_altitude : dict or None, optional
+    Geographic location of the radars which make up the grid.
+radar_time : dict or None, optional
+    Start of collection for the radar which make up the grid.
+radar_name : dict or None, optional
+    Names of the radars which make up the grid.
+nradar : int
+    Number of radars whose data was used to make the grid.
+projection_proj : Proj
+    pyproj.Proj instance for the projection specified by the projection
+    attribute. If the &#39;pyart_aeqd&#39; projection is specified accessing this
+    attribute will raise a ValueError.
+point_x, point_y, point_z : LazyLoadDict
+    The Cartesian locations of all grid points from the origin in the
+    three Cartesian coordinates. The three dimensional data arrays
+    contained these attributes are calculated from the x, y, and z
+    attributes. If these attributes are changed use :py:func:
+    `init_point_x_y_z` to reset the attributes.
+point_longitude, point_latitude : LazyLoadDict
+    Geographic location of each grid point. The projection parameter(s)
+    defined in the `projection` attribute are used to perform an inverse
+    map projection from the Cartesian grid point locations relative to
+    the grid origin. If these attributes are changed use
+    :py:func:`init_point_longitude_latitude` to reset the attributes.
+point_altitude : LazyLoadDict
+    The altitude of each grid point as calculated from the altitude of the
+    grid origin and the Cartesian z location of each grid point.  If this
+    attribute is changed use :py:func:`init_point_altitude` to reset the
+    attribute.
+<span class=" -Color -Color-Red">Init docstring:</span> Initalize object.
+<span class=" -Color -Color-Red">File:</span>           /srv/conda/envs/notebook/lib/python3.9/site-packages/pyart/core/grid.py
+<span class=" -Color -Color-Red">Type:</span>           type
+<span class=" -Color -Color-Red">Subclasses:</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can <strong>transform our data</strong> into this grid object, from the radars, using <code class="docutils literal notranslate"><span class="pre">pyart.map.grid_from_radars()</span></code>.</p>
+<p>Beforing gridding our data, we need to make a decision about the desired grid resolution and extent. For example, one might imagine a grid configuration of:</p>
+<ul class="simple">
+<li><p>Grid extent/limits</p>
+<ul>
+<li><p>20 km in the x-direction (north/south)</p></li>
+<li><p>20 km in the y-direction (west/east)</p></li>
+<li><p>15 km in the z-direction (vertical)</p></li>
+</ul>
+</li>
+<li><p>500 m spatial resolution</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyart.map.grid_from_radars()</span></code> function takes the grid shape and grid limits as input, with the order <code class="docutils literal notranslate"><span class="pre">(z,</span> <span class="pre">y,</span> <span class="pre">x)</span></code>.</p>
+<p>Let’s setup our configuration, setting our grid extent <strong>first</strong>, with the distance measured in <strong>meters</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">15_000.</span><span class="p">)</span>
+<span class="n">y_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">150_000.</span><span class="p">,</span><span class="mf">150_000.</span><span class="p">)</span>
+<span class="n">x_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">150_000.</span><span class="p">,</span><span class="mf">150_000.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have our grid limits, we can set our desired resolution (again, in meters)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_resolution</span> <span class="o">=</span> <span class="mi">500</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s compute our grid shape - using the extent and resolution to compute the number of grid points in each direction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_number_of_points</span><span class="p">(</span><span class="n">extent</span><span class="p">,</span> <span class="n">resolution</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have a helper function to compute this, let’s apply it to our vertical dimension</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">z_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+<span class="n">z_grid_points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can apply this to the horizontal (x, y) dimensions as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">x_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+<span class="n">y_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">y_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z_grid_points</span><span class="p">,</span>
+      <span class="n">y_grid_points</span><span class="p">,</span>
+      <span class="n">x_grid_points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30 600 600
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-our-configuration-to-grid-the-data">
+<h4>Use our configuration to grid the data!<a class="headerlink" href="#use-our-configuration-to-grid-the-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
+<p>Now that we have the grid shape and grid limits, let’s grid up our radar!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">grid_from_radars</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span>
+                                  <span class="n">grid_shape</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_points</span><span class="p">,</span>
+                                              <span class="n">y_grid_points</span><span class="p">,</span>
+                                              <span class="n">x_grid_points</span><span class="p">),</span>
+                                  <span class="n">grid_limits</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_limits</span><span class="p">,</span>
+                                               <span class="n">y_grid_limits</span><span class="p">,</span>
+                                               <span class="n">x_grid_limits</span><span class="p">),</span>
+                                  <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">],</span>
+                                  <span class="n">gridding_algo</span><span class="o">=</span><span class="s1">&#39;map_gates_to_grid&#39;</span><span class="p">,</span>
+                                  <span class="n">h_factor</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+                                  <span class="n">nb</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                                  <span class="n">bsp</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                                  <span class="n">min_radius</span><span class="o">=</span><span class="mf">200.</span>
+                                 <span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyart.core.grid.Grid at 0x7f1f460430a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a <code class="docutils literal notranslate"><span class="pre">pyart.core.Grid</span></code> object!</p>
+</div>
+</div>
+<div class="section" id="plot-up-the-grid-object">
+<h3>Plot up the Grid Object<a class="headerlink" href="#plot-up-the-grid-object" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="section" id="plot-a-horizontal-view-of-the-data">
+<h4>Plot a horizontal view of the data<a class="headerlink" href="#plot-a-horizontal-view-of-the-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">GridMapDisplay</span></code> from <code class="docutils literal notranslate"><span class="pre">pyart.graph</span></code> to visualize our regridded data, starting with a horizontal view (slice along a single vertical level)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">GridMapDisplay</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+                  <span class="n">level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                  <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                  <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c9f4c6da1f594918500ec247bf8837d5245921b658635151a1e6accdeacf3fbc.png" src="../../_images/c9f4c6da1f594918500ec247bf8837d5245921b658635151a1e6accdeacf3fbc.png" />
+</div>
+</div>
+</div>
+<div class="section" id="plot-a-latitudinal-slice">
+<h4>Plot a Latitudinal Slice<a class="headerlink" href="#plot-a-latitudinal-slice" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
+<p>We can also slice through a single latitude or longitude!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">plot_latitude_slice</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+                            <span class="n">lat</span><span class="o">=</span><span class="mf">35.1</span><span class="p">,</span>
+                            <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                            <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8a4a9925ceb361a900e20268f7533491160bc72b840d6041701976ed154f028.png" src="../../_images/c8a4a9925ceb361a900e20268f7533491160bc72b840d6041701976ed154f028.png" />
+</div>
+</div>
+</div>
+<div class="section" id="plot-with-xarray">
+<h4>Plot with Xarray<a class="headerlink" href="#plot-with-xarray" title="Permalink to this headline"><i class="fas fa-link"></i></a></h4>
+<p>Another neat feature of the <code class="docutils literal notranslate"><span class="pre">Grid</span></code> object is that we can transform it to an <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:       (time: 1, z: 30, y: 600, x: 600)
+Coordinates:
+  * time          (time) object 2008-04-11 18:22:42
+  * z             (z) float64 0.0 517.2 1.034e+03 ... 1.448e+04 1.5e+04
+    lat           (y, x) float64 33.29 33.29 33.29 33.29 ... 35.98 35.98 35.98
+    lon           (y, x) float64 -88.39 -88.38 -88.37 ... -85.12 -85.11 -85.1
+  * y             (y) float64 -1.5e+05 -1.495e+05 ... 1.495e+05 1.5e+05
+  * x             (x) float64 -1.5e+05 -1.495e+05 ... 1.495e+05 1.5e+05
+Data variables:
+    reflectivity  (time, z, y, x) float32 nan nan nan nan ... nan nan nan nan
+    ROI           (time, z, y, x) float32 2.222e+03 2.218e+03 ... 2.972e+03</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c5774360-6999-460e-8506-480a5696e86f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c5774360-6999-460e-8506-480a5696e86f' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>z</span>: 30</li><li><span class='xr-has-index'>y</span>: 600</li><li><span class='xr-has-index'>x</span>: 600</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a22d7a0b-6225-40d3-932c-a38b276d6d67' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a22d7a0b-6225-40d3-932c-a38b276d6d67' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>2008-04-11 18:22:42</div><input id='attrs-772a3e70-0ea4-4896-99c0-baa5f1126cc4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-772a3e70-0ea4-4896-99c0-baa5f1126cc4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5abdadb1-8f77-4335-a958-0e57174513e2' class='xr-var-data-in' type='checkbox'><label for='data-5abdadb1-8f77-4335-a958-0e57174513e2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeGregorian(2008, 4, 11, 18, 22, 42, 0, has_year_zero=False)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>z</span></div><div class='xr-var-dims'>(z)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 517.2 ... 1.448e+04 1.5e+04</div><input id='attrs-dea7657e-7a6a-4423-a153-03e46715d285' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dea7657e-7a6a-4423-a153-03e46715d285' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3434abf0-369a-41c6-87b6-01aa8badf1a2' class='xr-var-data-in' type='checkbox'><label for='data-3434abf0-369a-41c6-87b6-01aa8badf1a2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_z_coordinate</dd><dt><span>long_name :</span></dt><dd>Z distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>positive :</span></dt><dd>up</dd></dl></div><div class='xr-var-data'><pre>array([    0.      ,   517.241379,  1034.482759,  1551.724138,  2068.965517,
+        2586.206897,  3103.448276,  3620.689655,  4137.931034,  4655.172414,
+        5172.413793,  5689.655172,  6206.896552,  6724.137931,  7241.37931 ,
+        7758.62069 ,  8275.862069,  8793.103448,  9310.344828,  9827.586207,
+       10344.827586, 10862.068966, 11379.310345, 11896.551724, 12413.793103,
+       12931.034483, 13448.275862, 13965.517241, 14482.758621, 15000.      ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>33.29 33.29 33.29 ... 35.98 35.98</div><input id='attrs-97a671b0-45cb-4e61-b59f-6e854e86a586' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-97a671b0-45cb-4e61-b59f-6e854e86a586' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-530d7a0e-f658-4179-9e8d-06ca0f12d8a8' class='xr-var-data-in' type='checkbox'><label for='data-530d7a0e-f658-4179-9e8d-06ca0f12d8a8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_N</dd><dt><span>standard_name :</span></dt><dd>Latitude</dd></dl></div><div class='xr-var-data'><pre>array([[33.28654042, 33.28661159, 33.28668252, ..., 33.28668252,
+        33.28661159, 33.28654042],
+       [33.29104357, 33.29111474, 33.29118568, ..., 33.29118568,
+        33.29111474, 33.29104357],
+       [33.29554672, 33.2956179 , 33.29568884, ..., 33.29568884,
+        33.2956179 , 33.29554672],
+       ...,
+       [35.97489386, 35.97496906, 35.97504401, ..., 35.97504401,
+        35.97496906, 35.97489386],
+       [35.97939692, 35.97947212, 35.97954708, ..., 35.97954708,
+        35.97947212, 35.97939692],
+       [35.98389998, 35.98397519, 35.98405015, ..., 35.98405015,
+        35.98397519, 35.98389998]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(y, x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-88.39 -88.38 ... -85.11 -85.1</div><input id='attrs-8a3a1fe3-7619-471f-9257-fb186c44f953' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8a3a1fe3-7619-471f-9257-fb186c44f953' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eeb96b0a-0190-4a04-a183-bc28eb02d4f4' class='xr-var-data-in' type='checkbox'><label for='data-eeb96b0a-0190-4a04-a183-bc28eb02d4f4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude of grid cell center</dd><dt><span>units :</span></dt><dd>degree_E</dd><dt><span>standard_name :</span></dt><dd>Longitude</dd></dl></div><div class='xr-var-data'><pre>array([[-88.38515411, -88.37976717, -88.37438022, ..., -85.16861967,
+        -85.16323272, -85.15784577],
+       [-88.3852384 , -88.37985118, -88.37446395, ..., -85.16853594,
+        -85.16314871, -85.15776148],
+       [-88.38532271, -88.37993521, -88.37454769, ..., -85.16845219,
+        -85.16306468, -85.15767718],
+       ...,
+       [-88.43833334, -88.43276899, -88.42720464, ..., -85.11579524,
+        -85.11023089, -85.10466655],
+       [-88.43842744, -88.43286279, -88.42729812, ..., -85.11570177,
+        -85.1101371 , -85.10457244],
+       [-88.43852156, -88.43295659, -88.42739161, ..., -85.11560827,
+        -85.11004329, -85.10447832]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1.5e+05 -1.495e+05 ... 1.5e+05</div><input id='attrs-5f279b65-5f73-49fb-b75a-37a3fa249c25' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5f279b65-5f73-49fb-b75a-37a3fa249c25' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-caf71de6-12b4-4f9a-80c1-f89ceebeec82' class='xr-var-data-in' type='checkbox'><label for='data-caf71de6-12b4-4f9a-80c1-f89ceebeec82' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd><dt><span>long_name :</span></dt><dd>Y distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-150000.      , -149499.165275, -148998.330551, ...,  148998.330551,
+        149499.165275,  150000.      ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-1.5e+05 -1.495e+05 ... 1.5e+05</div><input id='attrs-c8521f17-1f1f-4224-9d39-1aca9e77d18d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c8521f17-1f1f-4224-9d39-1aca9e77d18d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a64f6c00-b653-46e5-acf7-ad4c270a6ba1' class='xr-var-data-in' type='checkbox'><label for='data-a64f6c00-b653-46e5-acf7-ad4c270a6ba1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>long_name :</span></dt><dd>X distance on the projection plane from the origin</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>m</dd></dl></div><div class='xr-var-data'><pre>array([-150000.      , -149499.165275, -148998.330551, ...,  148998.330551,
+        149499.165275,  150000.      ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2d0cac0f-0477-44f3-a6e4-88ed7f1b8652' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2d0cac0f-0477-44f3-a6e4-88ed7f1b8652' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>reflectivity</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-e9fff1e7-6a65-4739-a616-a8dc622ebe9c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e9fff1e7-6a65-4739-a616-a8dc622ebe9c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-189594ec-94ae-48fd-96b0-63edf6ee5c90' class='xr-var-data-in' type='checkbox'><label for='data-189594ec-94ae-48fd-96b0-63edf6ee5c90' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>dBZ</dd><dt><span>standard_name :</span></dt><dd>equivalent_reflectivity_factor</dd><dt><span>long_name :</span></dt><dd>Reflectivity</dd><dt><span>coordinates :</span></dt><dd>elevation azimuth range</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         ...,
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]],
+
+        [[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         ...,
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]],
+
+        [[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         ...,
+...
+         ...,
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]],
+
+        [[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         ...,
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]],
+
+        [[nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         ...,
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan],
+         [nan, nan, nan, ..., nan, nan, nan]]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ROI</span></div><div class='xr-var-dims'>(time, z, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.222e+03 2.218e+03 ... 2.972e+03</div><input id='attrs-9d818c81-ef0a-4e34-aaa4-fdb0852988df' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9d818c81-ef0a-4e34-aaa4-fdb0852988df' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32576c50-7d9f-4204-a40d-03464a2b225e' class='xr-var-data-in' type='checkbox'><label for='data-32576c50-7d9f-4204-a40d-03464a2b225e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>radius_of_influence</dd><dt><span>long_name :</span></dt><dd>Radius of influence for mapping</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>least_significant_digit :</span></dt><dd>1</dd><dt><span>_FillValue :</span></dt><dd>-9999.0</dd></dl></div><div class='xr-var-data'><pre>array([[[[2221.5227, 2217.8171, 2214.1177, ..., 2214.1174, 2217.817 ,
+          2221.5227],
+         [2217.8171, 2214.1052, 2210.3997, ..., 2210.3994, 2214.1052,
+          2217.8171],
+         [2214.1177, 2210.3997, 2206.6877, ..., 2206.6877, 2210.3997,
+          2214.1177],
+         ...,
+         [2214.1174, 2210.3994, 2206.6877, ..., 2206.6875, 2210.3994,
+          2214.1174],
+         [2217.817 , 2214.1052, 2210.3997, ..., 2210.3994, 2214.105 ,
+          2217.817 ],
+         [2221.5227, 2217.8171, 2214.1177, ..., 2214.1174, 2217.817 ,
+          2221.5227]],
+
+        [[2247.3848, 2243.6792, 2239.9797, ..., 2239.9795, 2243.679 ,
+          2247.3848],
+         [2243.6792, 2239.9673, 2236.2617, ..., 2236.2615, 2239.9673,
+          2243.6792],
+         [2239.9797, 2236.2617, 2232.5498, ..., 2232.5498, 2236.2617,
+          2239.9797],
+...
+         [2938.2554, 2934.5374, 2930.8257, ..., 2930.8254, 2934.5374,
+          2938.2554],
+         [2941.9548, 2938.2432, 2934.5376, ..., 2934.5374, 2938.243 ,
+          2941.9548],
+         [2945.6606, 2941.955 , 2938.2556, ..., 2938.2554, 2941.9548,
+          2945.6606]],
+
+        [[2971.5227, 2967.8171, 2964.1177, ..., 2964.1174, 2967.817 ,
+          2971.5227],
+         [2967.8171, 2964.1052, 2960.3997, ..., 2960.3994, 2964.1052,
+          2967.8171],
+         [2964.1177, 2960.3997, 2956.6877, ..., 2956.6877, 2960.3997,
+          2964.1177],
+         ...,
+         [2964.1174, 2960.3994, 2956.6877, ..., 2956.6875, 2960.3994,
+          2964.1174],
+         [2967.817 , 2964.1052, 2960.3997, ..., 2960.3994, 2964.105 ,
+          2967.817 ],
+         [2971.5227, 2967.8171, 2964.1177, ..., 2964.1174, 2967.817 ,
+          2971.5227]]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f426621c-cf39-4a13-aa37-0cecac17dd99' class='xr-section-summary-in' type='checkbox'  ><label for='section-f426621c-cf39-4a13-aa37-0cecac17dd99' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-02744482-772c-492d-a083-9936eacdab84' class='xr-index-data-in' type='checkbox'/><label for='index-02744482-772c-492d-a083-9936eacdab84' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([2008-04-11 18:22:42],
+            dtype=&#x27;object&#x27;, length=1, calendar=&#x27;standard&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>z</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2f2c7ce5-06b4-403b-9bee-96dad6923a92' class='xr-index-data-in' type='checkbox'/><label for='index-2f2c7ce5-06b4-403b-9bee-96dad6923a92' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([               0.0,  517.2413793103449, 1034.4827586206898,
+       1551.7241379310346, 2068.9655172413795, 2586.2068965517246,
+       3103.4482758620693,  3620.689655172414,  4137.931034482759,
+        4655.172413793104,  5172.413793103449, 5689.6551724137935,
+        6206.896551724139,  6724.137931034484,  7241.379310344828,
+        7758.620689655173,  8275.862068965518,  8793.103448275862,
+        9310.344827586208,  9827.586206896553, 10344.827586206899,
+       10862.068965517243, 11379.310344827587, 11896.551724137933,
+       12413.793103448277, 12931.034482758621, 13448.275862068967,
+       13965.517241379312, 14482.758620689656,            15000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;z&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-79769fdf-285e-4141-9ff7-63551e6da773' class='xr-index-data-in' type='checkbox'/><label for='index-79769fdf-285e-4141-9ff7-63551e6da773' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([          -150000.0,  -149499.1652754591,  -148998.3305509182,
+        -148497.4958263773,  -147996.6611018364, -147495.82637729548,
+        -146994.9916527546,  -146494.1569282137, -145993.32220367278,
+       -145492.48747913187,
+       ...
+         145492.4874791319,  145993.32220367278,  146494.15692821366,
+         146994.9916527546,  147495.82637729548,  147996.66110183642,
+         148497.4958263773,  148998.33055091818,  149499.16527545912,
+                  150000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=600))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7ee2c235-6416-4318-8615-56cbdda3dbe6' class='xr-index-data-in' type='checkbox'/><label for='index-7ee2c235-6416-4318-8615-56cbdda3dbe6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([          -150000.0,  -149499.1652754591,  -148998.3305509182,
+        -148497.4958263773,  -147996.6611018364, -147495.82637729548,
+        -146994.9916527546,  -146494.1569282137, -145993.32220367278,
+       -145492.48747913187,
+       ...
+         145492.4874791319,  145993.32220367278,  146494.15692821366,
+         146994.9916527546,  147495.82637729548,  147996.66110183642,
+         148497.4958263773,  148998.33055091818,  149499.16527545912,
+                  150000.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=600))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-78b882ae-d0db-4919-b6aa-43191151e9ba' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-78b882ae-d0db-4919-b6aa-43191151e9ba' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Now, our plotting routine is a <strong>one-liner</strong>, starting with the horizontal slice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">,</span>
+                               <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                               <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0a7a3026f692fcde380786b21502dedff4d4dc386999e3e8e29ae1b43d19c450.png" src="../../_images/0a7a3026f692fcde380786b21502dedff4d4dc386999e3e8e29ae1b43d19c450.png" />
+</div>
+</div>
+<p>And a vertical slice at a given y dimension (latitude)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mi">3000</span><span class="p">,</span>
+       <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">,</span>
+                                           <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                                           <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/eb3b5babb4cbac845cb66fa3492ba0a12278fe0175bcd352c25fa838b4adecf9.png" src="../../_images/eb3b5babb4cbac845cb66fa3492ba0a12278fe0175bcd352c25fa838b4adecf9.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="try-a-different-gridding-technique">
+<h3>Try a Different Gridding Technique<a class="headerlink" href="#try-a-different-gridding-technique" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest_grid</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">grid_from_radars</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span>
+                                  <span class="n">grid_shape</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_points</span><span class="p">,</span>
+                                              <span class="n">y_grid_points</span><span class="p">,</span>
+                                              <span class="n">x_grid_points</span><span class="p">),</span>
+                                  <span class="n">grid_limits</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_limits</span><span class="p">,</span>
+                                               <span class="n">y_grid_limits</span><span class="p">,</span>
+                                               <span class="n">x_grid_limits</span><span class="p">),</span>
+                                  <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">],</span>
+                                  <span class="n">weighting_function</span><span class="o">=</span><span class="s1">&#39;Nearest&#39;</span><span class="p">,</span>
+                                  <span class="n">nb</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                                  <span class="n">bsp</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                                  <span class="n">min_radius</span><span class="o">=</span><span class="mf">200.</span>
+                                 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">plot_latitude_slice</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+                            <span class="n">lat</span><span class="o">=</span><span class="mf">35.1</span><span class="p">,</span>
+                            <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                            <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8a4a9925ceb361a900e20268f7533491160bc72b840d6041701976ed154f028.png" src="../../_images/c8a4a9925ceb361a900e20268f7533491160bc72b840d6041701976ed154f028.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">GridMapDisplay</span><span class="p">(</span><span class="n">nearest_grid</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_latitude_slice</span><span class="p">(</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">,</span>
+                            <span class="n">lat</span><span class="o">=</span><span class="mf">35.1</span><span class="p">,</span>
+                            <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                            <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0158aa805bb28c30da0e19384fa09cc269d31ca7a2a4fec022f219ff72970e19.png" src="../../_images/0158aa805bb28c30da0e19384fa09cc269d31ca7a2a4fec022f219ff72970e19.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="apply-gridding-to-a-selection-of-files">
+<h2>Apply Gridding to a Selection of Files<a class="headerlink" href="#apply-gridding-to-a-selection-of-files" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>We would like to apply our gridding transformation to an entire list of files, that will enable tracking in future notebooks (ex. tobac). We need to:</p>
+<ul class="simple">
+<li><p>Setup a function to grid our data (including saving it to disk)</p></li>
+<li><p>Provide a list of files to grid</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grid_radar_data</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    infile: string, path to file to be gridded</span>
+<span class="sd">    outdir: string, path to directory to save to</span>
+<span class="sd">    grid_resolution: int, desired resolution of field in meters</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">    print statement with saved file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Read the data</span>
+    <span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+    
+    <span class="c1"># Configure the bounds + compute points</span>
+    <span class="n">z_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">15_000.</span><span class="p">)</span>
+    <span class="n">y_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">150_000.</span><span class="p">,</span><span class="mf">150_000.</span><span class="p">)</span>
+    <span class="n">x_grid_limits</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">150_000.</span><span class="p">,</span><span class="mf">150_000.</span><span class="p">)</span>
+    <span class="n">x_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">x_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+    <span class="n">y_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">y_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+    <span class="n">z_grid_points</span> <span class="o">=</span> <span class="n">compute_number_of_points</span><span class="p">(</span><span class="n">z_grid_limits</span><span class="p">,</span> <span class="n">grid_resolution</span><span class="p">)</span>
+    
+    
+    <span class="c1"># Grid the radar data</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">grid_from_radars</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span>
+                                  <span class="n">grid_shape</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_points</span><span class="p">,</span>
+                                              <span class="n">y_grid_points</span><span class="p">,</span>
+                                              <span class="n">x_grid_points</span><span class="p">),</span>
+                                  <span class="n">grid_limits</span><span class="o">=</span><span class="p">(</span><span class="n">z_grid_limits</span><span class="p">,</span>
+                                               <span class="n">y_grid_limits</span><span class="p">,</span>
+                                               <span class="n">x_grid_limits</span><span class="p">),</span>
+                                  <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;reflectivity&#39;</span><span class="p">],</span>
+                                  <span class="n">weighting_function</span><span class="o">=</span><span class="s1">&#39;Nearest&#39;</span><span class="p">,</span>
+                                  <span class="n">nb</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                                  <span class="n">bsp</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                                  <span class="n">min_radius</span><span class="o">=</span><span class="mf">200.</span>
+                                 <span class="p">)</span>
+    
+    <span class="n">infile_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+    
+    <span class="n">outfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outdir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">infile_path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+    
+    <span class="c1"># Save to disk</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done gridding + saving </span><span class="si">{</span><span class="n">outfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">outfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fsspec</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="n">fsspec</span><span class="o">.</span><span class="n">filesystem</span><span class="p">(</span><span class="s2">&quot;https&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RAW_NA_000_125_20080411181219&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411181722&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411182229&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411182732&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411183259&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411183827&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411184409&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411184937&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411185504&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411190016&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411190525&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411191031&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411191548&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411192104&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411192613&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411193127&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411193638&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411194151&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411194703&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411195218&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411195728&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411200416&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411200945&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411201520&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;RAW_NA_000_125_20080411202047&quot;</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">outdir</span><span class="o">=</span><span class="s1">&#39;../../data/uah-armor/&#39;</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://github.com/openradar/open-radar-data/raw/main/data/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outdir</span><span class="si">}{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">outdir</span><span class="si">}{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">downloaded_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">download_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gridded_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">grid_radar_data</span><span class="p">(</span><span class="n">file</span><span class="p">,</span>
+                                <span class="s2">&quot;../../data/uah-armor/gridded&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">downloaded_files</span><span class="p">]</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411181219.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411181722.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411182229.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411182732.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411183259.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411183827.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411184409.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411184937.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411185504.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411190016.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411190525.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411191031.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411191548.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411192104.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411192613.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411193127.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411193638.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411194151.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411194703.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411195218.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411195728.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411200416.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411200945.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411201520.nc
+Done gridding + saving ../../data/uah-armor/gridded/RAW_NA_000_125_20080411202047.nc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="read-in-the-gridded-data-and-plot-it">
+<h3>Read in the Gridded Data and Plot It<a class="headerlink" href="#read-in-the-gridded-data-and-plot-it" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Now that we have our output, we can read all of it into the same <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code>, and visualize our data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">gridded_data</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">reflectivity</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                               <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                               <span class="n">col</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+                               <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                               <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+                               <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_ChaseSpectral&#39;</span><span class="p">,</span>
+                               <span class="n">col_wrap</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/78a87587dc4f5fb359def367fefae3d889ed79f022b3c6167ebfafad102331b2.png" src="../../_images/78a87587dc4f5fb359def367fefae3d889ed79f022b3c6167ebfafad102331b2.png" />
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Within this notebook, we covered the basics of gridding radar data using <code class="docutils literal notranslate"><span class="pre">pyart</span></code>, including:</p>
+<ul class="simple">
+<li><p>What we mean by gridding and why is it matters</p></li>
+<li><p>Configuring your gridding routine</p></li>
+<li><p>Visualize gridded radar data</p></li>
+</ul>
+<div class="section" id="whats-next">
+<h3>What’s Next<a class="headerlink" href="#whats-next" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>In the next few notebooks, we walk through applying data cleaning methods, and advanced visualization methods!</p>
+</div>
+</div>
+<div class="section" id="resources-and-references">
+<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Py-ART essentials links:</p>
+<ul class="simple">
+<li><p><span class="xref myst">Landing page</span></p></li>
+<li><p><a class="reference external" href="https://arm-doe.github.io/pyart/examples/index.html">Examples</a></p></li>
+<li><p><span class="xref myst">Source Code</span></p></li>
+<li><p><span class="xref myst">Mailing list</span></p></li>
+<li><p><span class="xref myst">Issue Tracker</span></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/pyart"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="pyart-corrections.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Py-ART Corrections</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../pyrad/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pyrad Tutorial</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </div>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
+    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Argonne" src="../../_images/argonne_logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Environment_Canda" src="../../_images/environment_canada_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Meteoswiss" src="../../_images/meteoswiss_logo.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Bonne" src="../../_images/university_bonn.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="CSU" src="../../_images/csu-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAH" src="../../_images/uah-logo.png" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="TT" src="../../_images/texas-tech-logo.png" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2023.
+        
+          By the <a href="https://openradarscience.org/">Open Radar</a> Community.
+        
+          Last updated on 18 September 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    
+    </div>
+  
+  </div>
+</footer>
+  </body>
+</html>
